@@ -28,7 +28,7 @@
                 <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">ИС Абитуриент</TextBlock>
             </materialDesign:Card>
             <PasswordBox x:Name="passwordBox" Width="120"/>
-            <Button x:Name="button" Content="Button"/>
+            <Button x:Name="button" Content="Button" Click="button_Click"/>
             <TextBox x:Name="textBox" TextWrapping="Wrap" Text="TextBox" Width="120"/>
 
         </StackPanel>

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,24 @@ namespace ИС_Абитуриент
         public LoginPage()
         {
             InitializeComponent();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            string connStr = "server=localhost;user=enrollee;database=enrollee;port=3306;password=enrollee";
+            MySqlConnection conn = new MySqlConnection(connStr);
+            try
+            {
+                MessageBox.Show("Connecting to MySQL...");
+                conn.Open();
+                // Perform database operations
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            conn.Close();
+            MessageBox.Show("Done.");
         }
     }
 }
