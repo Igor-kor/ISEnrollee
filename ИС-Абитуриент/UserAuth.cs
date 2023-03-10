@@ -80,9 +80,9 @@ namespace ИС_Абитуриент
 
         private void checkRoles()
         {
-            var sqlAdmin = "SELECT pg_has_role( current_user,'Admin', 'member')";
-            var sqlEmployee = "SELECT pg_has_role( current_user,'Employee','member')";
-            var sqlEnrollee = "SELECT pg_has_role( current_user,'Enrollee','member')";
+            var sqlAdmin = "SELECT pg_has_role( current_user,'admin', 'member')";
+            var sqlEmployee = "SELECT pg_has_role( current_user,'employee','member')";
+            var sqlEnrollee = "SELECT pg_has_role( current_user,'enrollee','member')";
             using (var cmd = new NpgsqlCommand(sqlAdmin, con))
             {
                 if ((bool)cmd.ExecuteScalar())

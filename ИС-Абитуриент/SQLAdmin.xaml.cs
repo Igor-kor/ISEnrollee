@@ -1,6 +1,6 @@
-﻿using Microsoft.Build.Framework.XamlTypes;
-using Npgsql;
+﻿using Npgsql;
 using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -13,28 +13,40 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace ИС_Абитуриент
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для SQLAdmin.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class SQLAdmin : Window
     {
         public RolesViewModel ViewModel { get; set; }
-        public MainWindow()
+        public SQLAdmin()
         {
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
         }
 
+
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            SQLAdmin sqlAdmin = new SQLAdmin();
-            sqlAdmin.Show();
+            UserAuth con = UserAuth.getUserAuth();
+            try
+            {
+                var cmd = new NpgsqlDataAdapter(new TextRange(textBox.Document.ContentStart,
+                 textBox.Document.ContentEnd).Text, con.con);
+                var table = new DataTable();
+                cmd.Fill(table);
+                dataGrid.ItemsSource = table.DefaultView;
+            }
+            catch (NpgsqlException ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+
         }
     }
 }
