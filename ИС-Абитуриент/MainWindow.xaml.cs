@@ -36,5 +36,11 @@ namespace ИС_Абитуриент
             SQLAdmin sqlAdmin = new SQLAdmin();
             sqlAdmin.Show();
         }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            CreateUser createUser = new CreateUser();
+            createUser.Show();
+        }
     }
 }

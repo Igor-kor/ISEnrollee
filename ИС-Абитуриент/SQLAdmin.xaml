@@ -21,7 +21,7 @@
     </Window.Resources>
     <Grid>
         <RichTextBox Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="textBox" Margin="0,10,10,238"/>
-        <Button Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }"  x:Name="button" Content="Выполнить SQL запрос" Click="button_Click"/>
-        <DataGrid Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="" Width="794" Margin="6,244,0,0" VerticalAlignment="Top"/>
+        <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }"  x:Name="button" Content="Выполнить SQL запрос" Click="button_Click"/>
+        <DataGrid Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="" Width="794" Margin="6,244,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Window>

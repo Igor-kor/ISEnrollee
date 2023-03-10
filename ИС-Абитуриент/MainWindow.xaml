@@ -23,7 +23,8 @@
             <materialDesign:Card Padding="32" Margin="16">
                 <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">ИС Абитуриент</TextBlock>
             </materialDesign:Card>
-            <Button x:Name="button" Content="SQL запрос" Click="button_Click"/>
+            <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button" Content="SQL запрос" Click="button_Click"/>
+            <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
 
         </StackPanel>
     </Grid>
