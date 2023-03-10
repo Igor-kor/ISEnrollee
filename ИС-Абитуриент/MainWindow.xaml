@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:ИС_Абитуриент"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800"
-        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
+        d:DataContext="{d:DesignInstance Type=local:RolesViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
         TextElement.FontWeight="Regular"
         TextElement.FontSize="13"
@@ -14,11 +15,17 @@
         TextOptions.TextRenderingMode="Auto"        
         Background="{DynamicResource MaterialDesignPaper}"
         FontFamily="{DynamicResource MaterialDesignFont}">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
+    </Window.Resources>
     <Grid>
         <StackPanel>
             <materialDesign:Card Padding="32" Margin="16">
                 <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">ИС Абитуриент</TextBlock>
             </materialDesign:Card>
+            <TextBox Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="textBox" TextWrapping="Wrap" Text="TextBox" Width="612" Height="97"/>
+            <Button Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }"  x:Name="button" Content="Button" Click="button_Click"/>
+            <DataGrid Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="dataGrid" Height="100" d:ItemsSource="{d:SampleData ItemCount=5}"/>
         </StackPanel>
     </Grid>
 </Window>

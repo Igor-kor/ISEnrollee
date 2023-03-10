@@ -1,5 +1,4 @@
-﻿using MySql.Data.MySqlClient;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Npgsql;
 
 namespace ИС_Абитуриент
 {
@@ -28,20 +28,18 @@ namespace ИС_Абитуриент
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            string connStr = "server=localhost;user=enrollee;database=enrollee;port=3306;password=enrollee";
-            MySqlConnection conn = new MySqlConnection(connStr);
-            try
+            UserAuth user = new UserAuth(LoginBox.Text, passwordBox.Password);
+            if (user.ConnectToDB())
             {
-                MessageBox.Show("Connecting to MySQL...");
-                conn.Open();
-                // Perform database operations
+                MainWindow mainwindow = new MainWindow();
+                mainwindow.Show();
+                Window.GetWindow(this).Close();
             }
-            catch (Exception ex)
+            else
             {
-                MessageBox.Show(ex.ToString());
+                MessageBox.Show("Не удалось подключиться");
             }
-            conn.Close();
-            MessageBox.Show("Done.");
+            
         }
     }
 }

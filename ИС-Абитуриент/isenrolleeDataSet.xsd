@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="isenrolleeDataSet" targetNamespace="http://tempuri.org/isenrolleeDataSet.xsd" xmlns:mstns="http://tempuri.org/isenrolleeDataSet.xsd" xmlns="http://tempuri.org/isenrolleeDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Settings" AppSettingsPropertyName="isenrolleeConnectionString" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="isenrolleeConnectionString (Settings)" PropertyReference="ApplicationSettings.ИС_Абитуриент.Properties.Settings.GlobalReference.Default.isenrolleeConnectionString" Provider="Npgsql" />
+        </Connections>
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="isenrolleeDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:Generator_UserDSName="isenrolleeDataSet" msprop:EnableTableAdapterManager="True" msprop:Generator_DataSetName="isenrolleeDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="person" msprop:Generator_RowEvHandlerName="personRowChangeEventHandler" msprop:Generator_RowDeletedName="personRowDeleted" msprop:Generator_RowDeletingName="personRowDeleting" msprop:Generator_RowEvArgName="personRowChangeEvent" msprop:Generator_TablePropName="person" msprop:Generator_RowChangedName="personRowChanged" msprop:Generator_RowChangingName="personRowChanging" msprop:Generator_TableClassName="personDataTable" msprop:Generator_RowClassName="personRow" msprop:Generator_TableVarName="tableperson" msprop:Generator_UserTableName="person">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="person_id" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_ColumnVarNameInTable="columnperson_id" msprop:Generator_UserColumnName="person_id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="enrollee" msprop:Generator_RowEvHandlerName="enrolleeRowChangeEventHandler" msprop:Generator_RowDeletedName="enrolleeRowDeleted" msprop:Generator_RowDeletingName="enrolleeRowDeleting" msprop:Generator_RowEvArgName="enrolleeRowChangeEvent" msprop:Generator_TablePropName="enrollee" msprop:Generator_RowChangedName="enrolleeRowChanged" msprop:Generator_RowChangingName="enrolleeRowChanging" msprop:Generator_TableClassName="enrolleeDataTable" msprop:Generator_RowClassName="enrolleeRow" msprop:Generator_TableVarName="tableenrollee" msprop:Generator_UserTableName="enrollee">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="person_id" msprop:Generator_ColumnPropNameInRow="person_id" msprop:Generator_ColumnPropNameInTable="person_idColumn" msprop:Generator_ColumnVarNameInTable="columnperson_id" msprop:Generator_UserColumnName="person_id" type="xs:string" minOccurs="0" />
+              <xs:element name="enrollee_id" msprop:Generator_ColumnPropNameInRow="enrollee_id" msprop:Generator_ColumnPropNameInTable="enrollee_idColumn" msprop:Generator_ColumnVarNameInTable="columnenrollee_id" msprop:Generator_UserColumnName="enrollee_id" type="xs:string" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+    <xs:unique name="personKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:person" />
+      <xs:field xpath="mstns:person_id" />
+    </xs:unique>
+    <xs:unique name="enrolleeKey1" msdata:PrimaryKey="true">
+      <xs:selector xpath=".//mstns:enrollee" />
+      <xs:field xpath="mstns:enrollee_id" />
+    </xs:unique>
+  </xs:element>
+  <xs:annotation>
+    <xs:appinfo>
+      <msdata:Relationship name="person_enrollee" msdata:parent="person" msdata:child="enrollee" msdata:parentkey="person_id" msdata:childkey="person_id" msprop:Generator_UserParentTable="person" msprop:Generator_UserChildTable="enrollee" msprop:Generator_RelationVarName="relationperson_enrollee" msprop:Generator_ChildPropName="GetenrolleeRows" msprop:Generator_ParentPropName="personRow" msprop:Generator_UserRelationName="person_enrollee" />
+    </xs:appinfo>
+  </xs:annotation>
+</xs:schema>
