@@ -9305,14 +9305,11 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = @"INSERT INTO ""isenrollee"".""public"".""person"" (""person_id"", ""lastname"", ""firstname"", ""patronimic"", ""tel"", ""passportnum"", ""passportdate"", ""passportinfo"", ""snils"") VALUES (@person_id, @lastname, @firstname, @patronimic, @tel, @passportnum, @passportdate, @passportinfo, @snils)";
+            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"person\" ( \"lastname\", \"firstname\", \"patronimic" +
+                "\", \"tel\", \"passportnum\", \"passportdate\", \"passportinfo\", \"snils\") VALUES ( @last" +
+                "name, @firstname, @patronimic, @tel, @passportnum, @passportdate, @passportinfo," +
+                " @snils)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "person_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "person_id";
-            this._commandCollection[2].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "lastname";
             param.DbType = global::System.Data.DbType.String;
@@ -10114,61 +10111,55 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(object person_id, string lastname, string firstname, string patronimic, string tel, string passportnum, object passportdate, string passportinfo, string snils) {
+        public virtual int InsertQuery(string lastname, string firstname, string patronimic, string tel, string passportnum, object passportdate, string passportinfo, string snils) {
             global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
-            if ((person_id == null)) {
-                throw new global::System.ArgumentNullException("person_id");
+            if ((lastname == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[0].Value = ((object)(person_id));
+                command.Parameters[0].Value = ((string)(lastname));
             }
-            if ((lastname == null)) {
+            if ((firstname == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = ((string)(lastname));
+                command.Parameters[1].Value = ((string)(firstname));
             }
-            if ((firstname == null)) {
+            if ((patronimic == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((string)(firstname));
+                command.Parameters[2].Value = ((string)(patronimic));
             }
-            if ((patronimic == null)) {
+            if ((tel == null)) {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = ((string)(patronimic));
+                command.Parameters[3].Value = ((string)(tel));
             }
-            if ((tel == null)) {
+            if ((passportnum == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[4].Value = ((string)(tel));
+                command.Parameters[4].Value = ((string)(passportnum));
             }
-            if ((passportnum == null)) {
+            if ((passportdate == null)) {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[5].Value = ((string)(passportnum));
+                command.Parameters[5].Value = ((object)(passportdate));
             }
-            if ((passportdate == null)) {
+            if ((passportinfo == null)) {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = ((object)(passportdate));
-            }
-            if ((passportinfo == null)) {
-                command.Parameters[7].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[7].Value = ((string)(passportinfo));
+                command.Parameters[6].Value = ((string)(passportinfo));
             }
             if ((snils == null)) {
                 throw new global::System.ArgumentNullException("snils");
             }
             else {
-                command.Parameters[8].Value = ((string)(snils));
+                command.Parameters[7].Value = ((string)(snils));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 

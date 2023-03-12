@@ -9,3 +9,10 @@
         }
     }
 }
+
+namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
+    
+    
+    public partial class personTableAdapter {
+    }
+}
