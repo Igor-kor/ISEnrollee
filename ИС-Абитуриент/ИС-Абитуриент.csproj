@@ -161,6 +161,9 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
     </Compile>
+    <Compile Include="Person.xaml.cs">
+      <DependentUpon>Person.xaml</DependentUpon>
+    </Compile>
     <Compile Include="RolesViewModel.cs" />
     <Compile Include="SQLAdmin.xaml.cs">
       <DependentUpon>SQLAdmin.xaml</DependentUpon>
@@ -190,6 +193,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Person.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="SQLAdmin.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

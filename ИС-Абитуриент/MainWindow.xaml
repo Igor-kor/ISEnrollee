@@ -25,6 +25,7 @@
             </materialDesign:Card>
             <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button" Content="SQL запрос" Click="button_Click"/>
             <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
+            <Button x:Name="button2" Content="Персональные данные" Click="button2_Click"/>
 
         </StackPanel>
     </Grid>

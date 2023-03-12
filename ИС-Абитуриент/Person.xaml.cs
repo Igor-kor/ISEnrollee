@@ -1,6 +1,6 @@
-﻿using Npgsql;
+﻿using Microsoft.Graph;
+using Npgsql;
 using System;
-using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -18,55 +18,58 @@ using System.Windows.Shapes;
 namespace ИС_Абитуриент
 {
     /// <summary>
-    /// Логика взаимодействия для SQLAdmin.xaml
+    /// Логика взаимодействия для Person.xaml
     /// </summary>
-    public partial class SQLAdmin : Window
+    public partial class Person : Window
     {
         NpgsqlDataAdapter npgsqlDataAdapter;
         isenrolleeDataSet dataTable;
         public RolesViewModel ViewModel { get; set; }
-        public SQLAdmin()
+        public Person()
         {
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
-        }
-
-
-        private void button_Click(object sender, RoutedEventArgs e)
-        {
             UserAuth con = UserAuth.getUserAuth();
             try
             {
-                var cmd = new NpgsqlDataAdapter(new TextRange(textBox.Document.ContentStart,
-                 textBox.Document.ContentEnd).Text, con.con);
+                var cmd = new NpgsqlDataAdapter("SELECT * FROM person", con.con);
                 npgsqlDataAdapter = cmd;
                 dataTable = new isenrolleeDataSet();
                 cmd.Fill(dataTable.person);
-               // dataTable = table;
+                // dataTable = table;
                 dataGrid.ItemsSource = dataTable.person.DefaultView;
             }
             catch (NpgsqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
 
         }
 
-        private void button2_Click(object sender, RoutedEventArgs e)
+        private void button_Click(object sender, RoutedEventArgs e)
         {
 
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
+            int index = dataGrid.SelectedIndex;
+            //dataGrid.Items.RemoveAt(index);
+            var selectedItem = dataGrid.SelectedItem;
+            if (selectedItem != null)
+            {
+                dataTable.person.DefaultView.Delete(index);
+                //dataGrid.Items.Remove(selectedItem);
+            }
             npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
+            npgsqlDataAdapter.InsertCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetInsertCommand();
+            npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
             npgsqlDataAdapter.Update(dataTable.person);
-        }
-
-        private void textBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
         }
     }
 }

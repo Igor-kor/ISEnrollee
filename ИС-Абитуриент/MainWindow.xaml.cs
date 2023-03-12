@@ -42,5 +42,11 @@ namespace ИС_Абитуриент
             CreateUser createUser = new CreateUser();
             createUser.Show();
         }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            Person person = new Person();
+            person.Show();
+        }
     }
 }
