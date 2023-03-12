@@ -36,15 +36,18 @@ namespace ИС_Абитуриент
             {
                 var cmd = new enrolleeTableAdapter();
                 cmd.Connection = con.con;
-                //var cmdperson = new NpgsqlDataAdapter("SELECT * FROM person", con.con);
+                var cmdperson = new NpgsqlDataAdapter("SELECT * FROM person", con.con);
+                
+
                 npgsqlDataAdapter = cmd;
                 dataTable = new isenrolleeDataSet();
-               // npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
-               // npgsqlDataAdapter.InsertCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetInsertCommand();
-               // npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
+                // npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
+                // npgsqlDataAdapter.InsertCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetInsertCommand();
+                // npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
                 //cmdperson.Fill(dataTable.person);
+                cmdperson.Fill(dataTable.person);
                 cmd.Fill(dataTable.enrollee);
-               
+                comboBox.ItemsSource = dataTable.person.DefaultView;
                 //cmd.Fill(dataTable.enrollee);
                 dataGrid.ItemsSource = dataTable.enrollee.DefaultView;
             }

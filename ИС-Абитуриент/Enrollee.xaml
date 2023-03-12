@@ -21,6 +21,21 @@
         </Button>
         <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="134,157,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="242,157,0,0" VerticalAlignment="Top"/>
+        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="317,79,0,0" VerticalAlignment="Top" Width="120"   >
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}: {1}">
+                                <Binding Path="firstname"/>
+                                <Binding Path="lastname"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+       
+        </ComboBox>
 
     </Grid>
 </Window>
