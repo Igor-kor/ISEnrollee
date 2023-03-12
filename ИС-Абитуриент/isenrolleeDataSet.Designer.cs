@@ -3310,12 +3310,6 @@ namespace ИС_Абитуриент {
             
             private global::System.Data.DataColumn columnformed_id;
             
-            private global::System.Data.DataColumn columnfirstname;
-            
-            private global::System.Data.DataColumn columnlastname;
-            
-            private global::System.Data.DataColumn columnpatronimic;
-            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public enrolleeDataTable() {
@@ -3399,30 +3393,6 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn firstnameColumn {
-                get {
-                    return this.columnfirstname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn lastnameColumn {
-                get {
-                    return this.columnlastname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn patronimicColumn {
-                get {
-                    return this.columnpatronimic;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -3458,7 +3428,7 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public enrolleeRow AddenrolleeRow(int enrollee_id, bonusRow parentbonusRowBybonus_enrollee, int person_id, vacancyRow parentvacancyRowByvacancy_enrollee, statusRow parentstatusRowBystatus_enrollee, formedRow parentformedRowByformed_enrollee, string firstname, string lastname, string patronimic) {
+            public enrolleeRow AddenrolleeRow(int enrollee_id, bonusRow parentbonusRowBybonus_enrollee, int person_id, vacancyRow parentvacancyRowByvacancy_enrollee, statusRow parentstatusRowBystatus_enrollee, formedRow parentformedRowByformed_enrollee) {
                 enrolleeRow rowenrolleeRow = ((enrolleeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         enrollee_id,
@@ -3466,10 +3436,7 @@ namespace ИС_Абитуриент {
                         person_id,
                         null,
                         null,
-                        null,
-                        firstname,
-                        lastname,
-                        patronimic};
+                        null};
                 if ((parentbonusRowBybonus_enrollee != null)) {
                     columnValuesArray[1] = parentbonusRowBybonus_enrollee[0];
                 }
@@ -3517,9 +3484,6 @@ namespace ИС_Абитуриент {
                 this.columnvacancy_id = base.Columns["vacancy_id"];
                 this.columnstatus_id = base.Columns["status_id"];
                 this.columnformed_id = base.Columns["formed_id"];
-                this.columnfirstname = base.Columns["firstname"];
-                this.columnlastname = base.Columns["lastname"];
-                this.columnpatronimic = base.Columns["patronimic"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3537,12 +3501,6 @@ namespace ИС_Абитуриент {
                 base.Columns.Add(this.columnstatus_id);
                 this.columnformed_id = new global::System.Data.DataColumn("formed_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnformed_id);
-                this.columnfirstname = new global::System.Data.DataColumn("firstname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnfirstname);
-                this.columnlastname = new global::System.Data.DataColumn("lastname", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnlastname);
-                this.columnpatronimic = new global::System.Data.DataColumn("patronimic", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnpatronimic);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnenrollee_id}, true));
                 this.columnenrollee_id.AllowDBNull = false;
@@ -4711,54 +4669,6 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string firstname {
-                get {
-                    try {
-                        return ((string)(this[this.tableenrollee.firstnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'firstname\' в таблице \'enrollee\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableenrollee.firstnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string lastname {
-                get {
-                    try {
-                        return ((string)(this[this.tableenrollee.lastnameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'lastname\' в таблице \'enrollee\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableenrollee.lastnameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string patronimic {
-                get {
-                    try {
-                        return ((string)(this[this.tableenrollee.patronimicColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'patronimic\' в таблице \'enrollee\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableenrollee.patronimicColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public statusRow statusRow {
                 get {
                     return ((statusRow)(this.GetParentRow(this.Table.ParentRelations["status_enrollee"])));
@@ -4859,42 +4769,6 @@ namespace ИС_Абитуриент {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void Setformed_idNull() {
                 this[this.tableenrollee.formed_idColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsfirstnameNull() {
-                return this.IsNull(this.tableenrollee.firstnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetfirstnameNull() {
-                this[this.tableenrollee.firstnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IslastnameNull() {
-                return this.IsNull(this.tableenrollee.lastnameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetlastnameNull() {
-                this[this.tableenrollee.lastnameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IspatronimicNull() {
-                return this.IsNull(this.tableenrollee.patronimicColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetpatronimicNull() {
-                this[this.tableenrollee.patronimicColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -12728,9 +12602,6 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             tableMapping.ColumnMappings.Add("vacancy_id", "vacancy_id");
             tableMapping.ColumnMappings.Add("status_id", "status_id");
             tableMapping.ColumnMappings.Add("formed_id", "formed_id");
-            tableMapping.ColumnMappings.Add("firstname", "firstname");
-            tableMapping.ColumnMappings.Add("lastname", "lastname");
-            tableMapping.ColumnMappings.Add("patronimic", "patronimic");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -12747,11 +12618,8 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT        enrollee.vacancy_id, enrollee.status_id, enrollee.formed_id, person.firstname, person.lastname, person.patronimic, enrollee.person_id, enrollee.enrollee_id, enrollee.bonus_id
-FROM            enrollee INNER JOIN
-                         person ON enrollee.person_id = person.person_id INNER JOIN
-                         vacancy ON enrollee.vacancy_id = vacancy.vacancy_id INNER JOIN
-                         speciality ON vacancy.speciality_id = speciality.speciality_id";
+            this._commandCollection[0].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id\r" +
+                "\nFROM            enrollee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[1].Connection = this.Connection;

@@ -1,6 +1,7 @@
 ﻿using Npgsql;
 using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.Common;
 using System.Linq;
 using System.Text;
@@ -51,6 +52,16 @@ namespace ИС_Абитуриент
             {
                 MessageBox.Show(ex.ToString());
             }
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            //npgsqlDataAdapter.UpdateQuery();
+            //dataTable.enrollee.AcceptChanges();
+            //dataTable.AcceptChanges();
+            npgsqlDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter.Adapter).GetUpdateCommand();
+            npgsqlDataAdapter.Adapter.Update(dataTable.enrollee);
+            
         }
     }
 }

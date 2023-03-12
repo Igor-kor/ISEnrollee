@@ -8,7 +8,17 @@
         Title="Enrollee" Height="450" Width="800">
     <Grid>
         <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="10,217,-10,0"/>
-        <Button x:Name="button" Content="Button" HorizontalAlignment="Left" Margin="31,157,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button" Content="Сохранить
+                " HorizontalAlignment="Left" Margin="10,157,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.5,0.5" Width="112" Click="button_Click">
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform/>
+                    <RotateTransform Angle="-0.928"/>
+                    <TranslateTransform/>
+                </TransformGroup>
+            </Button.RenderTransform>
+        </Button>
         <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="134,157,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="242,157,0,0" VerticalAlignment="Top"/>
 

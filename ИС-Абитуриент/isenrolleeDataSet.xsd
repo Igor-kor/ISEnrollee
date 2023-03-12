@@ -928,14 +928,11 @@
           </TableAdapter>
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="enrolleeTableAdapter" GeneratorDataComponentClassName="enrolleeTableAdapter" Name="enrollee" UserDataComponentName="enrolleeTableAdapter">
             <MainSource>
-              <DbSource ConnectionRef="isenrolleeConnectionString (Settings)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+              <DbSource ConnectionRef="isenrolleeConnectionString (Settings)" DbObjectName="isenrollee.&quot;public&quot;.enrollee" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT        enrollee.vacancy_id, enrollee.status_id, enrollee.formed_id, person.firstname, person.lastname, person.patronimic, enrollee.person_id, enrollee.enrollee_id, enrollee.bonus_id
-FROM            enrollee INNER JOIN
-                         person ON enrollee.person_id = person.person_id INNER JOIN
-                         vacancy ON enrollee.vacancy_id = vacancy.vacancy_id INNER JOIN
-                         speciality ON vacancy.speciality_id = speciality.speciality_id</CommandText>
+                    <CommandText>SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id
+FROM            enrollee</CommandText>
                     <Parameters />
                   </DbCommand>
                 </SelectCommand>
@@ -948,9 +945,6 @@ FROM            enrollee INNER JOIN
               <Mapping SourceColumn="vacancy_id" DataSetColumn="vacancy_id" />
               <Mapping SourceColumn="status_id" DataSetColumn="status_id" />
               <Mapping SourceColumn="formed_id" DataSetColumn="formed_id" />
-              <Mapping SourceColumn="firstname" DataSetColumn="firstname" />
-              <Mapping SourceColumn="lastname" DataSetColumn="lastname" />
-              <Mapping SourceColumn="patronimic" DataSetColumn="patronimic" />
             </Mappings>
             <Sources>
               <DbSource ConnectionRef="isenrolleeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" GenerateShortCommands="true" GeneratorSourceName="DeleteQuery" Modifier="Public" Name="DeleteQuery" QueryType="NoData" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="true" UserGetMethodName="GetDataBy" UserSourceName="DeleteQuery">
@@ -1118,9 +1112,6 @@ FROM            enrollee INNER JOIN
               <xs:element name="vacancy_id" msprop:Generator_UserColumnName="vacancy_id" msprop:Generator_ColumnPropNameInTable="vacancy_idColumn" msprop:Generator_ColumnPropNameInRow="vacancy_id" msprop:Generator_ColumnVarNameInTable="columnvacancy_id" type="xs:int" minOccurs="0" />
               <xs:element name="status_id" msprop:Generator_UserColumnName="status_id" msprop:Generator_ColumnPropNameInTable="status_idColumn" msprop:Generator_ColumnPropNameInRow="status_id" msprop:Generator_ColumnVarNameInTable="columnstatus_id" type="xs:int" minOccurs="0" />
               <xs:element name="formed_id" msprop:Generator_UserColumnName="formed_id" msprop:Generator_ColumnPropNameInTable="formed_idColumn" msprop:Generator_ColumnPropNameInRow="formed_id" msprop:Generator_ColumnVarNameInTable="columnformed_id" type="xs:int" minOccurs="0" />
-              <xs:element name="firstname" msprop:Generator_ColumnPropNameInRow="firstname" msprop:Generator_ColumnPropNameInTable="firstnameColumn" msprop:Generator_ColumnVarNameInTable="columnfirstname" msprop:Generator_UserColumnName="firstname" type="xs:string" minOccurs="0" />
-              <xs:element name="lastname" msprop:Generator_ColumnPropNameInRow="lastname" msprop:Generator_ColumnPropNameInTable="lastnameColumn" msprop:Generator_ColumnVarNameInTable="columnlastname" msprop:Generator_UserColumnName="lastname" type="xs:string" minOccurs="0" />
-              <xs:element name="patronimic" msprop:Generator_ColumnPropNameInRow="patronimic" msprop:Generator_ColumnPropNameInTable="patronimicColumn" msprop:Generator_ColumnVarNameInTable="columnpatronimic" msprop:Generator_UserColumnName="patronimic" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
