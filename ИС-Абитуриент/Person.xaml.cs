@@ -56,15 +56,15 @@ namespace ИС_Абитуриент
             DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
             if (selectedItem != null)
             {
-                textBox.Text = selectedItem.Row.ItemArray[0].ToString();
-                textBox1.Text = selectedItem.Row.ItemArray[1].ToString();
-                textBox2.Text = selectedItem.Row.ItemArray[2].ToString();
-                textBox3.Text = selectedItem.Row.ItemArray[3].ToString();
-                textBox4.Text = selectedItem.Row.ItemArray[4].ToString();
-                textBox5.Text = selectedItem.Row.ItemArray[5].ToString();
-                datePicker.SelectedDate = (DateTime?)selectedItem.Row.ItemArray[6];
-                textBox6.Text = selectedItem.Row.ItemArray[7].ToString();
-                textBox7.Text = selectedItem.Row.ItemArray[8].ToString();
+                textBox.Text = selectedItem[0].ToString();
+                textBox1.Text = selectedItem[1].ToString();
+                textBox2.Text = selectedItem[2].ToString();
+                textBox3.Text = selectedItem[3].ToString();
+                textBox4.Text = selectedItem[4].ToString();
+                textBox5.Text = selectedItem[5].ToString();
+                datePicker.SelectedDate = (DateTime?)selectedItem[6];
+                textBox6.Text = selectedItem[7].ToString();
+                textBox7.Text = selectedItem[8].ToString();
             }
         }
 
@@ -89,6 +89,27 @@ namespace ИС_Абитуриент
             {
                 dataTable.person.DefaultView.Delete(index);
                 //dataGrid.Items.Remove(selectedItem);
+            }
+
+            npgsqlDataAdapter.Update(dataTable.person);
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
+            if (selectedItem != null)
+            {
+                selectedItem.BeginEdit();
+                selectedItem[0] = textBox.Text;
+                selectedItem[1] = textBox1.Text;
+                selectedItem[2] = textBox2.Text;
+                selectedItem[3] = textBox3.Text;
+                selectedItem[4] = textBox4.Text;
+                selectedItem[5] = textBox5.Text;
+                selectedItem[6] = datePicker.SelectedDate;
+                selectedItem[7]= textBox6.Text;
+                selectedItem[8]=  textBox7.Text;
+                selectedItem.EndEdit();
             }
 
             npgsqlDataAdapter.Update(dataTable.person);

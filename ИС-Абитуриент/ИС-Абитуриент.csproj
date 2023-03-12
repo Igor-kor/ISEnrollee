@@ -153,6 +153,9 @@
     <Compile Include="CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Enrollee.xaml.cs">
+      <DependentUpon>Enrollee.xaml</DependentUpon>
+    </Compile>
     <Compile Include="isenrolleeDataSet.cs">
       <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
     </Compile>
@@ -171,6 +174,10 @@
     <Compile Include="UserAuth.cs" />
     <Compile Include="UserRole.cs" />
     <Page Include="CreateUser.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Enrollee.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

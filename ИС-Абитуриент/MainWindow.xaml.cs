@@ -48,5 +48,11 @@ namespace ИС_Абитуриент
             Person person = new Person();
             person.Show();
         }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            Enrollee enrollee = new Enrollee();
+            enrollee.Show();
+        }
     }
 }
