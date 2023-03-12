@@ -153,6 +153,14 @@
     <Compile Include="CreateUser.xaml.cs">
       <DependentUpon>CreateUser.xaml</DependentUpon>
     </Compile>
+    <Compile Include="isenrolleeDataSet.cs">
+      <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="isenrolleeDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="RolesViewModel.cs" />
     <Compile Include="SQLAdmin.xaml.cs">
       <DependentUpon>SQLAdmin.xaml</DependentUpon>
@@ -174,14 +182,6 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="isenrolleeDataSet.cs">
-      <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="isenrolleeDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
     </Compile>
     <Compile Include="LoginPage.xaml.cs">
       <DependentUpon>LoginPage.xaml</DependentUpon>

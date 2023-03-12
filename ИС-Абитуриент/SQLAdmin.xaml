@@ -20,8 +20,10 @@
         <BooleanToVisibilityConverter x:Key="BoolToVisConverter" />
     </Window.Resources>
     <Grid>
-        <RichTextBox Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="textBox" Margin="0,10,10,238"/>
-        <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }"  x:Name="button" Content="Выполнить SQL запрос" Click="button_Click"/>
+        <RichTextBox Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="textBox" Margin="0,10,10,311"/>
+        <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }"  x:Name="button" Content="Выполнить SQL запрос" Click="button_Click" Margin="6,128,-6,274"/>
         <DataGrid Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Cursor="" Width="794" Margin="6,244,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button1" Content="Сохранить" HorizontalAlignment="Left" Margin="10,185,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <Button x:Name="button2" Content="Удалить" HorizontalAlignment="Left" Margin="156,185,0,0" VerticalAlignment="Top" Click="button2_Click"/>
     </Grid>
 </Window>

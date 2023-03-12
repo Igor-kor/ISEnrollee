@@ -53,7 +53,7 @@ namespace ИС_Абитуриент
                     role
                     );
                 var cmd = new NpgsqlCommand(query, con.con);
-                MessageBox.Show(cmd.ExecuteNonQuery().ToString());
+                MessageBox.Show("Пользователь создан");
             }
             catch (NpgsqlException ex)
             {

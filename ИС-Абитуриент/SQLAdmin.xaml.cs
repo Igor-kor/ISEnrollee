@@ -22,6 +22,8 @@ namespace ИС_Абитуриент
     /// </summary>
     public partial class SQLAdmin : Window
     {
+        NpgsqlDataAdapter npgsqlDataAdapter;
+        isenrolleeDataSet dataTable;
         public RolesViewModel ViewModel { get; set; }
         public SQLAdmin()
         {
@@ -38,15 +40,28 @@ namespace ИС_Абитуриент
             {
                 var cmd = new NpgsqlDataAdapter(new TextRange(textBox.Document.ContentStart,
                  textBox.Document.ContentEnd).Text, con.con);
-                var table = new DataTable();
-                cmd.Fill(table);
-                dataGrid.ItemsSource = table.DefaultView;
+                npgsqlDataAdapter = cmd;
+                dataTable = new isenrolleeDataSet();
+                cmd.Fill(dataTable.person);
+               // dataTable = table;
+                dataGrid.ItemsSource = dataTable.person.DefaultView;
             }
             catch (NpgsqlException ex)
             {
                 MessageBox.Show(ex.ToString());
             }
 
+        }
+
+        private void button2_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
+            npgsqlDataAdapter.Update(dataTable.person);
         }
     }
 }
