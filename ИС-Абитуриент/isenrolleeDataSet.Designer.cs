@@ -46,6 +46,8 @@ namespace ИС_Абитуриент {
         
         private vacancy1DataTable tablevacancy1;
         
+        private discipline_vacancyDataTable tablediscipline_vacancy;
+        
         private global::System.Data.DataRelation relationdiscipline_exam;
         
         private global::System.Data.DataRelation relationperson_exam;
@@ -61,6 +63,10 @@ namespace ИС_Абитуриент {
         private global::System.Data.DataRelation relationformed_enrollee;
         
         private global::System.Data.DataRelation relationbonus_enrollee;
+        
+        private global::System.Data.DataRelation relationvacancy_discipline_vacancy;
+        
+        private global::System.Data.DataRelation relationdiscipline_discipline_vacancy;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -122,6 +128,9 @@ namespace ИС_Абитуриент {
                 }
                 if ((ds.Tables["vacancy1"] != null)) {
                     base.Tables.Add(new vacancy1DataTable(ds.Tables["vacancy1"]));
+                }
+                if ((ds.Tables["discipline_vacancy"] != null)) {
+                    base.Tables.Add(new discipline_vacancyDataTable(ds.Tables["discipline_vacancy"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -253,6 +262,16 @@ namespace ИС_Абитуриент {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public discipline_vacancyDataTable discipline_vacancy {
+            get {
+                return this.tablediscipline_vacancy;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -350,6 +369,9 @@ namespace ИС_Абитуриент {
                 }
                 if ((ds.Tables["vacancy1"] != null)) {
                     base.Tables.Add(new vacancy1DataTable(ds.Tables["vacancy1"]));
+                }
+                if ((ds.Tables["discipline_vacancy"] != null)) {
+                    base.Tables.Add(new discipline_vacancyDataTable(ds.Tables["discipline_vacancy"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -450,6 +472,12 @@ namespace ИС_Абитуриент {
                     this.tablevacancy1.InitVars();
                 }
             }
+            this.tablediscipline_vacancy = ((discipline_vacancyDataTable)(base.Tables["discipline_vacancy"]));
+            if ((initTable == true)) {
+                if ((this.tablediscipline_vacancy != null)) {
+                    this.tablediscipline_vacancy.InitVars();
+                }
+            }
             this.relationdiscipline_exam = this.Relations["discipline_exam"];
             this.relationperson_exam = this.Relations["person_exam"];
             this.relationspeciality_vacancy = this.Relations["speciality_vacancy"];
@@ -458,6 +486,8 @@ namespace ИС_Абитуриент {
             this.relationvacancy_enrollee = this.Relations["vacancy_enrollee"];
             this.relationformed_enrollee = this.Relations["formed_enrollee"];
             this.relationbonus_enrollee = this.Relations["bonus_enrollee"];
+            this.relationvacancy_discipline_vacancy = this.Relations["vacancy_discipline_vacancy"];
+            this.relationdiscipline_discipline_vacancy = this.Relations["discipline_discipline_vacancy"];
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -490,6 +520,8 @@ namespace ИС_Абитуриент {
             base.Tables.Add(this.tableenrollee);
             this.tablevacancy1 = new vacancy1DataTable();
             base.Tables.Add(this.tablevacancy1);
+            this.tablediscipline_vacancy = new discipline_vacancyDataTable();
+            base.Tables.Add(this.tablediscipline_vacancy);
             this.relationdiscipline_exam = new global::System.Data.DataRelation("discipline_exam", new global::System.Data.DataColumn[] {
                         this.tablediscipline.discipline_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableexam.discipline_idColumn}, false);
@@ -522,6 +554,14 @@ namespace ИС_Абитуриент {
                         this.tablebonus.bonus_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableenrollee.bonus_idColumn}, false);
             this.Relations.Add(this.relationbonus_enrollee);
+            this.relationvacancy_discipline_vacancy = new global::System.Data.DataRelation("vacancy_discipline_vacancy", new global::System.Data.DataColumn[] {
+                        this.tablevacancy.vacancy_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablediscipline_vacancy.vacancy_idColumn}, false);
+            this.Relations.Add(this.relationvacancy_discipline_vacancy);
+            this.relationdiscipline_discipline_vacancy = new global::System.Data.DataRelation("discipline_discipline_vacancy", new global::System.Data.DataColumn[] {
+                        this.tablediscipline.discipline_idColumn}, new global::System.Data.DataColumn[] {
+                        this.tablediscipline_vacancy.discipline_idColumn}, false);
+            this.Relations.Add(this.relationdiscipline_discipline_vacancy);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -587,6 +627,12 @@ namespace ИС_Абитуриент {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private bool ShouldSerializevacancy1() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private bool ShouldSerializediscipline_vacancy() {
             return false;
         }
         
@@ -677,6 +723,9 @@ namespace ИС_Абитуриент {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void vacancy1RowChangeEventHandler(object sender, vacancy1RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public delegate void discipline_vacancyRowChangeEventHandler(object sender, discipline_vacancyRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3994,6 +4043,301 @@ namespace ИС_Абитуриент {
         }
         
         /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class discipline_vacancyDataTable : global::System.Data.TypedTableBase<discipline_vacancyRow> {
+            
+            private global::System.Data.DataColumn columndiscipline_id;
+            
+            private global::System.Data.DataColumn columnvacancy_id;
+            
+            private global::System.Data.DataColumn columnexam_vacancy_id;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyDataTable() {
+                this.TableName = "discipline_vacancy";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal discipline_vacancyDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected discipline_vacancyDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn discipline_idColumn {
+                get {
+                    return this.columndiscipline_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn vacancy_idColumn {
+                get {
+                    return this.columnvacancy_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn exam_vacancy_idColumn {
+                get {
+                    return this.columnexam_vacancy_id;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow this[int index] {
+                get {
+                    return ((discipline_vacancyRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event discipline_vacancyRowChangeEventHandler discipline_vacancyRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event discipline_vacancyRowChangeEventHandler discipline_vacancyRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event discipline_vacancyRowChangeEventHandler discipline_vacancyRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public event discipline_vacancyRowChangeEventHandler discipline_vacancyRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Adddiscipline_vacancyRow(discipline_vacancyRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow Adddiscipline_vacancyRow(disciplineRow parentdisciplineRowBydiscipline_discipline_vacancy, vacancyRow parentvacancyRowByvacancy_discipline_vacancy) {
+                discipline_vacancyRow rowdiscipline_vacancyRow = ((discipline_vacancyRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        null,
+                        null,
+                        null};
+                if ((parentdisciplineRowBydiscipline_discipline_vacancy != null)) {
+                    columnValuesArray[0] = parentdisciplineRowBydiscipline_discipline_vacancy[0];
+                }
+                if ((parentvacancyRowByvacancy_discipline_vacancy != null)) {
+                    columnValuesArray[1] = parentvacancyRowByvacancy_discipline_vacancy[0];
+                }
+                rowdiscipline_vacancyRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowdiscipline_vacancyRow);
+                return rowdiscipline_vacancyRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow FindByexam_vacancy_id(int exam_vacancy_id) {
+                return ((discipline_vacancyRow)(this.Rows.Find(new object[] {
+                            exam_vacancy_id})));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                discipline_vacancyDataTable cln = ((discipline_vacancyDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new discipline_vacancyDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal void InitVars() {
+                this.columndiscipline_id = base.Columns["discipline_id"];
+                this.columnvacancy_id = base.Columns["vacancy_id"];
+                this.columnexam_vacancy_id = base.Columns["exam_vacancy_id"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            private void InitClass() {
+                this.columndiscipline_id = new global::System.Data.DataColumn("discipline_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndiscipline_id);
+                this.columnvacancy_id = new global::System.Data.DataColumn("vacancy_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnvacancy_id);
+                this.columnexam_vacancy_id = new global::System.Data.DataColumn("exam_vacancy_id", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnexam_vacancy_id);
+                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
+                                this.columnexam_vacancy_id}, true));
+                this.columnexam_vacancy_id.AutoIncrement = true;
+                this.columnexam_vacancy_id.AutoIncrementSeed = -1;
+                this.columnexam_vacancy_id.AutoIncrementStep = -1;
+                this.columnexam_vacancy_id.AllowDBNull = false;
+                this.columnexam_vacancy_id.Unique = true;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow Newdiscipline_vacancyRow() {
+                return ((discipline_vacancyRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new discipline_vacancyRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(discipline_vacancyRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.discipline_vacancyRowChanged != null)) {
+                    this.discipline_vacancyRowChanged(this, new discipline_vacancyRowChangeEvent(((discipline_vacancyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.discipline_vacancyRowChanging != null)) {
+                    this.discipline_vacancyRowChanging(this, new discipline_vacancyRowChangeEvent(((discipline_vacancyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.discipline_vacancyRowDeleted != null)) {
+                    this.discipline_vacancyRowDeleted(this, new discipline_vacancyRowChangeEvent(((discipline_vacancyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.discipline_vacancyRowDeleting != null)) {
+                    this.discipline_vacancyRowDeleting(this, new discipline_vacancyRowChangeEvent(((discipline_vacancyRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Removediscipline_vacancyRow(discipline_vacancyRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                isenrolleeDataSet ds = new isenrolleeDataSet();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "discipline_vacancyDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class bonusRow : global::System.Data.DataRow {
@@ -4147,6 +4491,17 @@ namespace ИС_Абитуриент {
                 }
                 else {
                     return ((examRow[])(base.GetChildRows(this.Table.ChildRelations["discipline_exam"])));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow[] Getdiscipline_vacancyRows() {
+                if ((this.Table.ChildRelations["discipline_discipline_vacancy"] == null)) {
+                    return new discipline_vacancyRow[0];
+                }
+                else {
+                    return ((discipline_vacancyRow[])(base.GetChildRows(this.Table.ChildRelations["discipline_discipline_vacancy"])));
                 }
             }
         }
@@ -4973,6 +5328,17 @@ namespace ИС_Абитуриент {
                     return ((enrolleeRow[])(base.GetChildRows(this.Table.ChildRelations["vacancy_enrollee"])));
                 }
             }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow[] Getdiscipline_vacancyRows() {
+                if ((this.Table.ChildRelations["vacancy_discipline_vacancy"] == null)) {
+                    return new discipline_vacancyRow[0];
+                }
+                else {
+                    return ((discipline_vacancyRow[])(base.GetChildRows(this.Table.ChildRelations["vacancy_discipline_vacancy"])));
+                }
+            }
         }
         
         /// <summary>
@@ -5352,6 +5718,111 @@ namespace ИС_Абитуриент {
         }
         
         /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class discipline_vacancyRow : global::System.Data.DataRow {
+            
+            private discipline_vacancyDataTable tablediscipline_vacancy;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            internal discipline_vacancyRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tablediscipline_vacancy = ((discipline_vacancyDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int discipline_id {
+                get {
+                    try {
+                        return ((int)(this[this.tablediscipline_vacancy.discipline_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'discipline_id\' в таблице \'discipline_vacancy\' равно DBNull." +
+                                "", e);
+                    }
+                }
+                set {
+                    this[this.tablediscipline_vacancy.discipline_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int vacancy_id {
+                get {
+                    try {
+                        return ((int)(this[this.tablediscipline_vacancy.vacancy_idColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'vacancy_id\' в таблице \'discipline_vacancy\' равно DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablediscipline_vacancy.vacancy_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public int exam_vacancy_id {
+                get {
+                    return ((int)(this[this.tablediscipline_vacancy.exam_vacancy_idColumn]));
+                }
+                set {
+                    this[this.tablediscipline_vacancy.exam_vacancy_idColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public vacancyRow vacancyRow {
+                get {
+                    return ((vacancyRow)(this.GetParentRow(this.Table.ParentRelations["vacancy_discipline_vacancy"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["vacancy_discipline_vacancy"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public disciplineRow disciplineRow {
+                get {
+                    return ((disciplineRow)(this.GetParentRow(this.Table.ParentRelations["discipline_discipline_vacancy"])));
+                }
+                set {
+                    this.SetParentRow(value, this.Table.ParentRelations["discipline_discipline_vacancy"]);
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isdiscipline_idNull() {
+                return this.IsNull(this.tablediscipline_vacancy.discipline_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setdiscipline_idNull() {
+                this[this.tablediscipline_vacancy.discipline_idColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool Isvacancy_idNull() {
+                return this.IsNull(this.tablediscipline_vacancy.vacancy_idColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void Setvacancy_idNull() {
+                this[this.tablediscipline_vacancy.vacancy_idColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -5711,6 +6182,40 @@ namespace ИС_Абитуриент {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public vacancy1Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public class discipline_vacancyRowChangeEvent : global::System.EventArgs {
+            
+            private discipline_vacancyRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRowChangeEvent(discipline_vacancyRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public discipline_vacancyRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -14357,6 +14862,734 @@ FROM            vacancy INNER JOIN
     }
     
     /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class discipline_vacancyTableAdapter : global::System.ComponentModel.Component {
+        
+        private global::Npgsql.NpgsqlDataAdapter _adapter;
+        
+        private global::Npgsql.NpgsqlConnection _connection;
+        
+        private global::Npgsql.NpgsqlTransaction _transaction;
+        
+        private global::Npgsql.NpgsqlCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public discipline_vacancyTableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected internal global::Npgsql.NpgsqlDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Npgsql.NpgsqlConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::Npgsql.NpgsqlCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        internal global::Npgsql.NpgsqlTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        protected global::Npgsql.NpgsqlCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::Npgsql.NpgsqlDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "discipline_vacancy";
+            tableMapping.ColumnMappings.Add("discipline_id", "discipline_id");
+            tableMapping.ColumnMappings.Add("vacancy_id", "vacancy_id");
+            tableMapping.ColumnMappings.Add("exam_vacancy_id", "exam_vacancy_id");
+            this._adapter.TableMappings.Add(tableMapping);
+            this._adapter.DeleteCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.DeleteCommand.Connection = this.Connection;
+            this._adapter.DeleteCommand.CommandText = @"DELETE FROM ""isenrollee"".""public"".""discipline_vacancy"" WHERE (((@IsNull_discipline_id = 1 AND ""discipline_id"" IS NULL) OR (""discipline_id"" = @Original_discipline_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND (""exam_vacancy_id"" = @Original_exam_vacancy_id))";
+            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
+            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_exam_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "exam_vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.DeleteCommand.Parameters.Add(param);
+            this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.InsertCommand.Connection = this.Connection;
+            this._adapter.InsertCommand.CommandText = "INSERT INTO \"isenrollee\".\"public\".\"discipline_vacancy\" (\"discipline_id\", \"vacancy" +
+                "_id\") VALUES (@discipline_id, @vacancy_id)";
+            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._adapter.InsertCommand.Parameters.Add(param);
+            this._adapter.UpdateCommand = new global::Npgsql.NpgsqlCommand();
+            this._adapter.UpdateCommand.Connection = this.Connection;
+            this._adapter.UpdateCommand.CommandText = @"UPDATE ""isenrollee"".""public"".""discipline_vacancy"" SET ""discipline_id"" = @discipline_id, ""vacancy_id"" = @vacancy_id WHERE (((@IsNull_discipline_id = 1 AND ""discipline_id"" IS NULL) OR (""discipline_id"" = @Original_discipline_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND (""exam_vacancy_id"" = @Original_exam_vacancy_id))";
+            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@IsNull_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "@Original_exam_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "exam_vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._adapter.UpdateCommand.Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::Npgsql.NpgsqlConnection();
+            this._connection.ConnectionString = global::ИС_Абитуриент.Properties.Settings.Default.isenrolleeConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
+            this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "SELECT \"discipline_id\", \"vacancy_id\", \"exam_vacancy_id\" FROM \"public\".\"discipline" +
+                "_vacancy\"";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[1] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[1].Connection = this.Connection;
+            this._commandCollection[1].CommandText = @"DELETE FROM ""isenrollee"".""public"".""discipline_vacancy"" WHERE (((@IsNull_discipline_id = 1 AND ""discipline_id"" IS NULL) OR (""discipline_id"" = @Original_discipline_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND (""exam_vacancy_id"" = @Original_exam_vacancy_id))";
+            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
+            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "IsNull_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "Original_discipline_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "IsNull_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "Original_vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "Original_exam_vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "exam_vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[1].Parameters.Add(param);
+            this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[2].Connection = this.Connection;
+            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"discipline_vacancy\" (\"discipline_id\", \"vacancy" +
+                "_id\") VALUES (@discipline_id, @vacancy_id)";
+            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "discipline_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            this._commandCollection[2].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"discipline_vacancy\" (\"discipline_id\", \"vacancy" +
+                "_id\") VALUES (null,null)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"UPDATE ""isenrollee"".""public"".""discipline_vacancy"" SET ""discipline_id"" = @discipline_id, ""vacancy_id"" = @vacancy_id WHERE (((@IsNull_discipline_id = 1 AND ""discipline_id"" IS NULL) OR (""discipline_id"" = @Original_discipline_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND (""exam_vacancy_id"" = @Original_exam_vacancy_id))";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "discipline_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "IsNull_discipline_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "discipline_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "IsNull_vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            param.SourceColumnNullMapping = true;
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "Original_exam_vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "exam_vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "Original_vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            param.SourceVersion = global::System.Data.DataRowVersion.Original;
+            this._commandCollection[4].Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(isenrolleeDataSet.discipline_vacancyDataTable dataTable) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual isenrolleeDataSet.discipline_vacancyDataTable GetData() {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            isenrolleeDataSet.discipline_vacancyDataTable dataTable = new isenrolleeDataSet.discipline_vacancyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(isenrolleeDataSet.discipline_vacancyDataTable dataTable) {
+            return this.Adapter.Update(dataTable);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(isenrolleeDataSet dataSet) {
+            return this.Adapter.Update(dataSet, "discipline_vacancy");
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow dataRow) {
+            return this.Adapter.Update(new global::System.Data.DataRow[] {
+                        dataRow});
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        public virtual int Update(global::System.Data.DataRow[] dataRows) {
+            return this.Adapter.Update(dataRows);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
+        public virtual int Delete(global::System.Nullable<int> @Original_discipline_id, global::System.Nullable<int> @Original_vacancy_id, int @Original_exam_vacancy_id) {
+            if ((@Original_discipline_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(@Original_discipline_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[0].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((@Original_vacancy_id.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.DeleteCommand.Parameters[3].Value = ((int)(@Original_vacancy_id.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.DeleteCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.DeleteCommand.Parameters[4].Value = ((int)(@Original_exam_vacancy_id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
+            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.DeleteCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.DeleteCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
+        public virtual int Insert(global::System.Nullable<int> @discipline_id, global::System.Nullable<int> @vacancy_id) {
+            if ((@discipline_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(@discipline_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((@vacancy_id.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(@vacancy_id.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
+            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.InsertCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.InsertCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
+        public virtual int Update(global::System.Nullable<int> @discipline_id, global::System.Nullable<int> @vacancy_id, global::System.Nullable<int> @Original_discipline_id, global::System.Nullable<int> @Original_vacancy_id, int @Original_exam_vacancy_id) {
+            if ((@discipline_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(@discipline_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((@vacancy_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(@vacancy_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            if ((@Original_discipline_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(@Original_discipline_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[2].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((@Original_vacancy_id.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(0));
+                this.Adapter.UpdateCommand.Parameters[5].Value = ((int)(@Original_vacancy_id.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((object)(1));
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            this.Adapter.UpdateCommand.Parameters[6].Value = ((int)(@Original_exam_vacancy_id));
+            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
+            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                this.Adapter.UpdateCommand.Connection.Open();
+            }
+            try {
+                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
+                return returnValue;
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    this.Adapter.UpdateCommand.Connection.Close();
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
+        public virtual int DeleteQuery(global::System.Nullable<int> IsNull_discipline_id, object Original_discipline_id, global::System.Nullable<int> IsNull_vacancy_id, object Original_vacancy_id, object Original_exam_vacancy_id) {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[1];
+            if ((IsNull_discipline_id.HasValue == true)) {
+                command.Parameters[0].Value = ((int)(IsNull_discipline_id.Value));
+            }
+            else {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((Original_discipline_id == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((object)(Original_discipline_id));
+            }
+            if ((IsNull_vacancy_id.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(IsNull_vacancy_id.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((Original_vacancy_id == null)) {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[3].Value = ((object)(Original_vacancy_id));
+            }
+            if ((Original_exam_vacancy_id == null)) {
+                throw new global::System.ArgumentNullException("Original_exam_vacancy_id");
+            }
+            else {
+                command.Parameters[4].Value = ((object)(Original_exam_vacancy_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery(object discipline_id, object vacancy_id) {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
+            if ((discipline_id == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((object)(discipline_id));
+            }
+            if ((vacancy_id == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((object)(vacancy_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery1() {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(object discipline_id, object vacancy_id, global::System.Nullable<int> IsNull_discipline_id, global::System.Nullable<int> IsNull_vacancy_id, object Original_exam_vacancy_id, object Original_vacancy_id) {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
+            if ((discipline_id == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((object)(discipline_id));
+            }
+            if ((vacancy_id == null)) {
+                command.Parameters[1].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[1].Value = ((object)(vacancy_id));
+            }
+            if ((IsNull_discipline_id.HasValue == true)) {
+                command.Parameters[2].Value = ((int)(IsNull_discipline_id.Value));
+            }
+            else {
+                command.Parameters[2].Value = global::System.DBNull.Value;
+            }
+            if ((IsNull_vacancy_id.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(IsNull_vacancy_id.Value));
+            }
+            else {
+                command.Parameters[3].Value = global::System.DBNull.Value;
+            }
+            if ((Original_exam_vacancy_id == null)) {
+                throw new global::System.ArgumentNullException("Original_exam_vacancy_id");
+            }
+            else {
+                command.Parameters[4].Value = ((object)(Original_exam_vacancy_id));
+            }
+            if ((Original_vacancy_id == null)) {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[5].Value = ((object)(Original_vacancy_id));
+            }
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+    }
+    
+    /// <summary>
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -14385,6 +15618,8 @@ FROM            vacancy INNER JOIN
         private statusTableAdapter _statusTableAdapter;
         
         private vacancyTableAdapter _vacancyTableAdapter;
+        
+        private discipline_vacancyTableAdapter _discipline_vacancyTableAdapter;
         
         private bool _backupDataSetBeforeUpdate;
         
@@ -14529,6 +15764,20 @@ FROM            vacancy INNER JOIN
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
+            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
+            "a", "System.Drawing.Design.UITypeEditor")]
+        public discipline_vacancyTableAdapter discipline_vacancyTableAdapter {
+            get {
+                return this._discipline_vacancyTableAdapter;
+            }
+            set {
+                this._discipline_vacancyTableAdapter = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public bool BackupDataSetBeforeUpdate {
             get {
                 return this._backupDataSetBeforeUpdate;
@@ -14582,6 +15831,10 @@ FROM            vacancy INNER JOIN
                             && (this._vacancyTableAdapter.Connection != null))) {
                     return this._vacancyTableAdapter.Connection;
                 }
+                if (((this._discipline_vacancyTableAdapter != null) 
+                            && (this._discipline_vacancyTableAdapter.Connection != null))) {
+                    return this._discipline_vacancyTableAdapter.Connection;
+                }
                 return null;
             }
             set {
@@ -14620,6 +15873,9 @@ FROM            vacancy INNER JOIN
                     count = (count + 1);
                 }
                 if ((this._vacancyTableAdapter != null)) {
+                    count = (count + 1);
+                }
+                if ((this._discipline_vacancyTableAdapter != null)) {
                     count = (count + 1);
                 }
                 return count;
@@ -14714,6 +15970,15 @@ FROM            vacancy INNER JOIN
                     allChangedRows.AddRange(updatedRows);
                 }
             }
+            if ((this._discipline_vacancyTableAdapter != null)) {
+                global::System.Data.DataRow[] updatedRows = dataSet.discipline_vacancy.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
+                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
+                if (((updatedRows != null) 
+                            && (0 < updatedRows.Length))) {
+                    result = (result + this._discipline_vacancyTableAdapter.Update(updatedRows));
+                    allChangedRows.AddRange(updatedRows);
+                }
+            }
             return result;
         }
         
@@ -14796,6 +16061,14 @@ FROM            vacancy INNER JOIN
                     allAddedRows.AddRange(addedRows);
                 }
             }
+            if ((this._discipline_vacancyTableAdapter != null)) {
+                global::System.Data.DataRow[] addedRows = dataSet.discipline_vacancy.Select(null, null, global::System.Data.DataViewRowState.Added);
+                if (((addedRows != null) 
+                            && (0 < addedRows.Length))) {
+                    result = (result + this._discipline_vacancyTableAdapter.Update(addedRows));
+                    allAddedRows.AddRange(addedRows);
+                }
+            }
             return result;
         }
         
@@ -14806,6 +16079,14 @@ FROM            vacancy INNER JOIN
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private int UpdateDeletedRows(isenrolleeDataSet dataSet, global::System.Collections.Generic.List<global::System.Data.DataRow> allChangedRows) {
             int result = 0;
+            if ((this._discipline_vacancyTableAdapter != null)) {
+                global::System.Data.DataRow[] deletedRows = dataSet.discipline_vacancy.Select(null, null, global::System.Data.DataViewRowState.Deleted);
+                if (((deletedRows != null) 
+                            && (0 < deletedRows.Length))) {
+                    result = (result + this._discipline_vacancyTableAdapter.Update(deletedRows));
+                    allChangedRows.AddRange(deletedRows);
+                }
+            }
             if ((this._examTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.exam.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -14962,6 +16243,11 @@ FROM            vacancy INNER JOIN
                 throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
                         "r, должны использовать одинаковую строку подключения.");
             }
+            if (((this._discipline_vacancyTableAdapter != null) 
+                        && (this.MatchTableAdapterConnection(this._discipline_vacancyTableAdapter.Connection) == false))) {
+                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
+                        "r, должны использовать одинаковую строку подключения.");
+            }
             global::System.Data.IDbConnection workConnection = this.Connection;
             if ((workConnection == null)) {
                 throw new global::System.ApplicationException("TableAdapterManager не содержит сведений о подключении. Укажите для каждого адапт" +
@@ -15075,6 +16361,15 @@ FROM            vacancy INNER JOIN
                         adaptersWithAcceptChangesDuringUpdate.Add(this._vacancyTableAdapter.Adapter);
                     }
                 }
+                if ((this._discipline_vacancyTableAdapter != null)) {
+                    revertConnections.Add(this._discipline_vacancyTableAdapter, this._discipline_vacancyTableAdapter.Connection);
+                    this._discipline_vacancyTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(workConnection));
+                    this._discipline_vacancyTableAdapter.Transaction = ((global::Npgsql.NpgsqlTransaction)(workTransaction));
+                    if (this._discipline_vacancyTableAdapter.Adapter.AcceptChangesDuringUpdate) {
+                        this._discipline_vacancyTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
+                        adaptersWithAcceptChangesDuringUpdate.Add(this._discipline_vacancyTableAdapter.Adapter);
+                    }
+                }
                 // 
                 //---- Perform updates -----------
                 //
@@ -15168,6 +16463,10 @@ FROM            vacancy INNER JOIN
                 if ((this._vacancyTableAdapter != null)) {
                     this._vacancyTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._vacancyTableAdapter]));
                     this._vacancyTableAdapter.Transaction = null;
+                }
+                if ((this._discipline_vacancyTableAdapter != null)) {
+                    this._discipline_vacancyTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._discipline_vacancyTableAdapter]));
+                    this._discipline_vacancyTableAdapter.Transaction = null;
                 }
                 if ((0 < adaptersWithAcceptChangesDuringUpdate.Count)) {
                     global::System.Data.Common.DataAdapter[] adapters = new System.Data.Common.DataAdapter[adaptersWithAcceptChangesDuringUpdate.Count];

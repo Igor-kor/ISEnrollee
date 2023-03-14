@@ -159,6 +159,9 @@
     <Compile Include="Discipline.xaml.cs">
       <DependentUpon>Discipline.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Discipline_vacancy.xaml.cs">
+      <DependentUpon>Discipline_vacancy.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Enrollee.xaml.cs">
       <DependentUpon>Enrollee.xaml</DependentUpon>
     </Compile>
@@ -206,6 +209,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Discipline.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Discipline_vacancy.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

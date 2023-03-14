@@ -35,6 +35,7 @@
             <Button x:Name="button9" Content="Вступительные испытания" Click="button9_Click"/>
             <Button x:Name="button10" Content="Результаты вступительных" Click="button10_Click"/>
             <Button x:Name="button11" Content="Специальности" Click="button11_Click"/>
+            <Button x:Name="button12" Content="Дисциплины вакансий" Click="button12_Click"/>
 
         </StackPanel>
     </Grid>
