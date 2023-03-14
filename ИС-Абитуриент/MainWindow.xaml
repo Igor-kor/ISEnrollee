@@ -29,12 +29,12 @@
             <Button x:Name="button3" Content="Заявления" Click="button3_Click"/>
             <Button x:Name="button4" Content="Бонусы" Click="button4_Click"/>
             <Button x:Name="button5" Content="Форма обучения" Click="button5_Click"/>
-            <Button x:Name="button6" Content="Статусы заявления"/>
-            <Button x:Name="button7" Content="Форма оплаты"/>
-            <Button x:Name="button8" Content="Дисциплины"/>
-            <Button x:Name="button9" Content="Вступительные испытания"/>
-            <Button x:Name="button10" Content="Результаты вступительных"/>
-            <Button x:Name="button11" Content="Специальности"/>
+            <Button x:Name="button6" Content="Статусы заявления" Click="button6_Click"/>
+            <Button x:Name="button7" Content="Форма оплаты" Click="button7_Click"/>
+            <Button x:Name="button8" Content="Дисциплины" Click="button8_Click"/>
+            <Button x:Name="button9" Content="Вступительные испытания" Click="button9_Click"/>
+            <Button x:Name="button10" Content="Результаты вступительных" Click="button10_Click"/>
+            <Button x:Name="button11" Content="Специальности" Click="button11_Click"/>
 
         </StackPanel>
     </Grid>

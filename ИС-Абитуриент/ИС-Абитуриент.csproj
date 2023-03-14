@@ -177,6 +177,9 @@
     <Compile Include="SQLAdmin.xaml.cs">
       <DependentUpon>SQLAdmin.xaml</DependentUpon>
     </Compile>
+    <Compile Include="StatusForm.xaml.cs">
+      <DependentUpon>StatusForm.xaml</DependentUpon>
+    </Compile>
     <Compile Include="UserAuth.cs" />
     <Compile Include="UserRole.cs" />
     <Page Include="bonus.xaml">
@@ -219,6 +222,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="SQLAdmin.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StatusForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

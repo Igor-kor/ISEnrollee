@@ -15,6 +15,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using ИС_Абитуриент.isenrolleeDataSetTableAdapters;
 
 namespace ИС_Абитуриент
 {
@@ -65,6 +66,42 @@ namespace ИС_Абитуриент
         {
             Formed formed = new Formed();
             formed.Show();
+        }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            StatusForm statusForm = new StatusForm();
+            statusForm.Show();
+        }
+
+        private void button7_Click(object sender, RoutedEventArgs e)
+        {
+            Paymont paymont = new Paymont();
+            paymont.Show();
+        }
+
+        private void button8_Click(object sender, RoutedEventArgs e)
+        {
+            Discipline discipline = new Discipline();
+            discipline.Show();
+        }
+
+        private void button9_Click(object sender, RoutedEventArgs e)
+        {
+            Vacancy vacancy = new Vacancy();
+            vacancy.Show();
+        }
+
+        private void button11_Click(object sender, RoutedEventArgs e)
+        {
+            Speciality speciality = new Speciality();
+            speciality.Show();
+        }
+
+        private void button10_Click(object sender, RoutedEventArgs e)
+        {
+            Exam exam = new Exam();
+            exam.Show();
         }
     }
 }
