@@ -19,30 +19,29 @@
                 </TransformGroup>
             </Button.RenderTransform>
         </Button>
-        <Button x:Name="button1" Content="Button" HorizontalAlignment="Left" Margin="134,157,0,0" VerticalAlignment="Top"/>
-        <Button x:Name="button2" Content="Button" HorizontalAlignment="Left" Margin="242,157,0,0" VerticalAlignment="Top"/>
-        <ComboBox SelectedValuePath="person_id" x:Name="comboBox" HorizontalAlignment="Left" Margin="354,129,0,0" VerticalAlignment="Top" Width="120"   >
+        <Button x:Name="button1" Content="Удалить" HorizontalAlignment="Left" Margin="134,157,0,0" VerticalAlignment="Top" Click="button1_Click"/>
+        <ComboBox SelectedValuePath="bonus_id" x:Name="comboBox" HorizontalAlignment="Left" Margin="354,129,0,0" VerticalAlignment="Top" Width="120"   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
-                                <Binding Path="firstname"/>
-                                <Binding Path="lastname"/>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="498,129,0,0" VerticalAlignment="Top" Width="120"   >
+        <ComboBox x:Name="comboBox1" SelectedValuePath="person_id" HorizontalAlignment="Left" Margin="498,129,0,0" VerticalAlignment="Top" Width="120"   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
+                            <MultiBinding StringFormat="{}{0} {1} {2}">
                                 <Binding Path="firstname"/>
                                 <Binding Path="lastname"/>
+                                <Binding Path="patronimic"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
@@ -50,48 +49,47 @@
             </ComboBox.ItemTemplate>
         </ComboBox>
         <DataGrid x:Name="dataGrid1" d:ItemsSource="{d:SampleData ItemCount=2}" Margin="0,12,0,318"/>
-        <ComboBox x:Name="comboBox2" HorizontalAlignment="Left" Margin="658,129,0,0" VerticalAlignment="Top" Width="120"   >
+        <ComboBox x:Name="comboBox2" SelectedValuePath="vacancy_id" HorizontalAlignment="Left" Margin="658,129,0,0" VerticalAlignment="Top" Width="120"   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
-                                <Binding Path="firstname"/>
-                                <Binding Path="lastname"/>
+                            <MultiBinding StringFormat="{}{0} {1}">
+                                <Binding Path="specname"/>
+                                <Binding Path="payname"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox x:Name="comboBox3" HorizontalAlignment="Left" Margin="354,173,0,0" VerticalAlignment="Top" Width="120"   >
+        <ComboBox SelectedValuePath="status_id" x:Name="comboBox3" HorizontalAlignment="Left" Margin="354,173,0,0" VerticalAlignment="Top" Width="120"   >
             <ComboBox.ItemTemplate>
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
-                                <Binding Path="firstname"/>
-                                <Binding Path="lastname"/>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <ComboBox x:Name="comboBox4" HorizontalAlignment="Left" Margin="498,172,0,0" VerticalAlignment="Top" Width="120"   >
+        <ComboBox x:Name="comboBox4" SelectedValuePath="formed_id" HorizontalAlignment="Left" Margin="498,172,0,0" VerticalAlignment="Top" Width="120"   >
             <ComboBox.ItemTemplate >
                 <DataTemplate>
                     <TextBlock>
                         <TextBlock.Text>
-                            <MultiBinding StringFormat="{}{0}: {1}">
-                                <Binding Path="firstname"/>
-                                <Binding Path="lastname"/>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
                             </MultiBinding>
                         </TextBlock.Text>
                     </TextBlock>
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Button x:Name="button2" Content="Добавить новый" HorizontalAlignment="Left" Margin="10,120,0,0" VerticalAlignment="Top" Click="button2_Click"/>
 
     </Grid>
 </Window>
