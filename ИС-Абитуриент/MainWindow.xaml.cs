@@ -60,5 +60,11 @@ namespace ИС_Абитуриент
             bonus _bonus = new bonus();
             _bonus.Show();
         }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            Formed formed = new Formed();
+            formed.Show();
+        }
     }
 }

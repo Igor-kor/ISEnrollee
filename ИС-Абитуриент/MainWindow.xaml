@@ -28,7 +28,7 @@
             <Button x:Name="button2" Content="Персональные данные" Click="button2_Click"/>
             <Button x:Name="button3" Content="Заявления" Click="button3_Click"/>
             <Button x:Name="button4" Content="Бонусы" Click="button4_Click"/>
-            <Button x:Name="button5" Content="Форма обучения"/>
+            <Button x:Name="button5" Content="Форма обучения" Click="button5_Click"/>
             <Button x:Name="button6" Content="Статусы заявления"/>
             <Button x:Name="button7" Content="Форма оплаты"/>
             <Button x:Name="button8" Content="Дисциплины"/>

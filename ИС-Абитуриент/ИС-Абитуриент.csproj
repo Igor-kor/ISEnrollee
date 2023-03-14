@@ -159,6 +159,9 @@
     <Compile Include="Enrollee.xaml.cs">
       <DependentUpon>Enrollee.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Formed.xaml.cs">
+      <DependentUpon>Formed.xaml</DependentUpon>
+    </Compile>
     <Compile Include="isenrolleeDataSet.cs">
       <DependentUpon>isenrolleeDataSet.xsd</DependentUpon>
     </Compile>
@@ -185,6 +188,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Enrollee.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Formed.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
