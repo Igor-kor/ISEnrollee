@@ -25,7 +25,6 @@ namespace ИС_Абитуриент
     {
         personTableAdapter personDataAdapter;
         isenrolleeDataSet dataTable;
-        int newuser = 0;
         UserAuth con;
 
         public RolesViewModel ViewModel { get; set; }
@@ -41,11 +40,7 @@ namespace ИС_Абитуриент
                 personDataAdapter = new personTableAdapter();
                 personDataAdapter.Connection = con.con;
                 dataTable = new isenrolleeDataSet();
-                // personDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(personDataAdapter).GetUpdateCommand();
-                // personDataAdapter.InsertCommand = new NpgsqlCommandBuilder(personDataAdapter).GetInsertCommand();
-                // personDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(personDataAdapter).GetDeleteCommand();
                 personDataAdapter.Fill(dataTable.person);
-                // dataTable = table;
                 dataGrid.ItemsSource = dataTable.person.DefaultView;
             }
             catch (NpgsqlException ex)
@@ -74,28 +69,19 @@ namespace ИС_Абитуриент
         private void button_Click(object sender, RoutedEventArgs e)
         {
             personDataAdapter.newPersonRow();
-            //personDataAdapter.Adapter.InsertCommand = new NpgsqlCommandBuilder(personDataAdapter.Adapter).GetInsertCommand();
-
             // обноляем записи в таблице datagrid
             personDataAdapter.Fill(dataTable.person);
             // выбираем последнюю запись, это будет та что создали
             dataGrid.SelectedIndex = dataTable.person.Count - 1;
-            newuser = dataGrid.SelectedIndex;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             int index = dataGrid.SelectedIndex;
-            if (newuser == index)
-            {
-                newuser = 0;
-            }
-            //dataGrid.Items.RemoveAt(index);
             var selectedItem = dataGrid.SelectedItem;
             if (selectedItem != null)
             {
                 dataTable.person.DefaultView.Delete(index);
-                //dataGrid.Items.Remove(selectedItem);
             }
 
             personDataAdapter.Adapter.DeleteCommand = new NpgsqlCommandBuilder(personDataAdapter.Adapter).GetDeleteCommand();
@@ -104,7 +90,6 @@ namespace ИС_Абитуриент
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-            int index = dataGrid.SelectedIndex;
 
             DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
             if (selectedItem != null)
