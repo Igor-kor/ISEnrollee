@@ -1061,7 +1061,7 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public disciplineRow AdddisciplineRow(int discipline_id, int name) {
+            public disciplineRow AdddisciplineRow(int discipline_id, string name) {
                 disciplineRow rowdisciplineRow = ((disciplineRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         discipline_id,
@@ -1104,7 +1104,7 @@ namespace ИС_Абитуриент {
             private void InitClass() {
                 this.columndiscipline_id = new global::System.Data.DataColumn("discipline_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columndiscipline_id);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnname);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columndiscipline_id}, true));
@@ -4113,10 +4113,10 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int name {
+            public string name {
                 get {
                     try {
-                        return ((int)(this[this.tablediscipline.nameColumn]));
+                        return ((string)(this[this.tablediscipline.nameColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("Значение для столбца \'name\' в таблице \'discipline\' равно DBNull.", e);
@@ -6677,7 +6677,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"discipline_id\", \"name\" FROM \"public\".\"discipline\"";
@@ -6730,29 +6730,33 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE \"isenrollee\".\"public\".\"discipline\" SET \"discipline_id\" = @discipline_id, \"" +
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"discipline\" ( \"name\") VALUES ( null)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE \"isenrollee\".\"public\".\"discipline\" SET \"discipline_id\" = @discipline_id, \"" +
                 "name\" = @name WHERE ((\"discipline_id\" = @Original_discipline_id) AND ((@IsNull_n" +
                 "ame = 1 AND \"name\" IS NULL) OR (\"name\" = @Original_name)))";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "discipline_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "discipline_id";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "name";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "name";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_discipline_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "discipline_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_name";
             param.DbType = global::System.Data.DbType.Int32;
@@ -6761,7 +6765,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6999,9 +7003,32 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery1() {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(object discipline_id, object name, object Original_discipline_id, global::System.Nullable<int> IsNull_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             if ((discipline_id == null)) {
                 throw new global::System.ArgumentNullException("discipline_id");
             }
@@ -11419,7 +11446,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"speciality_id\", \"name\" FROM \"public\".\"speciality\"";
@@ -11476,16 +11503,20 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE \"isenrollee\".\"public\".\"speciality\" SET \"speciality_id\" = @speciality_id, \"" +
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"speciality\" ( \"name\") VALUES (null)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE \"isenrollee\".\"public\".\"speciality\" SET \"speciality_id\" = @speciality_id, \"" +
                 "name\" = @name WHERE ((\"speciality_id\" = @Original_speciality_id) AND ((@IsNull_n" +
                 "ame = 1 AND \"name\" IS NULL) OR (\"name\" = @Original_name)))";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "name";
             param.DbType = global::System.Data.DbType.String;
@@ -11493,14 +11524,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "name";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_name";
             param.DbType = global::System.Data.DbType.Int32;
@@ -11509,7 +11540,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11747,9 +11778,32 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery1() {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(object speciality_id, string name, object Original_speciality_id, global::System.Nullable<int> IsNull_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             if ((speciality_id == null)) {
                 throw new global::System.ArgumentNullException("speciality_id");
             }

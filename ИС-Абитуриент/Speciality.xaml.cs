@@ -23,7 +23,7 @@ namespace ИС_Абитуриент
     public partial class Speciality : Window
     {
         isenrolleeDataSet dataTable;
-        bonusTableAdapter bonusDataAdapter;
+        specialityTableAdapter specialityDataAdapter;
 
         public RolesViewModel ViewModel { get; set; }
         public Speciality()
@@ -32,11 +32,11 @@ namespace ИС_Абитуриент
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
             UserAuth con = UserAuth.getUserAuth();
-            bonusDataAdapter = new bonusTableAdapter();
-            bonusDataAdapter.Connection = con.con;
+            specialityDataAdapter = new specialityTableAdapter();
+            specialityDataAdapter.Connection = con.con;
             dataTable = new isenrolleeDataSet();
-            bonusDataAdapter.Fill(dataTable.bonus);
-            dataGrid.ItemsSource = dataTable.bonus.DefaultView;
+            specialityDataAdapter.Fill(dataTable.speciality);
+            dataGrid.ItemsSource = dataTable.speciality.DefaultView;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
@@ -48,8 +48,8 @@ namespace ИС_Абитуриент
                 selectedItem[0] = textBox.Text;
                 selectedItem[1] = textBox1.Text;
             }
-            bonusDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(bonusDataAdapter.Adapter).GetUpdateCommand();
-            bonusDataAdapter.Adapter.Update(dataTable.bonus);
+            specialityDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(specialityDataAdapter.Adapter).GetUpdateCommand();
+            specialityDataAdapter.Adapter.Update(dataTable.speciality);
         }
 
         private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -67,13 +67,13 @@ namespace ИС_Абитуриент
         {
             /* Создание */
 
-            bonusDataAdapter.Adapter.InsertCommand = new NpgsqlCommandBuilder(bonusDataAdapter.Adapter).GetInsertCommand();
+            specialityDataAdapter.Adapter.InsertCommand = new NpgsqlCommandBuilder(specialityDataAdapter.Adapter).GetInsertCommand();
 
-            bonusDataAdapter.InsertQuery1();
+            specialityDataAdapter.InsertQuery1();
             // обноляем записи в таблице datagrid
-            bonusDataAdapter.Fill(dataTable.bonus);
+            specialityDataAdapter.Fill(dataTable.speciality);
             // выбираем последнюю запись, это будет та что создали
-            dataGrid.SelectedIndex = dataTable.bonus.Count - 1;
+            dataGrid.SelectedIndex = dataTable.speciality.Count - 1;
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -83,10 +83,10 @@ namespace ИС_Абитуриент
             var selectedItem = dataGrid.SelectedItem;
             if (selectedItem != null)
             {
-                dataTable.bonus.DefaultView.Delete(index);
+                dataTable.speciality.DefaultView.Delete(index);
             }
-            bonusDataAdapter.Adapter.DeleteCommand = new NpgsqlCommandBuilder(bonusDataAdapter.Adapter).GetDeleteCommand();
-            bonusDataAdapter.Adapter.Update(dataTable.bonus);
+            specialityDataAdapter.Adapter.DeleteCommand = new NpgsqlCommandBuilder(specialityDataAdapter.Adapter).GetDeleteCommand();
+            specialityDataAdapter.Adapter.Update(dataTable.speciality);
         }
     }
 }
