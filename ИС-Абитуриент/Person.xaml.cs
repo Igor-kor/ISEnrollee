@@ -62,7 +62,7 @@ namespace ИС_Абитуриент
                 textBox3.Text = selectedItem[3].ToString();
                 textBox4.Text = selectedItem[4].ToString();
                 textBox5.Text = selectedItem[5].ToString();
-                datePicker.SelectedDate = (DateTime?)selectedItem[6];
+                datePicker.Text = selectedItem[6].ToString();
                 textBox6.Text = selectedItem[7].ToString();
                 textBox7.Text = selectedItem[8].ToString();
             }
