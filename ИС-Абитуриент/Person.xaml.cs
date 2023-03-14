@@ -25,6 +25,9 @@ namespace ИС_Абитуриент
     {
         personTableAdapter personDataAdapter;
         isenrolleeDataSet dataTable;
+        int newuser = 0;
+        UserAuth con;
+
         public RolesViewModel ViewModel { get; set; }
         public Person()
         {
@@ -32,10 +35,10 @@ namespace ИС_Абитуриент
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
 
-            UserAuth con = UserAuth.getUserAuth();
+            con = UserAuth.getUserAuth();
             try
             {
-                personDataAdapter = new personTableAdapter( );
+                personDataAdapter = new personTableAdapter();
                 personDataAdapter.Connection = con.con;
                 dataTable = new isenrolleeDataSet();
                 // personDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(personDataAdapter).GetUpdateCommand();
@@ -77,14 +80,16 @@ namespace ИС_Абитуриент
             personDataAdapter.Fill(dataTable.person);
             // выбираем последнюю запись, это будет та что создали
             dataGrid.SelectedIndex = dataTable.person.Count - 1;
-
+            newuser = dataGrid.SelectedIndex;
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-
-
             int index = dataGrid.SelectedIndex;
+            if (newuser == index)
+            {
+                newuser = 0;
+            }
             //dataGrid.Items.RemoveAt(index);
             var selectedItem = dataGrid.SelectedItem;
             if (selectedItem != null)
@@ -99,6 +104,8 @@ namespace ИС_Абитуриент
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
+            int index = dataGrid.SelectedIndex;
+
             DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
             if (selectedItem != null)
             {
