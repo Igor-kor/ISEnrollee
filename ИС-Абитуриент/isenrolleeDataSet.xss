@@ -8,13 +8,13 @@
   <Shapes>
     <Shape ID="DesignTable:bonus" ZOrder="1" X="-113" Y="-56" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="83" />
     <Shape ID="DesignTable:discipline" ZOrder="2" X="-174" Y="204" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:exam" ZOrder="4" X="278" Y="-58" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="121" />
+    <Shape ID="DesignTable:exam" ZOrder="4" X="278" Y="-58" Height="248" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:formed" ZOrder="3" X="262" Y="199" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:paymont" ZOrder="10" X="67" Y="426" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:person" ZOrder="9" X="604" Y="-49" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="197" />
     <Shape ID="DesignTable:speciality" ZOrder="6" X="1067" Y="316" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="121" OldDataTableHeight="24" SplitterPosition="64" />
     <Shape ID="DesignTable:status" ZOrder="5" X="403" Y="416" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:vacancy" ZOrder="8" X="937" Y="-21" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="102" />
+    <Shape ID="DesignTable:vacancy" ZOrder="8" X="937" Y="-21" Height="229" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:enrollee" ZOrder="7" X="728" Y="315" Height="286" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="159" />
     <Shape ID="DesignTable:vacancy1" ZOrder="11" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
   </Shapes>
@@ -59,7 +59,7 @@
         </Point>
         <Point>
           <X>959</X>
-          <Y>189</Y>
+          <Y>208</Y>
         </Point>
       </RoutePoints>
     </Connector>
@@ -95,7 +95,7 @@
       <RoutePoints>
         <Point>
           <X>958</X>
-          <Y>189</Y>
+          <Y>208</Y>
         </Point>
         <Point>
           <X>958</X>

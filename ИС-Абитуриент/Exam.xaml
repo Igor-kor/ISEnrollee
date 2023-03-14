@@ -14,8 +14,34 @@
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="51,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="532,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="675,79,0,0" VerticalAlignment="Top" Width="115"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="219,79,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="378,79,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox SelectedValuePath="discipline_id" x:Name="comboBox" HorizontalAlignment="Left" Margin="219,79,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox SelectedValuePath="person_id" x:Name="comboBox1" HorizontalAlignment="Left" Margin="378,79,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0} {1} {2}">
+                            <Binding Path="firstname"/>
+                            <Binding Path="lastname"/>
+                            <Binding Path="patronimic"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
     </Grid>
 </Window>

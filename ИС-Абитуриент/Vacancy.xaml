@@ -13,8 +13,32 @@
         <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,207,0,10" SelectionChanged="dataGrid_SelectionChanged"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="60,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="521,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboBox" HorizontalAlignment="Left" Margin="206,57,0,0" VerticalAlignment="Top" Width="120"/>
-        <ComboBox x:Name="comboBox1" HorizontalAlignment="Left" Margin="371,57,0,0" VerticalAlignment="Top" Width="120"/>
+        <ComboBox SelectedValuePath="speciality_id" x:Name="comboBox" HorizontalAlignment="Left" Margin="206,57,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
+        <ComboBox SelectedValuePath="paymont_id" x:Name="comboBox1" HorizontalAlignment="Left" Margin="371,57,0,0" VerticalAlignment="Top" Width="120">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock>
+                        <TextBlock.Text>
+                            <MultiBinding StringFormat="{}{0}">
+                                <Binding Path="name"/>
+                            </MultiBinding>
+                        </TextBlock.Text>
+                    </TextBlock>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
 
     </Grid>
 </Window>
