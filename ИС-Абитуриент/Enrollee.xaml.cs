@@ -51,8 +51,6 @@ namespace ИС_Абитуриент
                 cmdperson = new personTableAdapter();
                 cmdperson.Connection = con.con;
                 dataTable = new isenrolleeDataSet();
-
-
                 if (person_id > 0)
                 {
                     cmdperson.FillByPersonid(dataTable.person, person_id);
@@ -60,7 +58,6 @@ namespace ИС_Абитуриент
                 }
                 else
                 {
-                    // cmdperson.Fill(dataTable.person);
                     enrolleeDataAdapter.Fill(dataTable.enrollee);
                 }
                 datasetCombobox = new isenrolleeDataSet();
@@ -75,8 +72,6 @@ namespace ИС_Абитуриент
                 formedComboboxData = new formedTableAdapter();
                 formedComboboxData.Connection = con.con;
                 bonusComboboxData.Fill(datasetCombobox.bonus);
-                //datasetCombobox.bonus.AddbonusRow(datasetCombobox.bonus.NewbonusRow());
-                //datasetCombobox.bonus.Rows.Add(null,null);
                 personComboboxData.Fill(datasetCombobox.person);
                 vacancy1ComboboxData.Fill(datasetCombobox.vacancy1);
                 statusComboboxData.Fill(datasetCombobox.status);
@@ -155,7 +150,7 @@ namespace ИС_Абитуриент
            
             // обноляем записи в таблице datagrid
             enrolleeDataAdapter.Fill(dataTable.enrollee);
-            // выбираем последнюю запись, это будет та что выбрали
+            // выбираем последнюю запись, это будет та что создали
             dataGrid.SelectedIndex = dataTable.enrollee.Count - 1;
         }
     }

@@ -23,7 +23,7 @@ namespace ИС_Абитуриент
     /// </summary>
     public partial class Person : Window
     {
-        NpgsqlDataAdapter npgsqlDataAdapter;
+        personTableAdapter personDataAdapter;
         isenrolleeDataSet dataTable;
         public RolesViewModel ViewModel { get; set; }
         public Person()
@@ -31,17 +31,17 @@ namespace ИС_Абитуриент
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
-            
+
             UserAuth con = UserAuth.getUserAuth();
             try
             {
-                var cmd = new NpgsqlDataAdapter("SELECT * FROM person", con.con);
-                npgsqlDataAdapter = cmd;
+                personDataAdapter = new personTableAdapter( );
+                personDataAdapter.Connection = con.con;
                 dataTable = new isenrolleeDataSet();
-                npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
-                npgsqlDataAdapter.InsertCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetInsertCommand();
-                npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
-                cmd.Fill(dataTable.person);
+                // personDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(personDataAdapter).GetUpdateCommand();
+                // personDataAdapter.InsertCommand = new NpgsqlCommandBuilder(personDataAdapter).GetInsertCommand();
+                // personDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(personDataAdapter).GetDeleteCommand();
+                personDataAdapter.Fill(dataTable.person);
                 // dataTable = table;
                 dataGrid.ItemsSource = dataTable.person.DefaultView;
             }
@@ -70,17 +70,19 @@ namespace ИС_Абитуриент
 
         private void button_Click(object sender, RoutedEventArgs e)
         {
-            /*
-             * сохраняем веденые данные а затем отправляем в бд
-             */
-            dataTable.person.Rows.Add(new object[] { textBox.Text, textBox1.Text, textBox2.Text, textBox3.Text, textBox4.Text, textBox5.Text, datePicker.Text, textBox6.Text, textBox7.Text });
-     
-            npgsqlDataAdapter.Update(dataTable.person);
+            personDataAdapter.newPersonRow();
+            //personDataAdapter.Adapter.InsertCommand = new NpgsqlCommandBuilder(personDataAdapter.Adapter).GetInsertCommand();
+
+            // обноляем записи в таблице datagrid
+            personDataAdapter.Fill(dataTable.person);
+            // выбираем последнюю запись, это будет та что создали
+            dataGrid.SelectedIndex = dataTable.person.Count - 1;
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
-           
+
 
             int index = dataGrid.SelectedIndex;
             //dataGrid.Items.RemoveAt(index);
@@ -91,7 +93,8 @@ namespace ИС_Абитуриент
                 //dataGrid.Items.Remove(selectedItem);
             }
 
-            npgsqlDataAdapter.Update(dataTable.person);
+            personDataAdapter.Adapter.DeleteCommand = new NpgsqlCommandBuilder(personDataAdapter.Adapter).GetDeleteCommand();
+            personDataAdapter.Update(dataTable.person);
         }
 
         private void button2_Click(object sender, RoutedEventArgs e)
@@ -100,19 +103,19 @@ namespace ИС_Абитуриент
             if (selectedItem != null)
             {
                 selectedItem.BeginEdit();
-                selectedItem[0] = textBox.Text;
+                //selectedItem[0] = textBox.Text;
                 selectedItem[1] = textBox1.Text;
                 selectedItem[2] = textBox2.Text;
                 selectedItem[3] = textBox3.Text;
                 selectedItem[4] = textBox4.Text;
                 selectedItem[5] = textBox5.Text;
                 selectedItem[6] = datePicker.SelectedDate;
-                selectedItem[7]= textBox6.Text;
-                selectedItem[8]=  textBox7.Text;
+                selectedItem[7] = textBox6.Text;
+                selectedItem[8] = textBox7.Text;
                 selectedItem.EndEdit();
             }
-
-            npgsqlDataAdapter.Update(dataTable.person);
+            personDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(personDataAdapter.Adapter).GetUpdateCommand();
+            personDataAdapter.Update(dataTable.person);
         }
 
         private void button3_Click(object sender, RoutedEventArgs e)
