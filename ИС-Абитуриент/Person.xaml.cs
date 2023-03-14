@@ -114,5 +114,19 @@ namespace ИС_Абитуриент
 
             npgsqlDataAdapter.Update(dataTable.person);
         }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
+            if (selectedItem != null)
+            {
+                Enrollee enrollee = new Enrollee(Convert.ToInt32(selectedItem[0]));
+                enrollee.Show();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран абитуриент!");
+            }
+        }
     }
 }

@@ -25,6 +25,7 @@ namespace ИС_Абитуриент
     {
         enrolleeTableAdapter npgsqlDataAdapter;
         isenrolleeDataSet dataTable;
+        personTableAdapter cmdperson;
         public RolesViewModel ViewModel { get; set; }
         public Enrollee(int person_id = 0)
         {
@@ -36,20 +37,26 @@ namespace ИС_Абитуриент
             {
                 var cmd = new enrolleeTableAdapter();
                 cmd.Connection = con.con;
-                var cmdperson = new NpgsqlDataAdapter("SELECT * FROM person", con.con);
-                
-
+                cmdperson = new personTableAdapter();
+                cmdperson.Connection = con.con;
                 npgsqlDataAdapter = cmd;
                 dataTable = new isenrolleeDataSet();
-                // npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
-                // npgsqlDataAdapter.InsertCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetInsertCommand();
-                // npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
-                //cmdperson.Fill(dataTable.person);
-                cmdperson.Fill(dataTable.person);
-                cmd.Fill(dataTable.enrollee);
+
+                if (person_id > 0)
+                {
+                    cmdperson.FillByPersonid(dataTable.person, person_id);
+                    cmd.FillByPersonId(dataTable.enrollee, person_id);
+                }
+                else
+                {
+                   // cmdperson.Fill(dataTable.person);
+                    cmd.Fill(dataTable.enrollee);
+                }
+
+                // todo: Переделать на новый табладаптер!!!
                 comboBox.ItemsSource = dataTable.person.DefaultView;
-                //cmd.Fill(dataTable.enrollee);
                 dataGrid.ItemsSource = dataTable.enrollee.DefaultView;
+                dataGrid1.ItemsSource = dataTable.person.DefaultView;
             }
             catch (NpgsqlException ex)
             {
@@ -64,7 +71,21 @@ namespace ИС_Абитуриент
             //dataTable.AcceptChanges();
             npgsqlDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter.Adapter).GetUpdateCommand();
             npgsqlDataAdapter.Adapter.Update(dataTable.enrollee);
-            
+
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
+            if (selectedItem != null)
+            {
+                if (selectedItem[2].ToString().Length > 0)
+                {
+                    cmdperson.FillByPersonid(dataTable.person, selectedItem[2]);
+                    comboBox.SelectedValue = selectedItem[2];
+                }
+
+            }
         }
     }
 }

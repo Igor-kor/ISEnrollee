@@ -9152,7 +9152,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"person_id\", \"lastname\", \"firstname\", \"patronimic\", \"tel\", \"passportnum\", " +
@@ -9305,84 +9305,23 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"person\" ( \"lastname\", \"firstname\", \"patronimic" +
-                "\", \"tel\", \"passportnum\", \"passportdate\", \"passportinfo\", \"snils\") VALUES ( @last" +
-                "name, @firstname, @patronimic, @tel, @passportnum, @passportdate, @passportinfo," +
-                " @snils)";
+            this._commandCollection[2].CommandText = "SELECT        person_id, lastname, firstname, patronimic, tel, passportnum, passp" +
+                "ortdate, passportinfo, snils\r\nFROM            person\r\nWHERE        (person_id = " +
+                "@person_id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "lastname";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "lastname";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "firstname";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "firstname";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "patronimic";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "patronimic";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "tel";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "tel";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "passportnum";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "passportnum";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "passportdate";
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Date;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "passportdate";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "passportinfo";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "passportinfo";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "snils";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "snils";
-            this._commandCollection[2].Parameters.Add(param);
-            this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE ""isenrollee"".""public"".""person"" SET ""person_id"" = @person_id, ""lastname"" = @lastname, ""firstname"" = @firstname, ""patronimic"" = @patronimic, ""tel"" = @tel, ""passportnum"" = @passportnum, ""passportdate"" = @passportdate, ""passportinfo"" = @passportinfo, ""snils"" = @snils WHERE ((""person_id"" = @Original_person_id) AND ((@IsNull_lastname = 1 AND ""lastname"" IS NULL) OR (""lastname"" = @Original_lastname)) AND ((@IsNull_firstname = 1 AND ""firstname"" IS NULL) OR (""firstname"" = @Original_firstname)) AND ((@IsNull_patronimic = 1 AND ""patronimic"" IS NULL) OR (""patronimic"" = @Original_patronimic)) AND ((@IsNull_tel = 1 AND ""tel"" IS NULL) OR (""tel"" = @Original_tel)) AND ((@IsNull_passportnum = 1 AND ""passportnum"" IS NULL) OR (""passportnum"" = @Original_passportnum)) AND ((@IsNull_passportdate = 1 AND ""passportdate"" IS NULL) OR (""passportdate"" = @Original_passportdate)) AND ((@IsNull_passportinfo = 1 AND ""passportinfo"" IS NULL) OR (""passportinfo"" = @Original_passportinfo)) AND (""snils"" = @Original_snils))";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[2].Parameters.Add(param);
+            this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[3].Connection = this.Connection;
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"person\" ( \"lastname\", \"firstname\", \"patronimic" +
+                "\", \"tel\", \"passportnum\", \"passportdate\", \"passportinfo\", \"snils\") VALUES ( @last" +
+                "name, @firstname, @patronimic, @tel, @passportnum, @passportdate, @passportinfo," +
+                " @snils)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "lastname";
             param.DbType = global::System.Data.DbType.String;
@@ -9446,13 +9385,86 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "snils";
             this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"UPDATE ""isenrollee"".""public"".""person"" SET ""person_id"" = @person_id, ""lastname"" = @lastname, ""firstname"" = @firstname, ""patronimic"" = @patronimic, ""tel"" = @tel, ""passportnum"" = @passportnum, ""passportdate"" = @passportdate, ""passportinfo"" = @passportinfo, ""snils"" = @snils WHERE ((""person_id"" = @Original_person_id) AND ((@IsNull_lastname = 1 AND ""lastname"" IS NULL) OR (""lastname"" = @Original_lastname)) AND ((@IsNull_firstname = 1 AND ""firstname"" IS NULL) OR (""firstname"" = @Original_firstname)) AND ((@IsNull_patronimic = 1 AND ""patronimic"" IS NULL) OR (""patronimic"" = @Original_patronimic)) AND ((@IsNull_tel = 1 AND ""tel"" IS NULL) OR (""tel"" = @Original_tel)) AND ((@IsNull_passportnum = 1 AND ""passportnum"" IS NULL) OR (""passportnum"" = @Original_passportnum)) AND ((@IsNull_passportdate = 1 AND ""passportdate"" IS NULL) OR (""passportdate"" = @Original_passportdate)) AND ((@IsNull_passportinfo = 1 AND ""passportinfo"" IS NULL) OR (""passportinfo"" = @Original_passportinfo)) AND (""snils"" = @Original_snils))";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "person_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "person_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "lastname";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "lastname";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "firstname";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "firstname";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "patronimic";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "patronimic";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "tel";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "tel";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "passportnum";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "passportnum";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "passportdate";
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Date;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "passportdate";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "passportinfo";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "passportinfo";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "snils";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "snils";
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_lastname";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9461,7 +9473,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "lastname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_lastname";
             param.DbType = global::System.Data.DbType.String;
@@ -9470,7 +9482,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "lastname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_firstname";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9479,7 +9491,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "firstname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_firstname";
             param.DbType = global::System.Data.DbType.String;
@@ -9488,7 +9500,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "firstname";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_patronimic";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9497,7 +9509,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "patronimic";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_patronimic";
             param.DbType = global::System.Data.DbType.String;
@@ -9506,7 +9518,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "patronimic";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_tel";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9515,7 +9527,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "tel";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_tel";
             param.DbType = global::System.Data.DbType.String;
@@ -9524,7 +9536,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "tel";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_passportnum";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9533,7 +9545,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "passportnum";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_passportnum";
             param.DbType = global::System.Data.DbType.String;
@@ -9542,7 +9554,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "passportnum";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_passportdate";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9551,7 +9563,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "passportdate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_passportdate";
             param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Date;
@@ -9559,7 +9571,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "passportdate";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_passportinfo";
             param.DbType = global::System.Data.DbType.Int32;
@@ -9568,7 +9580,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "passportinfo";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_passportinfo";
             param.DbType = global::System.Data.DbType.String;
@@ -9577,7 +9589,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "passportinfo";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_snils";
             param.DbType = global::System.Data.DbType.String;
@@ -9586,7 +9598,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "snils";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -9608,6 +9620,42 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual isenrolleeDataSet.personDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            isenrolleeDataSet.personDataTable dataTable = new isenrolleeDataSet.personDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPersonid(isenrolleeDataSet.personDataTable dataTable, object person_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((person_id == null)) {
+                throw new global::System.ArgumentNullException("person_id");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(person_id));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual isenrolleeDataSet.personDataTable GetDataByPersonid(object person_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((person_id == null)) {
+                throw new global::System.ArgumentNullException("person_id");
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(person_id));
+            }
             isenrolleeDataSet.personDataTable dataTable = new isenrolleeDataSet.personDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -10112,7 +10160,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(string lastname, string firstname, string patronimic, string tel, string passportnum, object passportdate, string passportinfo, string snils) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
             if ((lastname == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -10208,7 +10256,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                     global::System.Nullable<int> IsNull_passportinfo, 
                     string Original_passportinfo, 
                     string Original_snils) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             if ((person_id == null)) {
                 throw new global::System.ArgumentNullException("person_id");
             }
@@ -12615,7 +12663,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id\r" +
@@ -12714,49 +12762,20 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"enrollee\" (\"enrollee_id\", \"bonus_id\", \"person_" +
-                "id\", \"vacancy_id\", \"status_id\", \"formed_id\") VALUES (@enrollee_id, @bonus_id, @p" +
-                "erson_id, @vacancy_id, @status_id, @formed_id)";
+            this._commandCollection[2].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id\r" +
+                "\nFROM            enrollee\r\nWHERE        (person_id = @person_id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "enrollee_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "enrollee_id";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._commandCollection[2].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "vacancy_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "vacancy_id";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "status_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "status_id";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "formed_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "formed_id";
-            this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = @"UPDATE ""isenrollee"".""public"".""enrollee"" SET ""enrollee_id"" = @enrollee_id, ""bonus_id"" = @bonus_id, ""person_id"" = @person_id, ""vacancy_id"" = @vacancy_id, ""status_id"" = @status_id, ""formed_id"" = @formed_id WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_bonus_id = 1 AND ""bonus_id"" IS NULL) OR (""bonus_id"" = @Original_bonus_id)) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"enrollee\" (\"enrollee_id\", \"bonus_id\", \"person_" +
+                "id\", \"vacancy_id\", \"status_id\", \"formed_id\") VALUES (@enrollee_id, @bonus_id, @p" +
+                "erson_id, @vacancy_id, @status_id, @formed_id)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "enrollee_id";
@@ -12794,13 +12813,53 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
             this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = @"UPDATE ""isenrollee"".""public"".""enrollee"" SET ""enrollee_id"" = @enrollee_id, ""bonus_id"" = @bonus_id, ""person_id"" = @person_id, ""vacancy_id"" = @vacancy_id, ""status_id"" = @status_id, ""formed_id"" = @formed_id WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_bonus_id = 1 AND ""bonus_id"" IS NULL) OR (""bonus_id"" = @Original_bonus_id)) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "enrollee_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "enrollee_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "bonus_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "bonus_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "person_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "person_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "status_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "status_id";
+            this._commandCollection[4].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "formed_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "formed_id";
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_enrollee_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "enrollee_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_bonus_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12809,14 +12868,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "bonus_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_bonus_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "bonus_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_person_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12825,14 +12884,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_vacancy_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12841,14 +12900,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_vacancy_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_status_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12857,14 +12916,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "status_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_status_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "status_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_formed_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12873,14 +12932,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.SourceColumn = "formed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_formed_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12902,6 +12961,42 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual isenrolleeDataSet.enrolleeDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            isenrolleeDataSet.enrolleeDataTable dataTable = new isenrolleeDataSet.enrolleeDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillByPersonId(isenrolleeDataSet.enrolleeDataTable dataTable, object person_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((person_id == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(person_id));
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual isenrolleeDataSet.enrolleeDataTable GetDataByPersonId(object person_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            if ((person_id == null)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((object)(person_id));
+            }
             isenrolleeDataSet.enrolleeDataTable dataTable = new isenrolleeDataSet.enrolleeDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13001,7 +13096,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(object enrollee_id, object bonus_id, object person_id, object vacancy_id, object status_id, object formed_id) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
             if ((enrollee_id == null)) {
                 throw new global::System.ArgumentNullException("enrollee_id");
             }
@@ -13077,7 +13172,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                     object Original_status_id, 
                     global::System.Nullable<int> IsNull_formed_id, 
                     object Original_formed_id) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             if ((enrollee_id == null)) {
                 throw new global::System.ArgumentNullException("enrollee_id");
             }
