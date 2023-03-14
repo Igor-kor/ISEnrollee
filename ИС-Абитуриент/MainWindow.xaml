@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ИС_Абитуриент"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
+        Title="MainWindow" Height="700" Width="800"
         xmlns:materialDesign="http://materialdesigninxaml.net/winfx/xaml/themes" 
         d:DataContext="{d:DesignInstance Type=local:RolesViewModel}"
         TextElement.Foreground="{DynamicResource MaterialDesignBody}"
@@ -27,6 +27,14 @@
             <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
             <Button x:Name="button2" Content="Персональные данные" Click="button2_Click"/>
             <Button x:Name="button3" Content="Заявления" Click="button3_Click"/>
+            <Button x:Name="button4" Content="Бонусы" Click="button4_Click"/>
+            <Button x:Name="button5" Content="Форма обучения"/>
+            <Button x:Name="button6" Content="Статусы заявления"/>
+            <Button x:Name="button7" Content="Форма оплаты"/>
+            <Button x:Name="button8" Content="Дисциплины"/>
+            <Button x:Name="button9" Content="Вступительные испытания"/>
+            <Button x:Name="button10" Content="Результаты вступительных"/>
+            <Button x:Name="button11" Content="Специальности"/>
 
         </StackPanel>
     </Grid>

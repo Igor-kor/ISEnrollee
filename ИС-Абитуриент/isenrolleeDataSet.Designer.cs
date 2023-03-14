@@ -838,8 +838,6 @@ namespace ИС_Абитуриент {
                                 this.columnbonus_id}, true));
                 this.columnbonus_id.AllowDBNull = false;
                 this.columnbonus_id.Unique = true;
-                this.columnvalue.AllowDBNull = false;
-                this.columnname.AllowDBNull = false;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4024,7 +4022,12 @@ namespace ИС_Абитуриент {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int value {
                 get {
-                    return ((int)(this[this.tablebonus.valueColumn]));
+                    try {
+                        return ((int)(this[this.tablebonus.valueColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value\' в таблице \'bonus\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablebonus.valueColumn] = value;
@@ -4035,11 +4038,40 @@ namespace ИС_Абитуриент {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public string name {
                 get {
-                    return ((string)(this[this.tablebonus.nameColumn]));
+                    try {
+                        return ((string)(this[this.tablebonus.nameColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name\' в таблице \'bonus\' равно DBNull.", e);
+                    }
                 }
                 set {
                     this[this.tablebonus.nameColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsvalueNull() {
+                return this.IsNull(this.tablebonus.valueColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetvalueNull() {
+                this[this.tablebonus.valueColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsnameNull() {
+                return this.IsNull(this.tablebonus.nameColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetnameNull() {
+                this[this.tablebonus.nameColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -5940,7 +5972,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[4];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"bonus_id\", \"value\", \"name\" FROM \"public\".\"bonus\"";
@@ -6000,22 +6032,26 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "UPDATE \"isenrollee\".\"public\".\"bonus\" SET \"bonus_id\" = @bonus_id, \"value\" = @value" +
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"bonus\" ( \"value\", \"name\") VALUES (null,null)";
+            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "UPDATE \"isenrollee\".\"public\".\"bonus\" SET \"bonus_id\" = @bonus_id, \"value\" = @value" +
                 ", \"name\" = @name WHERE ((\"bonus_id\" = @Original_bonus_id) AND (\"value\" = @Origin" +
                 "al_value) AND (\"name\" = @Original_name))";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "bonus_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "bonus_id";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "value";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "value";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "name";
             param.DbType = global::System.Data.DbType.String;
@@ -6023,21 +6059,21 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "name";
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_bonus_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "bonus_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_value";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "value";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_name";
             param.DbType = global::System.Data.DbType.String;
@@ -6046,7 +6082,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             param.IsNullable = true;
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6106,16 +6142,21 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> @Original_bonus_id, int @Original_value, string @Original_name) {
+        public virtual int Delete(global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
             if ((@Original_bonus_id.HasValue == true)) {
                 this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(@Original_bonus_id.Value));
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(@Original_value));
+            if ((@Original_value.HasValue == true)) {
+                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(@Original_value.Value));
+            }
+            else {
+                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((@Original_name == null)) {
-                throw new global::System.ArgumentNullException("@Original_name");
+                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(@Original_name));
@@ -6140,16 +6181,21 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> @bonus_id, int @value, string @name) {
+        public virtual int Insert(global::System.Nullable<int> @bonus_id, global::System.Nullable<int> @value, string @name) {
             if ((@bonus_id.HasValue == true)) {
                 this.Adapter.InsertCommand.Parameters[0].Value = ((int)(@bonus_id.Value));
             }
             else {
                 this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            this.Adapter.InsertCommand.Parameters[1].Value = ((int)(@value));
+            if ((@value.HasValue == true)) {
+                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(@value.Value));
+            }
+            else {
+                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((@name == null)) {
-                throw new global::System.ArgumentNullException("@name");
+                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.InsertCommand.Parameters[2].Value = ((string)(@name));
@@ -6174,16 +6220,21 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> @bonus_id, int @value, string @name, global::System.Nullable<int> @Original_bonus_id, int @Original_value, string @Original_name) {
+        public virtual int Update(global::System.Nullable<int> @bonus_id, global::System.Nullable<int> @value, string @name, global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
             if ((@bonus_id.HasValue == true)) {
                 this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(@bonus_id.Value));
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(@value));
+            if ((@value.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(@value.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
+            }
             if ((@name == null)) {
-                throw new global::System.ArgumentNullException("@name");
+                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(@name));
@@ -6194,9 +6245,14 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
             else {
                 this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
             }
-            this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(@Original_value));
+            if ((@Original_value.HasValue == true)) {
+                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(@Original_value.Value));
+            }
+            else {
+                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
+            }
             if ((@Original_name == null)) {
-                throw new global::System.ArgumentNullException("@Original_name");
+                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(@Original_name));
@@ -6221,7 +6277,7 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(int @value, string @name, global::System.Nullable<int> @Original_bonus_id, int @Original_value, string @Original_name) {
+        public virtual int Update(global::System.Nullable<int> @value, string @name, global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
             return this.Update(@Original_bonus_id, @value, @name, @Original_bonus_id, @Original_value, @Original_name);
         }
         
@@ -6238,13 +6294,13 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                 command.Parameters[0].Value = ((object)(Original_bonus_id));
             }
             if ((Original_value == null)) {
-                throw new global::System.ArgumentNullException("Original_value");
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[1].Value = ((object)(Original_value));
             }
             if ((Original_name == null)) {
-                throw new global::System.ArgumentNullException("Original_name");
+                command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[2].Value = ((string)(Original_name));
@@ -6279,13 +6335,13 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                 command.Parameters[0].Value = ((object)(bonus_id));
             }
             if ((value == null)) {
-                throw new global::System.ArgumentNullException("value");
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[1].Value = ((object)(value));
             }
             if ((name == null)) {
-                throw new global::System.ArgumentNullException("name");
+                command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[2].Value = ((string)(name));
@@ -6310,9 +6366,32 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery1() {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(object bonus_id, object value, string name, object Original_bonus_id, object Original_value, string Original_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             if ((bonus_id == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
@@ -6320,13 +6399,13 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                 command.Parameters[0].Value = ((object)(bonus_id));
             }
             if ((value == null)) {
-                throw new global::System.ArgumentNullException("value");
+                command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[1].Value = ((object)(value));
             }
             if ((name == null)) {
-                throw new global::System.ArgumentNullException("name");
+                command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[2].Value = ((string)(name));
@@ -6338,13 +6417,13 @@ namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
                 command.Parameters[3].Value = ((object)(Original_bonus_id));
             }
             if ((Original_value == null)) {
-                throw new global::System.ArgumentNullException("Original_value");
+                command.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[4].Value = ((object)(Original_value));
             }
             if ((Original_name == null)) {
-                throw new global::System.ArgumentNullException("Original_name");
+                command.Parameters[5].Value = global::System.DBNull.Value;
             }
             else {
                 command.Parameters[5].Value = ((string)(Original_name));
