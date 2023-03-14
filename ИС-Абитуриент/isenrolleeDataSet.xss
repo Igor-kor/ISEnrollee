@@ -10,10 +10,10 @@
     <Shape ID="DesignTable:discipline" ZOrder="9" X="0" Y="159" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:exam" ZOrder="10" X="175" Y="-33" Height="229" Width="300" AdapterExpanded="false" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="121" />
     <Shape ID="DesignTable:formed" ZOrder="3" X="354" Y="7" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:paymont" ZOrder="2" X="187" Y="195" Height="172" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:paymont" ZOrder="1" X="187" Y="195" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:person" ZOrder="5" X="534" Y="-25" Height="324" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="197" />
     <Shape ID="DesignTable:speciality" ZOrder="19" X="976" Y="114" Height="172" Width="300" AdapterExpanded="false" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="64" />
-    <Shape ID="DesignTable:status" ZOrder="1" X="405" Y="248" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
+    <Shape ID="DesignTable:status" ZOrder="2" X="405" Y="248" Height="191" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="64" />
     <Shape ID="DesignTable:vacancy" ZOrder="8" X="740" Y="-4" Height="210" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="102" OldDataTableHeight="0" SplitterPosition="102" />
     <Shape ID="DesignTable:enrollee" ZOrder="7" X="777" Y="203" Height="267" Width="300" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="24" OldDataTableHeight="0" SplitterPosition="140" />
     <Shape ID="DesignTable:vacancy1" ZOrder="6" X="0" Y="0" Height="90" Width="158" AdapterExpanded="true" DataTableExpanded="true" OldAdapterHeight="0" OldDataTableHeight="0" SplitterPosition="0" />
