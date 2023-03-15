@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using NGS.Templater;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ИС_Абитуриент.isenrolleeDataSetTableAdapters;
+using System.Data;
 
 namespace ИС_Абитуриент
 {
@@ -40,6 +42,17 @@ namespace ИС_Абитуриент
             dataTable = new isenrolleeDataSet();
             vacancyDataAdapter.Fill(dataTable.vacancyresult, vacancy_id, formed_id);
             dataGrid.ItemsSource = dataTable.vacancyresult.DefaultView;
+           
+            using (var doc = Configuration.Factory.Open("WordTables.docx"))
+            {
+                doc.Process(
+                new
+                {
+                    Table1 = dataTable.vacancyresult
+                });
+            }
+          
+
         }
     }
 }

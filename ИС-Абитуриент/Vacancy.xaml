@@ -39,7 +39,7 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
-        <Button x:Name="button3" Content="Отчет по результатам ступительных" HorizontalAlignment="Left" Margin="505,138,0,0" VerticalAlignment="Top" Click="button3_Click"/>
+        <Button x:Name="button3" Content="Отчет по результатам вступительных" HorizontalAlignment="Left" Margin="505,138,0,0" VerticalAlignment="Top" Click="button3_Click"/>
 
     </Grid>
 </Window>
