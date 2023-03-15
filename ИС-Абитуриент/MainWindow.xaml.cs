@@ -116,5 +116,11 @@ namespace ИС_Абитуриент
             ExamResult examResult = new ExamResult();
             examResult.Show();
         }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            ChangePass changePass = new ChangePass();
+            changePass.Show();
+        }
     }
 }

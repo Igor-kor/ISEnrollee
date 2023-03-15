@@ -79,6 +79,22 @@ namespace ИС_Абитуриент
             return true;
         }
 
+        public bool changePass( string newPass)
+        {
+            var sqlPersonId = "ALTER ROLE current_user WITH PASSWORD '"+ newPass + "';";
+            using (var cmd = new NpgsqlCommand(sqlPersonId, con))
+            {
+                try
+                {
+                    cmd.ExecuteScalar();
+                }catch
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
         private void checkRoles()
         {
             var sqlAdmin = "SELECT pg_has_role( current_user,'admin', 'member')";

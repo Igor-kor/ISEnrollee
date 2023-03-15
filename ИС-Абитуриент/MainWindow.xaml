@@ -37,6 +37,7 @@
             <Button x:Name="button12" Content="Дисциплины вакансий" Click="button12_Click"/>
             <Button x:Name="button13" Content="Конкурс вакансии" Click="button13_Click"/>
             <TextBox x:Name="textBox" TextWrapping="Wrap" Text="TextBox" Width="120"/>
+            <Button x:Name="button4" Content="Сменить пароль" Click="button4_Click"/>
 
         </StackPanel>
     </Grid>

@@ -28,6 +28,8 @@ namespace ИС_Абитуриент
         specialityTableAdapter specialityComboboxData;
         paymontTableAdapter paymontComboboxData;
 
+        int person_id = 0;
+
 
         public RolesViewModel ViewModel { get; set; }
         public Vacancy()
@@ -39,7 +41,17 @@ namespace ИС_Абитуриент
             vacancyDataAdapter = new vacancyTableAdapter();
             vacancyDataAdapter.Connection = con.con;
             dataTable = new isenrolleeDataSet();
-            vacancyDataAdapter.Fill(dataTable.vacancy);
+
+            if (ViewModel.EnrolleeVisible)
+            {
+                person_id = UserAuth.getUserAuth().person_id;
+                vacancyDataAdapter.FillBy1(dataTable.vacancy, person_id);
+            }
+            else
+            {
+                vacancyDataAdapter.Fill(dataTable.vacancy);
+            }
+
             dataGrid.ItemsSource = dataTable.vacancy.DefaultView;
             datasetCombobox = new isenrolleeDataSet();
 
@@ -52,6 +64,8 @@ namespace ИС_Абитуриент
             paymontComboboxData.Connection = con.con;
             paymontComboboxData.Fill(datasetCombobox.paymont);
             comboBox1.ItemsSource = datasetCombobox.paymont.DefaultView;
+
+
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
