@@ -122,5 +122,11 @@ namespace ИС_Абитуриент
             ChangePass changePass = new ChangePass();
             changePass.Show();
         }
+
+        private void button14_Click(object sender, RoutedEventArgs e)
+        {
+            ExamResultPerson examResultPerson = new ExamResultPerson();
+            examResultPerson.Show();
+        }
     }
 }

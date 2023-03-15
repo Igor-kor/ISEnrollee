@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using NGS.Templater;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,45 +12,42 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ИС_Абитуриент.isenrolleeDataSetTableAdapters;
-using System.Data;
 
 namespace ИС_Абитуриент
 {
     /// <summary>
-    /// Логика взаимодействия для ExamResult.xaml
+    /// Логика взаимодействия для ExamResultPerson.xaml
     /// </summary>
-    public partial class ExamResult : Window
+    public partial class ExamResultPerson : Window
     {
         isenrolleeDataSet dataTable;
-        vacancyresultTableAdapter vacancyDataAdapter;
+        examTableAdapter examDataAdapter;
 
         isenrolleeDataSet datasetCombobox;
         disciplineTableAdapter disciplineComboboxData;
         personTableAdapter personComboboxData;
-
         public RolesViewModel ViewModel { get; set; }
-        public ExamResult(int vacancy_id = 0, int formed_id = 0)
+        public ExamResultPerson(int person_id = 0)
         {
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
             UserAuth con = UserAuth.getUserAuth();
-            vacancyDataAdapter = new vacancyresultTableAdapter();
-            vacancyDataAdapter.Connection = con.con;
+            examDataAdapter = new examTableAdapter();
+            examDataAdapter.Connection = con.con;
+            personComboboxData = new personTableAdapter();
+            personComboboxData.Connection = con.con;
             dataTable = new isenrolleeDataSet();
-            vacancyDataAdapter.Fill(dataTable.vacancyresult, vacancy_id, formed_id);
-            dataGrid.ItemsSource = dataTable.vacancyresult.DefaultView;
-           
-            using (var doc = Configuration.Factory.Open("WordTables.docx"))
+            if (ViewModel.EnrolleeVisible)
             {
-                doc.Process(
-                new
-                {
-                    Table1 = dataTable.vacancyresult
-                });
+                person_id = con.person_id;
             }
-          
-
+            examDataAdapter.FillBy1(dataTable.exam, person_id);
+            personComboboxData.FillByPersonid(dataTable.person, person_id);
+            dataGrid.ItemsSource = dataTable.exam.DefaultView;
+            label.Content = dataTable.person.DefaultView[0].Row[1].ToString()+ " "+
+                dataTable.person.DefaultView[0].Row[2].ToString() + " " +
+                dataTable.person.DefaultView[0].Row[3].ToString();
         }
     }
 }
