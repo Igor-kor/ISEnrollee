@@ -24,8 +24,6 @@ namespace ИС_Абитуриент {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class isenrolleeDataSet : global::System.Data.DataSet {
         
-        private bonusDataTable tablebonus;
-        
         private disciplineDataTable tablediscipline;
         
         private examDataTable tableexam;
@@ -64,8 +62,6 @@ namespace ИС_Абитуриент {
         
         private global::System.Data.DataRelation relationformed_enrollee;
         
-        private global::System.Data.DataRelation relationbonus_enrollee;
-        
         private global::System.Data.DataRelation relationvacancy_discipline_vacancy;
         
         private global::System.Data.DataRelation relationdiscipline_discipline_vacancy;
@@ -98,9 +94,6 @@ namespace ИС_Абитуриент {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["bonus"] != null)) {
-                    base.Tables.Add(new bonusDataTable(ds.Tables["bonus"]));
-                }
                 if ((ds.Tables["discipline"] != null)) {
                     base.Tables.Add(new disciplineDataTable(ds.Tables["discipline"]));
                 }
@@ -153,16 +146,6 @@ namespace ИС_Абитуриент {
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
             base.Tables.CollectionChanged += schemaChangedHandler;
             this.Relations.CollectionChanged += schemaChangedHandler;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public bonusDataTable bonus {
-            get {
-                return this.tablebonus;
-            }
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -352,9 +335,6 @@ namespace ИС_Абитуриент {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["bonus"] != null)) {
-                    base.Tables.Add(new bonusDataTable(ds.Tables["bonus"]));
-                }
                 if ((ds.Tables["discipline"] != null)) {
                     base.Tables.Add(new disciplineDataTable(ds.Tables["discipline"]));
                 }
@@ -424,12 +404,6 @@ namespace ИС_Абитуриент {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablebonus = ((bonusDataTable)(base.Tables["bonus"]));
-            if ((initTable == true)) {
-                if ((this.tablebonus != null)) {
-                    this.tablebonus.InitVars();
-                }
-            }
             this.tablediscipline = ((disciplineDataTable)(base.Tables["discipline"]));
             if ((initTable == true)) {
                 if ((this.tablediscipline != null)) {
@@ -509,7 +483,6 @@ namespace ИС_Абитуриент {
             this.relationstatus_enrollee = this.Relations["status_enrollee"];
             this.relationvacancy_enrollee = this.Relations["vacancy_enrollee"];
             this.relationformed_enrollee = this.Relations["formed_enrollee"];
-            this.relationbonus_enrollee = this.Relations["bonus_enrollee"];
             this.relationvacancy_discipline_vacancy = this.Relations["vacancy_discipline_vacancy"];
             this.relationdiscipline_discipline_vacancy = this.Relations["discipline_discipline_vacancy"];
         }
@@ -522,8 +495,6 @@ namespace ИС_Абитуриент {
             this.Namespace = "http://tempuri.org/isenrolleeDataSet.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablebonus = new bonusDataTable();
-            base.Tables.Add(this.tablebonus);
             this.tablediscipline = new disciplineDataTable();
             base.Tables.Add(this.tablediscipline);
             this.tableexam = new examDataTable();
@@ -576,10 +547,6 @@ namespace ИС_Абитуриент {
                         this.tableformed.formed_idColumn}, new global::System.Data.DataColumn[] {
                         this.tableenrollee.formed_idColumn}, false);
             this.Relations.Add(this.relationformed_enrollee);
-            this.relationbonus_enrollee = new global::System.Data.DataRelation("bonus_enrollee", new global::System.Data.DataColumn[] {
-                        this.tablebonus.bonus_idColumn}, new global::System.Data.DataColumn[] {
-                        this.tableenrollee.bonus_idColumn}, false);
-            this.Relations.Add(this.relationbonus_enrollee);
             this.relationvacancy_discipline_vacancy = new global::System.Data.DataRelation("vacancy_discipline_vacancy", new global::System.Data.DataColumn[] {
                         this.tablevacancy.vacancy_idColumn}, new global::System.Data.DataColumn[] {
                         this.tablediscipline_vacancy.vacancy_idColumn}, false);
@@ -588,12 +555,6 @@ namespace ИС_Абитуриент {
                         this.tablediscipline.discipline_idColumn}, new global::System.Data.DataColumn[] {
                         this.tablediscipline_vacancy.discipline_idColumn}, false);
             this.Relations.Add(this.relationdiscipline_discipline_vacancy);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private bool ShouldSerializebonus() {
-            return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -724,9 +685,6 @@ namespace ИС_Абитуриент {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public delegate void bonusRowChangeEventHandler(object sender, bonusRowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void disciplineRowChangeEventHandler(object sender, disciplineRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
@@ -761,292 +719,6 @@ namespace ИС_Абитуриент {
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         public delegate void vacancyresultRowChangeEventHandler(object sender, vacancyresultRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class bonusDataTable : global::System.Data.TypedTableBase<bonusRow> {
-            
-            private global::System.Data.DataColumn columnbonus_id;
-            
-            private global::System.Data.DataColumn columnvalue;
-            
-            private global::System.Data.DataColumn columnname;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusDataTable() {
-                this.TableName = "bonus";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal bonusDataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected bonusDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn bonus_idColumn {
-                get {
-                    return this.columnbonus_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn valueColumn {
-                get {
-                    return this.columnvalue;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn nameColumn {
-                get {
-                    return this.columnname;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow this[int index] {
-                get {
-                    return ((bonusRow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event bonusRowChangeEventHandler bonusRowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event bonusRowChangeEventHandler bonusRowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event bonusRowChangeEventHandler bonusRowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public event bonusRowChangeEventHandler bonusRowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void AddbonusRow(bonusRow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow AddbonusRow(int bonus_id, int value, string name) {
-                bonusRow rowbonusRow = ((bonusRow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        bonus_id,
-                        value,
-                        name};
-                rowbonusRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowbonusRow);
-                return rowbonusRow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow FindBybonus_id(int bonus_id) {
-                return ((bonusRow)(this.Rows.Find(new object[] {
-                            bonus_id})));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                bonusDataTable cln = ((bonusDataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new bonusDataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal void InitVars() {
-                this.columnbonus_id = base.Columns["bonus_id"];
-                this.columnvalue = base.Columns["value"];
-                this.columnname = base.Columns["name"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            private void InitClass() {
-                this.columnbonus_id = new global::System.Data.DataColumn("bonus_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbonus_id);
-                this.columnvalue = new global::System.Data.DataColumn("value", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnvalue);
-                this.columnname = new global::System.Data.DataColumn("name", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnname);
-                this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
-                                this.columnbonus_id}, true));
-                this.columnbonus_id.AllowDBNull = false;
-                this.columnbonus_id.Unique = true;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow NewbonusRow() {
-                return ((bonusRow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new bonusRow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(bonusRow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.bonusRowChanged != null)) {
-                    this.bonusRowChanged(this, new bonusRowChangeEvent(((bonusRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.bonusRowChanging != null)) {
-                    this.bonusRowChanging(this, new bonusRowChangeEvent(((bonusRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.bonusRowDeleted != null)) {
-                    this.bonusRowDeleted(this, new bonusRowChangeEvent(((bonusRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.bonusRowDeleting != null)) {
-                    this.bonusRowDeleting(this, new bonusRowChangeEvent(((bonusRow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void RemovebonusRow(bonusRow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                isenrolleeDataSet ds = new isenrolleeDataSet();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "bonusDataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -3416,8 +3088,6 @@ namespace ИС_Абитуриент {
             
             private global::System.Data.DataColumn columnenrollee_id;
             
-            private global::System.Data.DataColumn columnbonus_id;
-            
             private global::System.Data.DataColumn columnperson_id;
             
             private global::System.Data.DataColumn columnvacancy_id;
@@ -3464,14 +3134,6 @@ namespace ИС_Абитуриент {
             public global::System.Data.DataColumn enrollee_idColumn {
                 get {
                     return this.columnenrollee_id;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn bonus_idColumn {
-                get {
-                    return this.columnbonus_id;
                 }
             }
             
@@ -3544,26 +3206,22 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public enrolleeRow AddenrolleeRow(int enrollee_id, bonusRow parentbonusRowBybonus_enrollee, int person_id, vacancyRow parentvacancyRowByvacancy_enrollee, statusRow parentstatusRowBystatus_enrollee, formedRow parentformedRowByformed_enrollee) {
+            public enrolleeRow AddenrolleeRow(int enrollee_id, int person_id, vacancyRow parentvacancyRowByvacancy_enrollee, statusRow parentstatusRowBystatus_enrollee, formedRow parentformedRowByformed_enrollee) {
                 enrolleeRow rowenrolleeRow = ((enrolleeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         enrollee_id,
-                        null,
                         person_id,
                         null,
                         null,
                         null};
-                if ((parentbonusRowBybonus_enrollee != null)) {
-                    columnValuesArray[1] = parentbonusRowBybonus_enrollee[0];
-                }
                 if ((parentvacancyRowByvacancy_enrollee != null)) {
-                    columnValuesArray[3] = parentvacancyRowByvacancy_enrollee[0];
+                    columnValuesArray[2] = parentvacancyRowByvacancy_enrollee[0];
                 }
                 if ((parentstatusRowBystatus_enrollee != null)) {
-                    columnValuesArray[4] = parentstatusRowBystatus_enrollee[0];
+                    columnValuesArray[3] = parentstatusRowBystatus_enrollee[0];
                 }
                 if ((parentformedRowByformed_enrollee != null)) {
-                    columnValuesArray[5] = parentformedRowByformed_enrollee[0];
+                    columnValuesArray[4] = parentformedRowByformed_enrollee[0];
                 }
                 rowenrolleeRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowenrolleeRow);
@@ -3595,7 +3253,6 @@ namespace ИС_Абитуриент {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             internal void InitVars() {
                 this.columnenrollee_id = base.Columns["enrollee_id"];
-                this.columnbonus_id = base.Columns["bonus_id"];
                 this.columnperson_id = base.Columns["person_id"];
                 this.columnvacancy_id = base.Columns["vacancy_id"];
                 this.columnstatus_id = base.Columns["status_id"];
@@ -3607,8 +3264,6 @@ namespace ИС_Абитуриент {
             private void InitClass() {
                 this.columnenrollee_id = new global::System.Data.DataColumn("enrollee_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnenrollee_id);
-                this.columnbonus_id = new global::System.Data.DataColumn("bonus_id", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnbonus_id);
                 this.columnperson_id = new global::System.Data.DataColumn("person_id", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnperson_id);
                 this.columnvacancy_id = new global::System.Data.DataColumn("vacancy_id", typeof(int), null, global::System.Data.MappingType.Element);
@@ -4608,99 +4263,6 @@ namespace ИС_Абитуриент {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class bonusRow : global::System.Data.DataRow {
-            
-            private bonusDataTable tablebonus;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            internal bonusRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tablebonus = ((bonusDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int bonus_id {
-                get {
-                    return ((int)(this[this.tablebonus.bonus_idColumn]));
-                }
-                set {
-                    this[this.tablebonus.bonus_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int value {
-                get {
-                    try {
-                        return ((int)(this[this.tablebonus.valueColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'value\' в таблице \'bonus\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablebonus.valueColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public string name {
-                get {
-                    try {
-                        return ((string)(this[this.tablebonus.nameColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'name\' в таблице \'bonus\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablebonus.nameColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsvalueNull() {
-                return this.IsNull(this.tablebonus.valueColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetvalueNull() {
-                this[this.tablebonus.valueColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IsnameNull() {
-                return this.IsNull(this.tablebonus.nameColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SetnameNull() {
-                this[this.tablebonus.nameColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public enrolleeRow[] GetenrolleeRows() {
-                if ((this.Table.ChildRelations["bonus_enrollee"] == null)) {
-                    return new enrolleeRow[0];
-                }
-                else {
-                    return ((enrolleeRow[])(base.GetChildRows(this.Table.ChildRelations["bonus_enrollee"])));
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
         public partial class disciplineRow : global::System.Data.DataRow {
             
             private disciplineDataTable tablediscipline;
@@ -5636,22 +5198,6 @@ namespace ИС_Абитуриент {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int bonus_id {
-                get {
-                    try {
-                        return ((int)(this[this.tableenrollee.bonus_idColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("Значение для столбца \'bonus_id\' в таблице \'enrollee\' равно DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableenrollee.bonus_idColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public int person_id {
                 get {
                     try {
@@ -5745,29 +5291,6 @@ namespace ИС_Абитуриент {
                 set {
                     this.SetParentRow(value, this.Table.ParentRelations["formed_enrollee"]);
                 }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow bonusRow {
-                get {
-                    return ((bonusRow)(this.GetParentRow(this.Table.ParentRelations["bonus_enrollee"])));
-                }
-                set {
-                    this.SetParentRow(value, this.Table.ParentRelations["bonus_enrollee"]);
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool Isbonus_idNull() {
-                return this.IsNull(this.tableenrollee.bonus_idColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void Setbonus_idNull() {
-                this[this.tableenrollee.bonus_idColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -6102,40 +5625,6 @@ namespace ИС_Абитуриент {
             internal vacancyresultRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tablevacancyresult = ((vacancyresultDataTable)(this.Table));
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public class bonusRowChangeEvent : global::System.EventArgs {
-            
-            private bonusRow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRowChangeEvent(bonusRow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bonusRow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
             }
         }
         
@@ -6550,723 +6039,6 @@ namespace ИС_Абитуриент {
 }
 namespace ИС_Абитуриент.isenrolleeDataSetTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class bonusTableAdapter : global::System.ComponentModel.Component {
-        
-        private global::Npgsql.NpgsqlDataAdapter _adapter;
-        
-        private global::Npgsql.NpgsqlConnection _connection;
-        
-        private global::Npgsql.NpgsqlTransaction _transaction;
-        
-        private global::Npgsql.NpgsqlCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bonusTableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected internal global::Npgsql.NpgsqlDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Npgsql.NpgsqlConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::Npgsql.NpgsqlCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        internal global::Npgsql.NpgsqlTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        protected global::Npgsql.NpgsqlCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::Npgsql.NpgsqlDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "bonus";
-            tableMapping.ColumnMappings.Add("bonus_id", "bonus_id");
-            tableMapping.ColumnMappings.Add("value", "value");
-            tableMapping.ColumnMappings.Add("name", "name");
-            this._adapter.TableMappings.Add(tableMapping);
-            this._adapter.DeleteCommand = new global::Npgsql.NpgsqlCommand();
-            this._adapter.DeleteCommand.Connection = this.Connection;
-            this._adapter.DeleteCommand.CommandText = "DELETE FROM \"isenrollee\".\"public\".\"bonus\" WHERE ((\"bonus_id\" = @Original_bonus_id" +
-                ") AND (\"value\" = @Original_value) AND (\"name\" = @Original_name))";
-            this._adapter.DeleteCommand.CommandType = global::System.Data.CommandType.Text;
-            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_value";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.DeleteCommand.Parameters.Add(param);
-            this._adapter.InsertCommand = new global::Npgsql.NpgsqlCommand();
-            this._adapter.InsertCommand.Connection = this.Connection;
-            this._adapter.InsertCommand.CommandText = "INSERT INTO \"isenrollee\".\"public\".\"bonus\" (\"bonus_id\", \"value\", \"name\") VALUES (@" +
-                "bonus_id, @value, @name)";
-            this._adapter.InsertCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@value";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._adapter.InsertCommand.Parameters.Add(param);
-            this._adapter.UpdateCommand = new global::Npgsql.NpgsqlCommand();
-            this._adapter.UpdateCommand.Connection = this.Connection;
-            this._adapter.UpdateCommand.CommandText = "UPDATE \"isenrollee\".\"public\".\"bonus\" SET \"bonus_id\" = @bonus_id, \"value\" = @value" +
-                ", \"name\" = @name WHERE ((\"bonus_id\" = @Original_bonus_id) AND (\"value\" = @Origin" +
-                "al_value) AND (\"name\" = @Original_name))";
-            this._adapter.UpdateCommand.CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@value";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_value";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "@Original_name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._adapter.UpdateCommand.Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::Npgsql.NpgsqlConnection();
-            this._connection.ConnectionString = global::ИС_Абитуриент.Properties.Settings.Default.isenrolleeConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
-            this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT \"bonus_id\", \"value\", \"name\" FROM \"public\".\"bonus\"";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[1] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = "DELETE FROM \"isenrollee\".\"public\".\"bonus\" WHERE ((\"bonus_id\" = @Original_bonus_id" +
-                ") AND (\"value\" = @Original_value) AND (\"name\" = @Original_name))";
-            this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
-            global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_value";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[1].Parameters.Add(param);
-            this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"bonus\" (\"bonus_id\", \"value\", \"name\") VALUES (@" +
-                "bonus_id, @value, @name)";
-            this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "value";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._commandCollection[2].Parameters.Add(param);
-            this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"bonus\" ( \"value\", \"name\") VALUES (null,null)";
-            this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE \"isenrollee\".\"public\".\"bonus\" SET \"bonus_id\" = @bonus_id, \"value\" = @value" +
-                ", \"name\" = @name WHERE ((\"bonus_id\" = @Original_bonus_id) AND (\"value\" = @Origin" +
-                "al_value) AND (\"name\" = @Original_name))";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "value";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_value";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "value";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(isenrolleeDataSet.bonusDataTable dataTable) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual isenrolleeDataSet.bonusDataTable GetData() {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            isenrolleeDataSet.bonusDataTable dataTable = new isenrolleeDataSet.bonusDataTable();
-            this.Adapter.Fill(dataTable);
-            return dataTable;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(isenrolleeDataSet.bonusDataTable dataTable) {
-            return this.Adapter.Update(dataTable);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(isenrolleeDataSet dataSet) {
-            return this.Adapter.Update(dataSet, "bonus");
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow dataRow) {
-            return this.Adapter.Update(new global::System.Data.DataRow[] {
-                        dataRow});
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        public virtual int Update(global::System.Data.DataRow[] dataRows) {
-            return this.Adapter.Update(dataRows);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, true)]
-        public virtual int Delete(global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
-            if ((@Original_bonus_id.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[0].Value = ((int)(@Original_bonus_id.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((@Original_value.HasValue == true)) {
-                this.Adapter.DeleteCommand.Parameters[1].Value = ((int)(@Original_value.Value));
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((@Original_name == null)) {
-                this.Adapter.DeleteCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.DeleteCommand.Parameters[2].Value = ((string)(@Original_name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.DeleteCommand.Connection.State;
-            if (((this.Adapter.DeleteCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.DeleteCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.DeleteCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.DeleteCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, true)]
-        public virtual int Insert(global::System.Nullable<int> @bonus_id, global::System.Nullable<int> @value, string @name) {
-            if ((@bonus_id.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[0].Value = ((int)(@bonus_id.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((@value.HasValue == true)) {
-                this.Adapter.InsertCommand.Parameters[1].Value = ((int)(@value.Value));
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((@name == null)) {
-                this.Adapter.InsertCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.InsertCommand.Parameters[2].Value = ((string)(@name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.InsertCommand.Connection.State;
-            if (((this.Adapter.InsertCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.InsertCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.InsertCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.InsertCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> @bonus_id, global::System.Nullable<int> @value, string @name, global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
-            if ((@bonus_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[0].Value = ((int)(@bonus_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((@value.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[1].Value = ((int)(@value.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((@name == null)) {
-                this.Adapter.UpdateCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[2].Value = ((string)(@name));
-            }
-            if ((@Original_bonus_id.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[3].Value = ((int)(@Original_bonus_id.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            if ((@Original_value.HasValue == true)) {
-                this.Adapter.UpdateCommand.Parameters[4].Value = ((int)(@Original_value.Value));
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            if ((@Original_name == null)) {
-                this.Adapter.UpdateCommand.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                this.Adapter.UpdateCommand.Parameters[5].Value = ((string)(@Original_name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = this.Adapter.UpdateCommand.Connection.State;
-            if (((this.Adapter.UpdateCommand.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                this.Adapter.UpdateCommand.Connection.Open();
-            }
-            try {
-                int returnValue = this.Adapter.UpdateCommand.ExecuteNonQuery();
-                return returnValue;
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    this.Adapter.UpdateCommand.Connection.Close();
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, true)]
-        public virtual int Update(global::System.Nullable<int> @value, string @name, global::System.Nullable<int> @Original_bonus_id, global::System.Nullable<int> @Original_value, string @Original_name) {
-            return this.Update(@Original_bonus_id, @value, @name, @Original_bonus_id, @Original_value, @Original_name);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteQuery(object Original_bonus_id, object Original_value, string Original_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[1];
-            if ((Original_bonus_id == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[0].Value = ((object)(Original_bonus_id));
-            }
-            if ((Original_value == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((object)(Original_value));
-            }
-            if ((Original_name == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(Original_name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(object bonus_id, object value, string name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
-            if ((bonus_id == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[0].Value = ((object)(bonus_id));
-            }
-            if ((value == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((object)(value));
-            }
-            if ((name == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery1() {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(object bonus_id, object value, string name, object Original_bonus_id, object Original_value, string Original_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
-            if ((bonus_id == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[0].Value = ((object)(bonus_id));
-            }
-            if ((value == null)) {
-                command.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[1].Value = ((object)(value));
-            }
-            if ((name == null)) {
-                command.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[2].Value = ((string)(name));
-            }
-            if ((Original_bonus_id == null)) {
-                command.Parameters[3].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[3].Value = ((object)(Original_bonus_id));
-            }
-            if ((Original_value == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[4].Value = ((object)(Original_value));
-            }
-            if ((Original_name == null)) {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[5].Value = ((string)(Original_name));
-            }
-            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
-            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
-                        != global::System.Data.ConnectionState.Open)) {
-                command.Connection.Open();
-            }
-            int returnValue;
-            try {
-                returnValue = command.ExecuteNonQuery();
-            }
-            finally {
-                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
-                    command.Connection.Close();
-                }
-            }
-            return returnValue;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -14434,7 +13206,6 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             tableMapping.SourceTable = "Table";
             tableMapping.DataSetTable = "enrollee";
             tableMapping.ColumnMappings.Add("enrollee_id", "enrollee_id");
-            tableMapping.ColumnMappings.Add("bonus_id", "bonus_id");
             tableMapping.ColumnMappings.Add("person_id", "person_id");
             tableMapping.ColumnMappings.Add("vacancy_id", "vacancy_id");
             tableMapping.ColumnMappings.Add("status_id", "status_id");
@@ -14452,15 +13223,15 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[7];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id\r" +
-                "\nFROM            enrollee";
+            this._commandCollection[0].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id\r\nFROM     " +
+                "       enrollee";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.Text;
             this._commandCollection[1] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[1].Connection = this.Connection;
-            this._commandCollection[1].CommandText = @"DELETE FROM ""isenrollee"".""public"".""enrollee"" WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_bonus_id = 1 AND ""bonus_id"" IS NULL) OR (""bonus_id"" = @Original_bonus_id)) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
+            this._commandCollection[1].CommandText = @"DELETE FROM ""isenrollee"".""public"".""enrollee"" WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
             this._commandCollection[1].CommandType = global::System.Data.CommandType.Text;
             global::Npgsql.NpgsqlParameter param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_enrollee_id";
@@ -14470,25 +13241,8 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             this._commandCollection[1].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "IsNull_bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[1].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_person_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -14504,7 +13258,6 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_vacancy_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -14520,7 +13273,6 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_status_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "status_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -14536,7 +13288,6 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_formed_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
@@ -14551,8 +13302,8 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "SELECT        vacancy_id, status_id, formed_id, person_id, enrollee_id, bonus_id\r" +
-                "\nFROM            enrollee\r\nWHERE        (person_id = @person_id)";
+            this._commandCollection[2].CommandText = "SELECT enrollee_id, formed_id, person_id, status_id, vacancy_id FROM enrollee WHE" +
+                "RE (person_id = @person_id)";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "person_id";
@@ -14562,16 +13313,9 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO enrollee\r\n                         (bonus_id, person_id, vacancy_id, " +
-                "status_id, formed_id)\r\nVALUES        (@bonus_id, @person_id, @vacancy_id, @statu" +
-                "s_id, @formed_id)";
+            this._commandCollection[3].CommandText = "INSERT INTO enrollee\r\n                         person_id, vacancy_id, status_id, " +
+                "formed_id)\r\nVALUES        ( @person_id, @vacancy_id, @status_id, @formed_id)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._commandCollection[3].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "person_id";
             param.Size = 1024;
@@ -14598,131 +13342,120 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
             this._commandCollection[3].Parameters.Add(param);
             this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = @"UPDATE ""isenrollee"".""public"".""enrollee"" SET ""enrollee_id"" = @enrollee_id, ""bonus_id"" = @bonus_id, ""person_id"" = @person_id, ""vacancy_id"" = @vacancy_id, ""status_id"" = @status_id, ""formed_id"" = @formed_id WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_bonus_id = 1 AND ""bonus_id"" IS NULL) OR (""bonus_id"" = @Original_bonus_id)) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
+            this._commandCollection[4].CommandText = "INSERT INTO enrollee\r\n                         (person_id)\r\nVALUES        ( @pers" +
+                "on_id)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "enrollee_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "enrollee_id";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            this._commandCollection[4].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "INSERT INTO enrollee\r\n                        ( person_id)\r\nVALUES        (null)";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[6] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = @"UPDATE ""isenrollee"".""public"".""enrollee"" SET ""enrollee_id"" = @enrollee_id, ""person_id"" = @person_id, ""vacancy_id"" = @vacancy_id, ""status_id"" = @status_id, ""formed_id"" = @formed_id WHERE ((""enrollee_id"" = @Original_enrollee_id) AND ((@IsNull_person_id = 1 AND ""person_id"" IS NULL) OR (""person_id"" = @Original_person_id)) AND ((@IsNull_vacancy_id = 1 AND ""vacancy_id"" IS NULL) OR (""vacancy_id"" = @Original_vacancy_id)) AND ((@IsNull_status_id = 1 AND ""status_id"" IS NULL) OR (""status_id"" = @Original_status_id)) AND ((@IsNull_formed_id = 1 AND ""formed_id"" IS NULL) OR (""formed_id"" = @Original_formed_id)))";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "person_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "person_id";
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "vacancy_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "status_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "status_id";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "formed_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_enrollee_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "enrollee_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "IsNull_bonus_id";
-            param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "Original_bonus_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "bonus_id";
-            param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_person_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_person_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "person_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_vacancy_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_vacancy_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_status_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "status_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_status_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "status_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_formed_id";
             param.DbType = global::System.Data.DbType.Int32;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_formed_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "formed_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[6].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "enrollee_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "enrollee_id";
+            this._commandCollection[6].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -14789,73 +13522,61 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Delete, false)]
-        public virtual int DeleteQuery(object Original_enrollee_id, global::System.Nullable<int> IsNull_bonus_id, object Original_bonus_id, global::System.Nullable<int> IsNull_person_id, object Original_person_id, global::System.Nullable<int> IsNull_vacancy_id, object Original_vacancy_id, global::System.Nullable<int> IsNull_status_id, object Original_status_id, global::System.Nullable<int> IsNull_formed_id, object Original_formed_id) {
+        public virtual int DeleteQuery(object Original_enrollee_id, global::System.Nullable<int> IsNull_person_id, object Original_person_id, global::System.Nullable<int> IsNull_vacancy_id, object Original_vacancy_id, global::System.Nullable<int> IsNull_status_id, object Original_status_id, global::System.Nullable<int> IsNull_formed_id, object Original_formed_id) {
             global::Npgsql.NpgsqlCommand command = this.CommandCollection[1];
             if ((Original_enrollee_id == null)) {
-                command.Parameters[0].Value = global::System.DBNull.Value;
+                throw new global::System.ArgumentNullException("Original_enrollee_id");
             }
             else {
                 command.Parameters[0].Value = ((object)(Original_enrollee_id));
             }
-            if ((IsNull_bonus_id.HasValue == true)) {
-                command.Parameters[1].Value = ((int)(IsNull_bonus_id.Value));
+            if ((IsNull_person_id.HasValue == true)) {
+                command.Parameters[1].Value = ((int)(IsNull_person_id.Value));
             }
             else {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((Original_bonus_id == null)) {
+            if ((Original_person_id == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((object)(Original_bonus_id));
+                command.Parameters[2].Value = ((object)(Original_person_id));
             }
-            if ((IsNull_person_id.HasValue == true)) {
-                command.Parameters[3].Value = ((int)(IsNull_person_id.Value));
+            if ((IsNull_vacancy_id.HasValue == true)) {
+                command.Parameters[3].Value = ((int)(IsNull_vacancy_id.Value));
             }
             else {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
-            if ((Original_person_id == null)) {
+            if ((Original_vacancy_id == null)) {
                 command.Parameters[4].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[4].Value = ((object)(Original_person_id));
+                command.Parameters[4].Value = ((object)(Original_vacancy_id));
             }
-            if ((IsNull_vacancy_id.HasValue == true)) {
-                command.Parameters[5].Value = ((int)(IsNull_vacancy_id.Value));
+            if ((IsNull_status_id.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(IsNull_status_id.Value));
             }
             else {
                 command.Parameters[5].Value = global::System.DBNull.Value;
             }
-            if ((Original_vacancy_id == null)) {
+            if ((Original_status_id == null)) {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = ((object)(Original_vacancy_id));
+                command.Parameters[6].Value = ((object)(Original_status_id));
             }
-            if ((IsNull_status_id.HasValue == true)) {
-                command.Parameters[7].Value = ((int)(IsNull_status_id.Value));
+            if ((IsNull_formed_id.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(IsNull_formed_id.Value));
             }
             else {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Original_status_id == null)) {
+            if ((Original_formed_id == null)) {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[8].Value = ((object)(Original_status_id));
-            }
-            if ((IsNull_formed_id.HasValue == true)) {
-                command.Parameters[9].Value = ((int)(IsNull_formed_id.Value));
-            }
-            else {
-                command.Parameters[9].Value = global::System.DBNull.Value;
-            }
-            if ((Original_formed_id == null)) {
-                command.Parameters[10].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[10].Value = ((object)(Original_formed_id));
+                command.Parameters[8].Value = ((object)(Original_formed_id));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14878,37 +13599,31 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
-        public virtual int InsertQuery(object bonus_id, object person_id, object vacancy_id, object status_id, object formed_id) {
+        public virtual int InsertQuery(object person_id, object vacancy_id, object status_id, object formed_id) {
             global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
-            if ((bonus_id == null)) {
+            if ((person_id == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[0].Value = ((object)(bonus_id));
+                command.Parameters[0].Value = ((object)(person_id));
             }
-            if ((person_id == null)) {
+            if ((vacancy_id == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = ((object)(person_id));
+                command.Parameters[1].Value = ((object)(vacancy_id));
             }
-            if ((vacancy_id == null)) {
+            if ((status_id == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((object)(vacancy_id));
+                command.Parameters[2].Value = ((object)(status_id));
             }
-            if ((status_id == null)) {
+            if ((formed_id == null)) {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = ((object)(status_id));
-            }
-            if ((formed_id == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[4].Value = ((object)(formed_id));
+                command.Parameters[3].Value = ((object)(formed_id));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -14930,127 +13645,144 @@ WHERE        (exam.discipline_id = @discipline_id) AND (vacancy.vacancy_id = @va
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
-        public virtual int UpdateQuery(
-                    object enrollee_id, 
-                    object bonus_id, 
-                    object person_id, 
-                    object vacancy_id, 
-                    object status_id, 
-                    object formed_id, 
-                    object Original_enrollee_id, 
-                    global::System.Nullable<int> IsNull_bonus_id, 
-                    object Original_bonus_id, 
-                    global::System.Nullable<int> IsNull_person_id, 
-                    object Original_person_id, 
-                    global::System.Nullable<int> IsNull_vacancy_id, 
-                    object Original_vacancy_id, 
-                    global::System.Nullable<int> IsNull_status_id, 
-                    object Original_status_id, 
-                    global::System.Nullable<int> IsNull_formed_id, 
-                    object Original_formed_id) {
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery1(object person_id) {
             global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
-            if ((enrollee_id == null)) {
+            if ((person_id == null)) {
                 command.Parameters[0].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[0].Value = ((object)(enrollee_id));
+                command.Parameters[0].Value = ((object)(person_id));
             }
-            if ((bonus_id == null)) {
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
+        public virtual int InsertQuery2() {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[5];
+            global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
+            if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
+                        != global::System.Data.ConnectionState.Open)) {
+                command.Connection.Open();
+            }
+            int returnValue;
+            try {
+                returnValue = command.ExecuteNonQuery();
+            }
+            finally {
+                if ((previousConnectionState == global::System.Data.ConnectionState.Closed)) {
+                    command.Connection.Close();
+                }
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
+        public virtual int UpdateQuery(object person_id, object vacancy_id, object status_id, object formed_id, object Original_enrollee_id, global::System.Nullable<int> IsNull_person_id, object Original_person_id, global::System.Nullable<int> IsNull_vacancy_id, object Original_vacancy_id, global::System.Nullable<int> IsNull_status_id, object Original_status_id, global::System.Nullable<int> IsNull_formed_id, object Original_formed_id, object enrollee_id) {
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[6];
+            if ((person_id == null)) {
+                command.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            else {
+                command.Parameters[0].Value = ((object)(person_id));
+            }
+            if ((vacancy_id == null)) {
                 command.Parameters[1].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[1].Value = ((object)(bonus_id));
+                command.Parameters[1].Value = ((object)(vacancy_id));
             }
-            if ((person_id == null)) {
+            if ((status_id == null)) {
                 command.Parameters[2].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[2].Value = ((object)(person_id));
+                command.Parameters[2].Value = ((object)(status_id));
             }
-            if ((vacancy_id == null)) {
+            if ((formed_id == null)) {
                 command.Parameters[3].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[3].Value = ((object)(vacancy_id));
-            }
-            if ((status_id == null)) {
-                command.Parameters[4].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[4].Value = ((object)(status_id));
-            }
-            if ((formed_id == null)) {
-                command.Parameters[5].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[5].Value = ((object)(formed_id));
+                command.Parameters[3].Value = ((object)(formed_id));
             }
             if ((Original_enrollee_id == null)) {
+                throw new global::System.ArgumentNullException("Original_enrollee_id");
+            }
+            else {
+                command.Parameters[4].Value = ((object)(Original_enrollee_id));
+            }
+            if ((IsNull_person_id.HasValue == true)) {
+                command.Parameters[5].Value = ((int)(IsNull_person_id.Value));
+            }
+            else {
+                command.Parameters[5].Value = global::System.DBNull.Value;
+            }
+            if ((Original_person_id == null)) {
                 command.Parameters[6].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[6].Value = ((object)(Original_enrollee_id));
+                command.Parameters[6].Value = ((object)(Original_person_id));
             }
-            if ((IsNull_bonus_id.HasValue == true)) {
-                command.Parameters[7].Value = ((int)(IsNull_bonus_id.Value));
+            if ((IsNull_vacancy_id.HasValue == true)) {
+                command.Parameters[7].Value = ((int)(IsNull_vacancy_id.Value));
             }
             else {
                 command.Parameters[7].Value = global::System.DBNull.Value;
             }
-            if ((Original_bonus_id == null)) {
+            if ((Original_vacancy_id == null)) {
                 command.Parameters[8].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[8].Value = ((object)(Original_bonus_id));
+                command.Parameters[8].Value = ((object)(Original_vacancy_id));
             }
-            if ((IsNull_person_id.HasValue == true)) {
-                command.Parameters[9].Value = ((int)(IsNull_person_id.Value));
+            if ((IsNull_status_id.HasValue == true)) {
+                command.Parameters[9].Value = ((int)(IsNull_status_id.Value));
             }
             else {
                 command.Parameters[9].Value = global::System.DBNull.Value;
             }
-            if ((Original_person_id == null)) {
+            if ((Original_status_id == null)) {
                 command.Parameters[10].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[10].Value = ((object)(Original_person_id));
+                command.Parameters[10].Value = ((object)(Original_status_id));
             }
-            if ((IsNull_vacancy_id.HasValue == true)) {
-                command.Parameters[11].Value = ((int)(IsNull_vacancy_id.Value));
+            if ((IsNull_formed_id.HasValue == true)) {
+                command.Parameters[11].Value = ((int)(IsNull_formed_id.Value));
             }
             else {
                 command.Parameters[11].Value = global::System.DBNull.Value;
             }
-            if ((Original_vacancy_id == null)) {
+            if ((Original_formed_id == null)) {
                 command.Parameters[12].Value = global::System.DBNull.Value;
             }
             else {
-                command.Parameters[12].Value = ((object)(Original_vacancy_id));
+                command.Parameters[12].Value = ((object)(Original_formed_id));
             }
-            if ((IsNull_status_id.HasValue == true)) {
-                command.Parameters[13].Value = ((int)(IsNull_status_id.Value));
-            }
-            else {
-                command.Parameters[13].Value = global::System.DBNull.Value;
-            }
-            if ((Original_status_id == null)) {
-                command.Parameters[14].Value = global::System.DBNull.Value;
+            if ((enrollee_id == null)) {
+                throw new global::System.ArgumentNullException("enrollee_id");
             }
             else {
-                command.Parameters[14].Value = ((object)(Original_status_id));
-            }
-            if ((IsNull_formed_id.HasValue == true)) {
-                command.Parameters[15].Value = ((int)(IsNull_formed_id.Value));
-            }
-            else {
-                command.Parameters[15].Value = global::System.DBNull.Value;
-            }
-            if ((Original_formed_id == null)) {
-                command.Parameters[16].Value = global::System.DBNull.Value;
-            }
-            else {
-                command.Parameters[16].Value = ((object)(Original_formed_id));
+                command.Parameters[13].Value = ((object)(enrollee_id));
             }
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
@@ -16176,8 +14908,6 @@ ORDER BY sum DESC";
         
         private UpdateOrderOption _updateOrder;
         
-        private bonusTableAdapter _bonusTableAdapter;
-        
         private disciplineTableAdapter _disciplineTableAdapter;
         
         private examTableAdapter _examTableAdapter;
@@ -16208,20 +14938,6 @@ ORDER BY sum DESC";
             }
             set {
                 this._updateOrder = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-        [global::System.ComponentModel.EditorAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterManagerPropertyEditor, Microso" +
-            "ft.VSDesigner, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3" +
-            "a", "System.Drawing.Design.UITypeEditor")]
-        public bonusTableAdapter bonusTableAdapter {
-            get {
-                return this._bonusTableAdapter;
-            }
-            set {
-                this._bonusTableAdapter = value;
             }
         }
         
@@ -16370,10 +15086,6 @@ ORDER BY sum DESC";
                 if ((this._connection != null)) {
                     return this._connection;
                 }
-                if (((this._bonusTableAdapter != null) 
-                            && (this._bonusTableAdapter.Connection != null))) {
-                    return this._bonusTableAdapter.Connection;
-                }
                 if (((this._disciplineTableAdapter != null) 
                             && (this._disciplineTableAdapter.Connection != null))) {
                     return this._disciplineTableAdapter.Connection;
@@ -16423,9 +15135,6 @@ ORDER BY sum DESC";
         public int TableAdapterInstanceCount {
             get {
                 int count = 0;
-                if ((this._bonusTableAdapter != null)) {
-                    count = (count + 1);
-                }
                 if ((this._disciplineTableAdapter != null)) {
                     count = (count + 1);
                 }
@@ -16479,15 +15188,6 @@ ORDER BY sum DESC";
                 if (((updatedRows != null) 
                             && (0 < updatedRows.Length))) {
                     result = (result + this._specialityTableAdapter.Update(updatedRows));
-                    allChangedRows.AddRange(updatedRows);
-                }
-            }
-            if ((this._bonusTableAdapter != null)) {
-                global::System.Data.DataRow[] updatedRows = dataSet.bonus.Select(null, null, global::System.Data.DataViewRowState.ModifiedCurrent);
-                updatedRows = this.GetRealUpdatedRows(updatedRows, allAddedRows);
-                if (((updatedRows != null) 
-                            && (0 < updatedRows.Length))) {
-                    result = (result + this._bonusTableAdapter.Update(updatedRows));
                     allChangedRows.AddRange(updatedRows);
                 }
             }
@@ -16577,14 +15277,6 @@ ORDER BY sum DESC";
                 if (((addedRows != null) 
                             && (0 < addedRows.Length))) {
                     result = (result + this._specialityTableAdapter.Update(addedRows));
-                    allAddedRows.AddRange(addedRows);
-                }
-            }
-            if ((this._bonusTableAdapter != null)) {
-                global::System.Data.DataRow[] addedRows = dataSet.bonus.Select(null, null, global::System.Data.DataViewRowState.Added);
-                if (((addedRows != null) 
-                            && (0 < addedRows.Length))) {
-                    result = (result + this._bonusTableAdapter.Update(addedRows));
                     allAddedRows.AddRange(addedRows);
                 }
             }
@@ -16710,14 +15402,6 @@ ORDER BY sum DESC";
                     allChangedRows.AddRange(deletedRows);
                 }
             }
-            if ((this._bonusTableAdapter != null)) {
-                global::System.Data.DataRow[] deletedRows = dataSet.bonus.Select(null, null, global::System.Data.DataViewRowState.Deleted);
-                if (((deletedRows != null) 
-                            && (0 < deletedRows.Length))) {
-                    result = (result + this._bonusTableAdapter.Update(deletedRows));
-                    allChangedRows.AddRange(deletedRows);
-                }
-            }
             if ((this._specialityTableAdapter != null)) {
                 global::System.Data.DataRow[] deletedRows = dataSet.speciality.Select(null, null, global::System.Data.DataViewRowState.Deleted);
                 if (((deletedRows != null) 
@@ -16772,11 +15456,6 @@ ORDER BY sum DESC";
             }
             if ((dataSet.HasChanges() == false)) {
                 return 0;
-            }
-            if (((this._bonusTableAdapter != null) 
-                        && (this.MatchTableAdapterConnection(this._bonusTableAdapter.Connection) == false))) {
-                throw new global::System.ArgumentException("Все адаптеры таблицы, управляемые диспетчером адаптера таблицы TableAdapterManage" +
-                        "r, должны использовать одинаковую строку подключения.");
             }
             if (((this._disciplineTableAdapter != null) 
                         && (this.MatchTableAdapterConnection(this._disciplineTableAdapter.Connection) == false))) {
@@ -16855,15 +15534,6 @@ ORDER BY sum DESC";
             try {
                 // ---- Prepare for update -----------
                 //
-                if ((this._bonusTableAdapter != null)) {
-                    revertConnections.Add(this._bonusTableAdapter, this._bonusTableAdapter.Connection);
-                    this._bonusTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(workConnection));
-                    this._bonusTableAdapter.Transaction = ((global::Npgsql.NpgsqlTransaction)(workTransaction));
-                    if (this._bonusTableAdapter.Adapter.AcceptChangesDuringUpdate) {
-                        this._bonusTableAdapter.Adapter.AcceptChangesDuringUpdate = false;
-                        adaptersWithAcceptChangesDuringUpdate.Add(this._bonusTableAdapter.Adapter);
-                    }
-                }
                 if ((this._disciplineTableAdapter != null)) {
                     revertConnections.Add(this._disciplineTableAdapter, this._disciplineTableAdapter.Connection);
                     this._disciplineTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(workConnection));
@@ -17002,10 +15672,6 @@ ORDER BY sum DESC";
             finally {
                 if (workConnOpened) {
                     workConnection.Close();
-                }
-                if ((this._bonusTableAdapter != null)) {
-                    this._bonusTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._bonusTableAdapter]));
-                    this._bonusTableAdapter.Transaction = null;
                 }
                 if ((this._disciplineTableAdapter != null)) {
                     this._disciplineTableAdapter.Connection = ((global::Npgsql.NpgsqlConnection)(revertConnections[this._disciplineTableAdapter]));

@@ -27,7 +27,6 @@
             <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
             <Button x:Name="button2" Content="Персональные данные" Click="button2_Click"/>
             <Button x:Name="button3" Content="Заявления" Click="button3_Click"/>
-            <Button x:Name="button4" Content="Бонусы" Click="button4_Click"/>
             <Button x:Name="button5" Content="Форма обучения" Click="button5_Click"/>
             <Button x:Name="button6" Content="Статусы заявления" Click="button6_Click"/>
             <Button x:Name="button7" Content="Форма оплаты" Click="button7_Click"/>

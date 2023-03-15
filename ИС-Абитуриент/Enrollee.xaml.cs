@@ -29,7 +29,7 @@ namespace ИС_Абитуриент
         personTableAdapter cmdperson;
 
         personTableAdapter personComboboxData;
-        bonusTableAdapter bonusComboboxData;
+        //bonusTableAdapter bonusComboboxData;
         vacancy1TableAdapter vacancy1ComboboxData;
         statusTableAdapter statusComboboxData;
         formedTableAdapter formedComboboxData;
@@ -61,8 +61,8 @@ namespace ИС_Абитуриент
                     enrolleeDataAdapter.Fill(dataTable.enrollee);
                 }
                 datasetCombobox = new isenrolleeDataSet();
-                bonusComboboxData = new bonusTableAdapter();
-                bonusComboboxData.Connection = con.con;
+               // bonusComboboxData = new bonusTableAdapter();
+                //bonusComboboxData.Connection = con.con;
                 personComboboxData = new personTableAdapter();
                 personComboboxData.Connection = con.con;
                 vacancy1ComboboxData = new vacancy1TableAdapter();
@@ -71,12 +71,12 @@ namespace ИС_Абитуриент
                 statusComboboxData.Connection = con.con;
                 formedComboboxData = new formedTableAdapter();
                 formedComboboxData.Connection = con.con;
-                bonusComboboxData.Fill(datasetCombobox.bonus);
+                //bonusComboboxData.Fill(datasetCombobox.bonus);
                 personComboboxData.Fill(datasetCombobox.person);
                 vacancy1ComboboxData.Fill(datasetCombobox.vacancy1);
                 statusComboboxData.Fill(datasetCombobox.status);
                 formedComboboxData.Fill(datasetCombobox.formed);
-                comboBox.ItemsSource = datasetCombobox.bonus.DefaultView;
+                //comboBox.ItemsSource = datasetCombobox.bonus.DefaultView;
                 comboBox1.ItemsSource = datasetCombobox.person.DefaultView;
                 comboBox2.ItemsSource = datasetCombobox.vacancy1.DefaultView;
                 comboBox3.ItemsSource = datasetCombobox.status.DefaultView;
@@ -96,12 +96,12 @@ namespace ИС_Абитуриент
             DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
             if (selectedItem != null)
             {
-                cmdperson.FillByPersonid(dataTable.person, selectedItem[2]);
-                selectedItem[1] = comboBox.SelectedValue;
-                selectedItem[2] = comboBox1.SelectedValue;
-                selectedItem[3] = comboBox2.SelectedValue;
-                selectedItem[4] = comboBox3.SelectedValue;
-                selectedItem[5] = comboBox4.SelectedValue;
+                cmdperson.FillByPersonid(dataTable.person, selectedItem[1]);
+                //selectedItem[1] = comboBox.SelectedValue;
+                selectedItem[1] = comboBox1.SelectedValue;
+                selectedItem[2] = comboBox2.SelectedValue;
+                selectedItem[3] = comboBox3.SelectedValue;
+                selectedItem[4] = comboBox4.SelectedValue;
             }
             enrolleeDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(enrolleeDataAdapter.Adapter).GetUpdateCommand();
             enrolleeDataAdapter.Adapter.Update(dataTable.enrollee);
@@ -113,12 +113,12 @@ namespace ИС_Абитуриент
             DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
             if (selectedItem != null)
             {
-                cmdperson.FillByPersonid(dataTable.person, selectedItem[2]);
-                comboBox.SelectedValue = selectedItem[1];
-                comboBox1.SelectedValue = selectedItem[2];
-                comboBox2.SelectedValue = selectedItem[3];
-                comboBox3.SelectedValue = selectedItem[4];
-                comboBox4.SelectedValue = selectedItem[5];
+                cmdperson.FillByPersonid(dataTable.person, selectedItem[1]);
+                //comboBox.SelectedValue = selectedItem[1];
+                comboBox1.SelectedValue = selectedItem[1];
+                comboBox2.SelectedValue = selectedItem[2];
+                comboBox3.SelectedValue = selectedItem[3];
+                comboBox4.SelectedValue = selectedItem[4];
             }
         }
 
@@ -139,12 +139,12 @@ namespace ИС_Абитуриент
             if (person_id > 0)
             {
                 // создаем запись в бд
-                enrolleeDataAdapter.InsertQuery(null, person_id, null, null, null);
+                enrolleeDataAdapter.InsertQuery1( person_id);
             }
             else
             {
                 // создаем запись в бд
-                enrolleeDataAdapter.InsertQuery(null, null, null, null, null);
+                enrolleeDataAdapter.InsertQuery2();
             }
             enrolleeDataAdapter.Adapter.InsertCommand = new NpgsqlCommandBuilder(enrolleeDataAdapter.Adapter).GetInsertCommand();
            

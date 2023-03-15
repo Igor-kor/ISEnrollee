@@ -56,11 +56,11 @@ namespace ИС_Абитуриент
             enrollee.Show();
         }
 
-        private void button4_Click(object sender, RoutedEventArgs e)
-        {
-            bonus _bonus = new bonus();
-            _bonus.Show();
-        }
+     //  private void button4_Click(object sender, RoutedEventArgs e)
+     //   {
+     //       bonus _bonus = new bonus();
+     //       _bonus.Show();
+     //   }
 
         private void button5_Click(object sender, RoutedEventArgs e)
         {
