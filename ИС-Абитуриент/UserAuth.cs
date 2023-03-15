@@ -20,6 +20,7 @@ namespace ИС_Абитуриент
         string Password = "isenrollee";
         string Port = "5432";
         UserRole Role = UserRole.None;
+        public int person_id = 0;
 
         public UserRole getRole()
         {
@@ -83,6 +84,16 @@ namespace ИС_Абитуриент
             var sqlAdmin = "SELECT pg_has_role( current_user,'admin', 'member')";
             var sqlEmployee = "SELECT pg_has_role( current_user,'employee','member')";
             var sqlEnrollee = "SELECT pg_has_role( current_user,'enrollee','member')";
+            var sqlPersonId= "SELECT person_id FROM person WHERE (snils = current_user)";
+            using (var cmd = new NpgsqlCommand(sqlPersonId, con))
+            {
+                var result = cmd.ExecuteScalar();
+                if (result != null)
+                {
+                    person_id = Convert.ToInt32(result);
+                }
+
+            }
             using (var cmd = new NpgsqlCommand(sqlAdmin, con))
             {
                 if ((bool)cmd.ExecuteScalar())
@@ -110,6 +121,7 @@ namespace ИС_Абитуриент
                 }
 
             }
+
             Role = UserRole.None;
         }
 

@@ -30,6 +30,7 @@ namespace ИС_Абитуриент
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
+            textBox.Text = UserAuth.getUserAuth().person_id.ToString();
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
