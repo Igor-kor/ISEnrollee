@@ -107,5 +107,16 @@ namespace ИС_Абитуриент
             vacancyDataAdapter.Adapter.DeleteCommand = new NpgsqlCommandBuilder(vacancyDataAdapter.Adapter).GetDeleteCommand();
             vacancyDataAdapter.Adapter.Update(dataTable.vacancy);
         }
+
+        private void button3_Click(object sender, RoutedEventArgs e)
+        {
+            int index = dataGrid.SelectedIndex;
+            DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
+            if (selectedItem != null)
+            {
+                ExamResult examresult = new ExamResult(Convert.ToInt32(selectedItem[0]), 1);
+                examresult.Show();
+            }
+        }
     }
 }

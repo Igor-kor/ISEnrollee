@@ -168,6 +168,9 @@
     <Compile Include="Exam.xaml.cs">
       <DependentUpon>Exam.xaml</DependentUpon>
     </Compile>
+    <Compile Include="ExamResult.xaml.cs">
+      <DependentUpon>ExamResult.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Formed.xaml.cs">
       <DependentUpon>Formed.xaml</DependentUpon>
     </Compile>
@@ -221,6 +224,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Exam.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ExamResult.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

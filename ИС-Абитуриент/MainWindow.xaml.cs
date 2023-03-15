@@ -109,5 +109,11 @@ namespace ИС_Абитуриент
             Discipline_vacancy discipline_Vacancy = new Discipline_vacancy();
             discipline_Vacancy.Show();
         }
+
+        private void button13_Click(object sender, RoutedEventArgs e)
+        {
+            ExamResult examResult = new ExamResult();
+            examResult.Show();
+        }
     }
 }
