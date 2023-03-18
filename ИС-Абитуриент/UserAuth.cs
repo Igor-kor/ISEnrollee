@@ -15,13 +15,13 @@ namespace ИС_Абитуриент
         static UserAuth context = null;
         public NpgsqlConnection con = null;
         string Host = "127.0.0.1";
-        string User = "isenrollee";
+        public string User = "isenrollee";
         string DBname = "isenrollee";
         string Password = "isenrollee";
         string Port = "5432";
         UserRole Role = UserRole.None;
         public int person_id = 0;
-
+        
         public UserRole getRole()
         {
             return Role;

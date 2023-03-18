@@ -50,8 +50,6 @@ namespace ИС_Абитуриент
                     Table1 = dataTable.vacancyresult
                 });
             }
-          
-
         }
     }
 }

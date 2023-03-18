@@ -1,4 +1,5 @@
 ﻿using Microsoft.Build.Framework.XamlTypes;
+using Microsoft.Graph;
 using Npgsql;
 using System;
 using System.Collections.Generic;
@@ -30,7 +31,9 @@ namespace ИС_Абитуриент
             InitializeComponent();
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
-            textBox.Text = UserAuth.getUserAuth().person_id.ToString();
+           
+            label3.Content = UserAuth.isAdmin? "Администратор": UserAuth.isEmployee? "Сотрудник": UserAuth.isEnrollee? "Аюитуриент" :"";
+            label2.Content = UserAuth.getUserAuth().User;
         }
 
         private void button_Click(object sender, RoutedEventArgs e)
@@ -127,6 +130,12 @@ namespace ИС_Абитуриент
         {
             ExamResultPerson examResultPerson = new ExamResultPerson();
             examResultPerson.Show();
+        }
+
+        private void button15_Click(object sender, RoutedEventArgs e)
+        {
+            this.Content = new LoginPage();
+            UserAuth.getUserAuth().CloseConnectToDB();
         }
     }
 }

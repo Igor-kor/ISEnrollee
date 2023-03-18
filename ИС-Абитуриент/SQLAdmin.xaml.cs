@@ -23,7 +23,7 @@ namespace ИС_Абитуриент
     public partial class SQLAdmin : Window
     {
         NpgsqlDataAdapter npgsqlDataAdapter;
-        isenrolleeDataSet dataTable;
+        DataSet dataSet;
         public RolesViewModel ViewModel { get; set; }
         public SQLAdmin()
         {
@@ -41,10 +41,9 @@ namespace ИС_Абитуриент
                 var cmd = new NpgsqlDataAdapter(new TextRange(textBox.Document.ContentStart,
                  textBox.Document.ContentEnd).Text, con.con);
                 npgsqlDataAdapter = cmd;
-                dataTable = new isenrolleeDataSet();
-                cmd.Fill(dataTable.person);
-               // dataTable = table;
-                dataGrid.ItemsSource = dataTable.person.DefaultView;
+                dataSet = new DataSet();
+                cmd.Fill(dataSet);
+                dataGrid.ItemsSource = dataSet.Tables[0].DefaultView;
             }
             catch (NpgsqlException ex)
             {
@@ -55,16 +54,22 @@ namespace ИС_Абитуриент
 
         private void button2_Click(object sender, RoutedEventArgs e)
         {
-
+            npgsqlDataAdapter.DeleteCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetDeleteCommand();
+            npgsqlDataAdapter.Update(dataSet);
         }
 
         private void button1_Click(object sender, RoutedEventArgs e)
         {
             npgsqlDataAdapter.UpdateCommand = new NpgsqlCommandBuilder(npgsqlDataAdapter).GetUpdateCommand();
-            npgsqlDataAdapter.Update(dataTable.person);
+            npgsqlDataAdapter.Update(dataSet);
         }
 
         private void textBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void dataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
         }

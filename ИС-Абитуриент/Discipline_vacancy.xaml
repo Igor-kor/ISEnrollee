@@ -10,7 +10,7 @@
         <Button x:Name="button" Content="Создать" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Сохранить" HorizontalAlignment="Left" Margin="120,138,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="Удалить" HorizontalAlignment="Left" Margin="255,138,0,0" VerticalAlignment="Top" Click="button2_Click"/>
-        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,207,0,10" SelectionChanged="dataGrid_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,207,0,10" SelectionChanged="dataGrid_SelectionChanged" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="60,57,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <ComboBox SelectedValuePath="discipline_id" x:Name="comboBox" HorizontalAlignment="Left" Margin="206,57,0,0" VerticalAlignment="Top" Width="120">
             <ComboBox.ItemTemplate>
@@ -38,6 +38,9 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Label x:Name="label" Content="id" HorizontalAlignment="Left" Height="22" Margin="68,20,0,0" VerticalAlignment="Top" Width="52"/>
+        <Label x:Name="label_Copy" Content="Дисциплина" HorizontalAlignment="Left" Height="22" Margin="206,20,0,0" VerticalAlignment="Top" Width="101"/>
+        <Label x:Name="label_Copy1" Content="Вакансия" HorizontalAlignment="Left" Height="22" Margin="371,20,0,0" VerticalAlignment="Top" Width="93"/>
 
     </Grid>
 </Window>
