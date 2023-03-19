@@ -32,7 +32,7 @@ namespace ИС_Абитуриент
             ViewModel = new RolesViewModel();
             this.DataContext = ViewModel;
            
-            label3.Content = UserAuth.isAdmin? "Администратор": UserAuth.isEmployee? "Сотрудник": UserAuth.isEnrollee? "Аюитуриент" :"";
+            label3.Content = UserAuth.isAdmin? "Администратор": UserAuth.isEmployee? "Сотрудник": UserAuth.isEnrollee? "Абитуриент" :"";
             label2.Content = UserAuth.getUserAuth().User;
         }
 
