@@ -65,7 +65,8 @@ namespace ИС_Абитуриент
             // Process open file dialog box results
             if (result == true)
             {
-                using (var doc = Configuration.Factory.Open(File.Open("Concurs.docx", FileMode.Open), "docx", File.Open(dialog.FileName, FileMode.OpenOrCreate)))
+                var outfile = File.Open(dialog.FileName, FileMode.OpenOrCreate);
+                using (var doc = Configuration.Factory.Open(File.Open("Concurs.docx", FileMode.Open), "docx", outfile))
                 {
                     doc.Process(
                     new
@@ -75,6 +76,7 @@ namespace ИС_Абитуриент
                         speccount = dataTable.vacancy.Rows[0]["count"]
                     });
                 }
+                outfile.Close();
             }
         }
     }

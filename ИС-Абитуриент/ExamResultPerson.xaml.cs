@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ИС_Абитуриент.isenrolleeDataSetTableAdapters;
+using NGS.Templater;
 
 namespace ИС_Абитуриент
 {
@@ -48,6 +50,36 @@ namespace ИС_Абитуриент
             label.Content = dataTable.person.DefaultView[0].Row[1].ToString()+ " "+
                 dataTable.person.DefaultView[0].Row[2].ToString() + " " +
                 dataTable.person.DefaultView[0].Row[3].ToString();
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.FileName = "Отчет"; // Default file name
+            dialog.DefaultExt = ".docx"; // Default file extension
+            dialog.Filter = "Word documents (.docx)|*.docx"; // Filter files by extension
+
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
+            {
+                var outfile = File.Open(dialog.FileName, FileMode.OpenOrCreate);
+                using (var doc = Configuration.Factory.Open(File.Open("examperson.docx", FileMode.Open), "docx", outfile))
+                {
+                    doc.Process(
+                    new
+                    {
+                        table1 = dataTable.exam,
+                        firstname = dataTable.person.Rows[0]["firstname"],
+                        lastname = dataTable.person.Rows[0]["lastname"],
+                        patronomic = dataTable.person.Rows[0]["patronimic"]
+                    });
+                    
+                }
+                outfile.Close();
+            }
         }
     }
 }
