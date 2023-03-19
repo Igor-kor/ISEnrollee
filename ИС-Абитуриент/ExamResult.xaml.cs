@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using ИС_Абитуриент.isenrolleeDataSetTableAdapters;
 using System.Data;
+using System.IO;
 
 namespace ИС_Абитуриент
 {
@@ -47,15 +48,33 @@ namespace ИС_Абитуриент
 
             specialitytDataAdapter.FillBy(dataTable.speciality, Convert.ToInt32(dataTable.vacancy.Rows[0]["speciality_id"]));
             dataGrid.ItemsSource = dataTable.vacancyresult.DefaultView;
-            using (var doc = Configuration.Factory.Open("WordTables.docx"))
+
+           
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            var dialog = new Microsoft.Win32.SaveFileDialog();
+            dialog.FileName = "Отчет"; // Default file name
+            dialog.DefaultExt = ".docx"; // Default file extension
+            dialog.Filter = "Word documents (.docx)|*.docx"; // Filter files by extension
+
+            // Show open file dialog box
+            bool? result = dialog.ShowDialog();
+
+            // Process open file dialog box results
+            if (result == true)
             {
-                doc.Process(
-                new
+                using (var doc = Configuration.Factory.Open(File.Open("Concurs.docx", FileMode.Open), "docx", File.Open(dialog.FileName, FileMode.OpenOrCreate)))
                 {
-                    Table1 = dataTable.vacancyresult,
-                    specname = dataTable.speciality.Rows[0]["name"],
-                    speccount = dataTable.vacancy.Rows[0]["count"]
-                });
+                    doc.Process(
+                    new
+                    {
+                        Table1 = dataTable.vacancyresult,
+                        specname = dataTable.speciality.Rows[0]["name"],
+                        speccount = dataTable.vacancy.Rows[0]["count"]
+                    });
+                }
             }
         }
     }
