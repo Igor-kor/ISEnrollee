@@ -30,7 +30,6 @@ namespace ИС_Абитуриент
 
         int person_id = 0;
 
-
         public RolesViewModel ViewModel { get; set; }
         public Vacancy()
         {
