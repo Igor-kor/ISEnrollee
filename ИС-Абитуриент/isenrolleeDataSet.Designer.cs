@@ -11192,7 +11192,7 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[5];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[6];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"speciality_id\", \"name\" FROM \"public\".\"speciality\"";
@@ -11230,39 +11230,28 @@ WHERE        (lastname LIKE @lastname) OR
             this._commandCollection[1].Parameters.Add(param);
             this._commandCollection[2] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[2].Connection = this.Connection;
-            this._commandCollection[2].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"speciality\" (\"speciality_id\", \"name\") VALUES (" +
-                "@speciality_id, @name)";
+            this._commandCollection[2].CommandText = "SELECT \"speciality_id\", \"name\" FROM \"public\".\"speciality\" WHERE (speciality_id = " +
+                "@speciality_id )";
             this._commandCollection[2].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "speciality_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
             this._commandCollection[2].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "name";
-            param.DbType = global::System.Data.DbType.String;
-            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "name";
-            this._commandCollection[2].Parameters.Add(param);
             this._commandCollection[3] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[3].Connection = this.Connection;
-            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"speciality\" ( \"name\") VALUES (null)";
+            this._commandCollection[3].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"speciality\" (\"speciality_id\", \"name\") VALUES (" +
+                "@speciality_id, @name)";
             this._commandCollection[3].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "UPDATE \"isenrollee\".\"public\".\"speciality\" SET \"speciality_id\" = @speciality_id, \"" +
-                "name\" = @name WHERE ((\"speciality_id\" = @Original_speciality_id) AND ((@IsNull_n" +
-                "ame = 1 AND \"name\" IS NULL) OR (\"name\" = @Original_name)))";
-            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "name";
             param.DbType = global::System.Data.DbType.String;
@@ -11270,14 +11259,38 @@ WHERE        (lastname LIKE @lastname) OR
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "name";
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[3].Parameters.Add(param);
+            this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[4].Connection = this.Connection;
+            this._commandCollection[4].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"speciality\" ( \"name\") VALUES (null)";
+            this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[5] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[5].Connection = this.Connection;
+            this._commandCollection[5].CommandText = "UPDATE \"isenrollee\".\"public\".\"speciality\" SET \"speciality_id\" = @speciality_id, \"" +
+                "name\" = @name WHERE ((\"speciality_id\" = @Original_speciality_id) AND ((@IsNull_n" +
+                "ame = 1 AND \"name\" IS NULL) OR (\"name\" = @Original_name)))";
+            this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "speciality_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "speciality_id";
+            this._commandCollection[5].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "name";
+            param.DbType = global::System.Data.DbType.String;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Text;
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "name";
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_name";
             param.DbType = global::System.Data.DbType.Int32;
@@ -11286,7 +11299,7 @@ WHERE        (lastname LIKE @lastname) OR
             param.SourceColumn = "name";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[4].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -11308,6 +11321,32 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
         public virtual isenrolleeDataSet.specialityDataTable GetData() {
             this.Adapter.SelectCommand = this.CommandCollection[0];
+            isenrolleeDataSet.specialityDataTable dataTable = new isenrolleeDataSet.specialityDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy(isenrolleeDataSet.specialityDataTable dataTable, int speciality_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(speciality_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual isenrolleeDataSet.specialityDataTable GetDataBy4(int speciality_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[2];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(speciality_id));
             isenrolleeDataSet.specialityDataTable dataTable = new isenrolleeDataSet.specialityDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -11491,7 +11530,7 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(object speciality_id, string name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[2];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
             if ((speciality_id == null)) {
                 throw new global::System.ArgumentNullException("speciality_id");
             }
@@ -11526,7 +11565,7 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery1() {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[3];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -11549,7 +11588,7 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(object speciality_id, string name, object Original_speciality_id, global::System.Nullable<int> IsNull_name) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[5];
             if ((speciality_id == null)) {
                 throw new global::System.ArgumentNullException("speciality_id");
             }
@@ -12546,7 +12585,7 @@ WHERE        (lastname LIKE @lastname) OR
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
         private void InitCommandCollection() {
-            this._commandCollection = new global::Npgsql.NpgsqlCommand[7];
+            this._commandCollection = new global::Npgsql.NpgsqlCommand[8];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
             this._commandCollection[0].CommandText = "SELECT \"vacancy_id\", \"speciality_id\", \"paymont_id\", \"count\" FROM \"public\".\"vacanc" +
@@ -12647,73 +12686,86 @@ GROUP BY vacancy.vacancy_id
             this._commandCollection[3].Parameters.Add(param);
             this._commandCollection[4] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[4].Connection = this.Connection;
-            this._commandCollection[4].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"vacancy\" (\"vacancy_id\", \"speciality_id\", \"paym" +
-                "ont_id\", \"count\") VALUES (@vacancy_id, @speciality_id, @paymont_id, @count)";
+            this._commandCollection[4].CommandText = "SELECT \"vacancy_id\", \"speciality_id\", \"paymont_id\", \"count\" FROM \"public\".\"vacanc" +
+                "y\" WHERE (vacancy_id = @vacancy_id)";
             this._commandCollection[4].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "vacancy_id";
+            param.DbType = global::System.Data.DbType.Int32;
+            param.NpgsqlDbType = global::NpgsqlTypes.NpgsqlDbType.Integer;
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "speciality_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "speciality_id";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "paymont_id";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "paymont_id";
-            this._commandCollection[4].Parameters.Add(param);
-            param = new global::Npgsql.NpgsqlParameter();
-            param.ParameterName = "count";
-            param.Size = 1024;
-            param.IsNullable = true;
-            param.SourceColumn = "count";
-            this._commandCollection[4].Parameters.Add(param);
             this._commandCollection[5] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[5].Connection = this.Connection;
-            this._commandCollection[5].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"vacancy\" ( \"speciality_id\", \"paymont_id\", \"cou" +
-                "nt\") VALUES ( null,null,null)";
+            this._commandCollection[5].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"vacancy\" (\"vacancy_id\", \"speciality_id\", \"paym" +
+                "ont_id\", \"count\") VALUES (@vacancy_id, @speciality_id, @paymont_id, @count)";
             this._commandCollection[5].CommandType = global::System.Data.CommandType.Text;
-            this._commandCollection[6] = new global::Npgsql.NpgsqlCommand();
-            this._commandCollection[6].Connection = this.Connection;
-            this._commandCollection[6].CommandText = @"UPDATE ""isenrollee"".""public"".""vacancy"" SET ""vacancy_id"" = @vacancy_id, ""speciality_id"" = @speciality_id, ""paymont_id"" = @paymont_id, ""count"" = @count WHERE ((""vacancy_id"" = @Original_vacancy_id) AND ((@IsNull_speciality_id = 1 AND ""speciality_id"" IS NULL) OR (""speciality_id"" = @Original_speciality_id)) AND ((@IsNull_paymont_id = 1 AND ""paymont_id"" IS NULL) OR (""paymont_id"" = @Original_paymont_id)) AND ((@IsNull_count = 1 AND ""count"" IS NULL) OR (""count"" = @Original_count)))";
-            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "vacancy_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "paymont_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "paymont_id";
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "count";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "count";
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[5].Parameters.Add(param);
+            this._commandCollection[6] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[6].Connection = this.Connection;
+            this._commandCollection[6].CommandText = "INSERT INTO \"isenrollee\".\"public\".\"vacancy\" ( \"speciality_id\", \"paymont_id\", \"cou" +
+                "nt\") VALUES ( null,null,null)";
+            this._commandCollection[6].CommandType = global::System.Data.CommandType.Text;
+            this._commandCollection[7] = new global::Npgsql.NpgsqlCommand();
+            this._commandCollection[7].Connection = this.Connection;
+            this._commandCollection[7].CommandText = @"UPDATE ""isenrollee"".""public"".""vacancy"" SET ""vacancy_id"" = @vacancy_id, ""speciality_id"" = @speciality_id, ""paymont_id"" = @paymont_id, ""count"" = @count WHERE ((""vacancy_id"" = @Original_vacancy_id) AND ((@IsNull_speciality_id = 1 AND ""speciality_id"" IS NULL) OR (""speciality_id"" = @Original_speciality_id)) AND ((@IsNull_paymont_id = 1 AND ""paymont_id"" IS NULL) OR (""paymont_id"" = @Original_paymont_id)) AND ((@IsNull_count = 1 AND ""count"" IS NULL) OR (""count"" = @Original_count)))";
+            this._commandCollection[7].CommandType = global::System.Data.CommandType.Text;
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "vacancy_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "vacancy_id";
+            this._commandCollection[7].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "speciality_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "speciality_id";
+            this._commandCollection[7].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "paymont_id";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "paymont_id";
+            this._commandCollection[7].Parameters.Add(param);
+            param = new global::Npgsql.NpgsqlParameter();
+            param.ParameterName = "count";
+            param.Size = 1024;
+            param.IsNullable = true;
+            param.SourceColumn = "count";
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_vacancy_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "vacancy_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_speciality_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12722,7 +12774,7 @@ GROUP BY vacancy.vacancy_id
             param.SourceColumn = "speciality_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_paymont_id";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12731,7 +12783,7 @@ GROUP BY vacancy.vacancy_id
             param.SourceColumn = "paymont_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "IsNull_count";
             param.DbType = global::System.Data.DbType.Int32;
@@ -12740,14 +12792,14 @@ GROUP BY vacancy.vacancy_id
             param.SourceColumn = "count";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
             param.SourceColumnNullMapping = true;
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
             param = new global::Npgsql.NpgsqlParameter();
             param.ParameterName = "Original_speciality_id";
             param.Size = 1024;
             param.IsNullable = true;
             param.SourceColumn = "speciality_id";
             param.SourceVersion = global::System.Data.DataRowVersion.Original;
-            this._commandCollection[6].Parameters.Add(param);
+            this._commandCollection[7].Parameters.Add(param);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -12853,6 +12905,32 @@ GROUP BY vacancy.vacancy_id
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = ((object)(person_id));
             }
+            isenrolleeDataSet.vacancyDataTable dataTable = new isenrolleeDataSet.vacancyDataTable();
+            this.Adapter.Fill(dataTable);
+            return dataTable;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, false)]
+        public virtual int FillBy2(isenrolleeDataSet.vacancyDataTable dataTable, int vacancy_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(vacancy_id));
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, false)]
+        public virtual isenrolleeDataSet.vacancyDataTable GetDataBy6(int vacancy_id) {
+            this.Adapter.SelectCommand = this.CommandCollection[4];
+            this.Adapter.SelectCommand.Parameters[0].Value = ((int)(vacancy_id));
             isenrolleeDataSet.vacancyDataTable dataTable = new isenrolleeDataSet.vacancyDataTable();
             this.Adapter.Fill(dataTable);
             return dataTable;
@@ -13116,7 +13194,7 @@ GROUP BY vacancy.vacancy_id
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery(object vacancy_id, object speciality_id, object paymont_id, object count) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[4];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[5];
             if ((vacancy_id == null)) {
                 throw new global::System.ArgumentNullException("vacancy_id");
             }
@@ -13163,7 +13241,7 @@ GROUP BY vacancy.vacancy_id
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Insert, false)]
         public virtual int InsertQuery1() {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[5];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[6];
             global::System.Data.ConnectionState previousConnectionState = command.Connection.State;
             if (((command.Connection.State & global::System.Data.ConnectionState.Open) 
                         != global::System.Data.ConnectionState.Open)) {
@@ -13186,7 +13264,7 @@ GROUP BY vacancy.vacancy_id
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Update, false)]
         public virtual int UpdateQuery(object vacancy_id, object speciality_id, object paymont_id, object count, object Original_vacancy_id, global::System.Nullable<int> IsNull_speciality_id, global::System.Nullable<int> IsNull_paymont_id, global::System.Nullable<int> IsNull_count, object Original_speciality_id) {
-            global::Npgsql.NpgsqlCommand command = this.CommandCollection[6];
+            global::Npgsql.NpgsqlCommand command = this.CommandCollection[7];
             if ((vacancy_id == null)) {
                 throw new global::System.ArgumentNullException("vacancy_id");
             }

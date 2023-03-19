@@ -25,9 +25,8 @@ namespace ИС_Абитуриент
         isenrolleeDataSet dataTable;
         vacancyresultTableAdapter vacancyDataAdapter;
 
-        isenrolleeDataSet datasetCombobox;
-        disciplineTableAdapter disciplineComboboxData;
-        personTableAdapter personComboboxData;
+        vacancyTableAdapter vacancytDataAdapter;
+        specialityTableAdapter specialitytDataAdapter;
 
         public RolesViewModel ViewModel { get; set; }
         public ExamResult(int vacancy_id = 0, int formed_id = 0)
@@ -37,17 +36,25 @@ namespace ИС_Абитуриент
             this.DataContext = ViewModel;
             UserAuth con = UserAuth.getUserAuth();
             vacancyDataAdapter = new vacancyresultTableAdapter();
+            vacancytDataAdapter = new vacancyTableAdapter();
+            specialitytDataAdapter = new specialityTableAdapter();
             vacancyDataAdapter.Connection = con.con;
+            vacancytDataAdapter.Connection = con.con;
+            specialitytDataAdapter.Connection = con.con;
             dataTable = new isenrolleeDataSet();
             vacancyDataAdapter.Fill(dataTable.vacancyresult, vacancy_id, formed_id);
+            vacancytDataAdapter.FillBy2(dataTable.vacancy, vacancy_id);
+
+            specialitytDataAdapter.FillBy(dataTable.speciality, Convert.ToInt32(dataTable.vacancy.Rows[0]["speciality_id"]));
             dataGrid.ItemsSource = dataTable.vacancyresult.DefaultView;
-           
             using (var doc = Configuration.Factory.Open("WordTables.docx"))
             {
                 doc.Process(
                 new
                 {
-                    Table1 = dataTable.vacancyresult
+                    Table1 = dataTable.vacancyresult,
+                    specname = dataTable.speciality.Rows[0]["name"],
+                    speccount = dataTable.vacancy.Rows[0]["count"]
                 });
             }
         }
