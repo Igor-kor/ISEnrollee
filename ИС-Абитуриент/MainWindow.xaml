@@ -35,7 +35,7 @@
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button10" Content="Результаты вступительных" Click="button10_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button11" Content="Специальности" Click="button11_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button12" Content="Дисциплины вакансий" Click="button12_Click"/>
-            <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button13" Content="Конкурс вакансии" Click="button13_Click"/>
+            <Button  Visibility="{Binding Path=EnrolleeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button13" Content="Конкурс вакансии" Click="button13_Click"/>
             <Button x:Name="button4" Content="Сменить пароль" Click="button4_Click"/>
             <Button  Visibility="{Binding Path=EnrolleeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button14" Content="Мои результаты экзаменов" Click="button14_Click"/>
 

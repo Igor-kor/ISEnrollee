@@ -10,7 +10,7 @@
         <Button x:Name="button" Content="Создать" HorizontalAlignment="Left" Margin="10,138,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Сохранить" HorizontalAlignment="Left" Margin="120,138,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="Удалить" HorizontalAlignment="Left" Margin="255,138,0,0" VerticalAlignment="Top" Click="button2_Click"/>
-        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,207,0,10" SelectionChanged="dataGrid_SelectionChanged"/>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,207,0,10" SelectionChanged="dataGrid_SelectionChanged" IsReadOnly="True" CanUserAddRows="False" CanUserDeleteRows="False"/>
         <TextBox x:Name="textBox" HorizontalAlignment="Left" Margin="51,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <TextBox x:Name="textBox1" HorizontalAlignment="Left" Margin="532,79,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
         <DatePicker x:Name="datePicker" HorizontalAlignment="Left" Margin="675,79,0,0" VerticalAlignment="Top" Width="115"/>
@@ -42,6 +42,11 @@
                 </DataTemplate>
             </ComboBox.ItemTemplate>
         </ComboBox>
+        <Label x:Name="label" Content="id" HorizontalAlignment="Left" Margin="52,29,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy" Content="Дисиплина" HorizontalAlignment="Left" Margin="219,29,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy1" Content="Абитуриент" HorizontalAlignment="Left" Margin="378,29,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy2" Content="Результат" HorizontalAlignment="Left" Margin="532,29,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy3" Content="Дата" HorizontalAlignment="Left" Margin="675,29,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>

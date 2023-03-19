@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="ChangePass" Height="281" Width="343">
     <Grid>
-        <TextBox x:Name="textBox1" HorizontalAlignment="Center" Margin="0,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="140"/>
-        <Button x:Name="button" Content="Сменить пароль" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" Click="button_Click"/>
+        <TextBox x:Name="textBox1" HorizontalAlignment="Center" Margin="0,85,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="204"/>
+        <Button x:Name="button" Content="Сменить пароль" HorizontalAlignment="Center" Margin="0,133,0,0" VerticalAlignment="Top" Click="button_Click" Width="204"/>
+        <Label x:Name="label" Content="Введите новый пароль" HorizontalAlignment="Center" Margin="0,39,0,0" VerticalAlignment="Top"/>
 
     </Grid>
 </Window>
