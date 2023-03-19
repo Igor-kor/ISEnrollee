@@ -5,11 +5,6 @@ VisualStudioVersion = 17.5.33424.131
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ИС-Абитуриент", "ИС-Абитуриент\ИС-Абитуриент.csproj", "{D340D22B-375B-4831-9267-10D2CCCACC8E}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestProject1", "TestProject1\TestProject1.csproj", "{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}"
-	ProjectSection(ProjectDependencies) = postProject
-		{D340D22B-375B-4831-9267-10D2CCCACC8E} = {D340D22B-375B-4831-9267-10D2CCCACC8E}
-	EndProjectSection
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestProject2", "TestProject2\TestProject2.csproj", "{86FF586D-6F32-442C-B3B9-670870D43117}"
 EndProject
 Global
@@ -28,14 +23,6 @@ Global
 		{D340D22B-375B-4831-9267-10D2CCCACC8E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D340D22B-375B-4831-9267-10D2CCCACC8E}.Release|x86.ActiveCfg = Release|Any CPU
 		{D340D22B-375B-4831-9267-10D2CCCACC8E}.Release|x86.Build.0 = Release|Any CPU
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Debug|x86.ActiveCfg = Debug|x86
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Debug|x86.Build.0 = Debug|x86
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Release|x86.ActiveCfg = Release|x86
-		{3C9E84F3-43FA-49CC-A07F-F05E7F7851EA}.Release|x86.Build.0 = Release|x86
 		{86FF586D-6F32-442C-B3B9-670870D43117}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{86FF586D-6F32-442C-B3B9-670870D43117}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86FF586D-6F32-442C-B3B9-670870D43117}.Debug|x86.ActiveCfg = Debug|Any CPU
