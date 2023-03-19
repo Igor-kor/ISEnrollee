@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ИС_Абитуриент"
         mc:Ignorable="d"
-        Title="Person" Height="450" Width="1043">
+        Title="Person" Height="561" Width="1043">
     <Grid>
-        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dataGrid_SelectionChanged" Margin="0,217,0,0" IsTextSearchCaseSensitive="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
+        <DataGrid x:Name="dataGrid" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="dataGrid_SelectionChanged" Margin="0,308,0,-92" IsTextSearchCaseSensitive="True" CanUserAddRows="False" CanUserDeleteRows="False" IsReadOnly="True"/>
         <Button x:Name="button" Content="Добавить новую запись" HorizontalAlignment="Left" Margin="25,106,0,0" VerticalAlignment="Top" Click="button_Click"/>
         <Button x:Name="button1" Content="Удалить" HorizontalAlignment="Left" Margin="250,150,0,0" VerticalAlignment="Top" Click="button1_Click"/>
         <Button x:Name="button2" Content="Сохранить изменения" HorizontalAlignment="Left" Margin="25,150,0,0" VerticalAlignment="Top" Click="button2_Click"/>
@@ -30,6 +30,14 @@
         <Label x:Name="label_Copy5" Content="Номер паспорта" HorizontalAlignment="Left" Margin="765,10,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy6" Content="Информаия паспорта" HorizontalAlignment="Left" Margin="468,121,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy7" Content="СНИЛС" HorizontalAlignment="Left" Margin="891,121,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button4" Content="Поиск" HorizontalAlignment="Left" Margin="845,251,0,0" VerticalAlignment="Top" Click="button4_Click" RenderTransformOrigin="-0.027,0.658"/>
+        <TextBox x:Name="textBox8" HorizontalAlignment="Left" Margin="73,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237"/>
+        <TextBox x:Name="textBox8_Copy" HorizontalAlignment="Left" Margin="342,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="234"/>
+        <TextBox x:Name="textBox8_Copy1" HorizontalAlignment="Left" Margin="603,257,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237"/>
+        <Label x:Name="label_Copy8" Content="Фамилия" HorizontalAlignment="Left" Margin="73,228,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy9" Content="Имя" HorizontalAlignment="Left" Margin="342,228,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="label_Copy10" Content="Отчество" HorizontalAlignment="Left" Margin="607,228,0,0" VerticalAlignment="Top"/>
+        <Button x:Name="button5" Content="Сбросить" HorizontalAlignment="Left" Margin="939,251,0,0" VerticalAlignment="Top" Click="button5_Click"/>
 
     </Grid>
 </Window>

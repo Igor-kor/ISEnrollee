@@ -123,5 +123,18 @@ namespace ИС_Абитуриент
                 MessageBox.Show("Не выбран абитуриент!");
             }
         }
+
+        private void button4_Click(object sender, RoutedEventArgs e)
+        {
+            personDataAdapter.FillByFIO(dataTable.person,textBox8.Text,textBox8_Copy.Text,textBox8_Copy1.Text);
+        }
+
+        private void button5_Click(object sender, RoutedEventArgs e)
+        {
+            textBox8.Text = "";
+            textBox8_Copy.Text = "";
+            textBox8_Copy1.Text = "";
+            personDataAdapter.Fill(dataTable.person);
+        }
     }
 }
