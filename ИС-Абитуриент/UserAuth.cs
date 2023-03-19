@@ -37,6 +37,10 @@ namespace ИС_Абитуриент
 
         public static UserAuth getUserAuth()
         {
+            if(context == null)
+            {
+                context = new UserAuth();
+            }
             return context;
         }
         public UserAuth(string _Host, string _User, string _DBname, string _Password, string _Port)
@@ -54,6 +58,11 @@ namespace ИС_Абитуриент
             context = this;
             User = _User;
             Password = _Password;
+        }
+
+        public UserAuth()
+        {
+           
         }
 
         public bool ConnectToDB()
