@@ -32,7 +32,7 @@ namespace ИС_Абитуриент
             try
             {
                 var roles = "";
-                if ((checkBox.IsChecked ?? true) || (checkBox.IsChecked ?? true))
+                if ((checkBox.IsChecked ?? true) || (checkBox1.IsChecked ?? true))
                 {
                     roles = "IN GROUP";
                 }
@@ -53,6 +53,7 @@ namespace ИС_Абитуриент
                     role
                     );
                 var cmd = new NpgsqlCommand(query, con.con);
+                cmd.ExecuteScalar();
                 MessageBox.Show("Пользователь создан");
             }
             catch (NpgsqlException ex)
