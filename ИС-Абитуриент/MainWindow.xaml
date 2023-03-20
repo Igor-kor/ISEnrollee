@@ -24,15 +24,15 @@
                 <TextBlock Style="{DynamicResource MaterialDesignHeadline6TextBlock}">ИС Абитуриент</TextBlock>
             </materialDesign:Card>
             <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button" Content="SQL запрос" Click="button_Click"/>
-            <Button Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
+            <Button Visibility="{Binding Path=AdminVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button1" Content="Создать пользователя приемной коммисии" Cursor="Hand" Click="button1_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button2" Content="Персональные данные" Click="button2_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button3" Content="Заявления" Click="button3_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button5" Content="Форма обучения" Click="button5_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button6" Content="Статусы заявления" Click="button6_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button7" Content="Форма оплаты" Click="button7_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button8" Content="Дисциплины" Click="button8_Click"/>
-            <Button  Visibility="{Binding Path=EnrolleeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button9" Content="Вступительные испытания" Click="button9_Click"/>
-            <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button10" Content="Результаты вступительных" Click="button10_Click"/>
+            <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button9" Content="Вступительные испытания" Click="button9_Click"/>
+            <Button  x:Name="button10" Content="Результаты вступительных" Click="button10_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button11" Content="Специальности" Click="button11_Click"/>
             <Button  Visibility="{Binding Path=EmployeeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button12" Content="Дисциплины вакансий" Click="button12_Click"/>
             <!--<Button  Visibility="{Binding Path=EnrolleeVisible, Converter={StaticResource BoolToVisConverter} }" x:Name="button13" Content="Конкурс вакансии" Click="button13_Click"/>-->

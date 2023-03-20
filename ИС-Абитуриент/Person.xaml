@@ -38,6 +38,7 @@
         <Label x:Name="label_Copy9" Content="Имя" HorizontalAlignment="Left" Margin="342,228,0,0" VerticalAlignment="Top"/>
         <Label x:Name="label_Copy10" Content="Отчество" HorizontalAlignment="Left" Margin="607,228,0,0" VerticalAlignment="Top"/>
         <Button x:Name="button5" Content="Сбросить" HorizontalAlignment="Left" Margin="939,251,0,0" VerticalAlignment="Top" Click="button5_Click"/>
+        <Button x:Name="button6" Content="Экзамены" HorizontalAlignment="Left" Margin="342,106,0,0" VerticalAlignment="Top" Click="button6_Click"/>
 
     </Grid>
 </Window>

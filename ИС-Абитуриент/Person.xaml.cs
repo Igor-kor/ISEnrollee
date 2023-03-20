@@ -136,5 +136,20 @@ namespace ИС_Абитуриент
             textBox8_Copy1.Text = "";
             personDataAdapter.Fill(dataTable.person);
         }
+
+        private void button6_Click(object sender, RoutedEventArgs e)
+        {
+            DataRowView selectedItem = dataGrid.SelectedItem as DataRowView;
+            if (selectedItem != null)
+            {
+                ExamResultPerson examResultPerson = new ExamResultPerson(Convert.ToInt32(selectedItem[0]));
+                examResultPerson.Show();
+            }
+            else
+            {
+                MessageBox.Show("Не выбран абитуриент!");
+            }
+      
+        }
     }
 }

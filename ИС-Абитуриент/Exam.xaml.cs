@@ -62,9 +62,9 @@ namespace ИС_Абитуриент
             {
                 selectedItem[0] = comboBox.SelectedValue;
                 selectedItem[1] = comboBox1.SelectedValue;
-                selectedItem[2] = textBox.Text;
+                selectedItem[2] = Convert.ToInt32(textBox1.Text);
                 selectedItem[3] = datePicker.SelectedDate;
-                selectedItem[4] = textBox1.Text;
+               // selectedItem[2] = textBox.Text;
             }
             examDataAdapter.Adapter.UpdateCommand = new NpgsqlCommandBuilder(examDataAdapter.Adapter).GetUpdateCommand();
             examDataAdapter.Adapter.Update(dataTable.exam);
@@ -78,9 +78,9 @@ namespace ИС_Абитуриент
             {
                 comboBox.SelectedValue = selectedItem[0];
                 comboBox1.SelectedValue = selectedItem[1];
-                textBox.Text = selectedItem[2].ToString();
+                textBox.Text = selectedItem[4].ToString();
                 datePicker.Text = selectedItem[3].ToString();
-                textBox1.Text = selectedItem[4].ToString();
+                textBox1.Text = selectedItem[2].ToString();
             }
         }
 
