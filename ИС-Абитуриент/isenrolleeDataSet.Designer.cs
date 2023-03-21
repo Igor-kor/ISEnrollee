@@ -15091,7 +15091,7 @@ FROM            vacancy INNER JOIN
             this._commandCollection = new global::Npgsql.NpgsqlCommand[1];
             this._commandCollection[0] = new global::Npgsql.NpgsqlCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = @"SELECT         row_number() OVER(), sum(exam.result),person.lastname, person.firstname,person.patronimic
+            this._commandCollection[0].CommandText = @"SELECT        sum(exam.result),  row_number() OVER(ORDER BY sum(exam.result) DESC),person.lastname, person.firstname,person.patronimic
 FROM            discipline_vacancy INNER JOIN
                          vacancy ON discipline_vacancy.vacancy_id = vacancy.vacancy_id
 						 INNER JOIN

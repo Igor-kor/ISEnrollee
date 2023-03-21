@@ -1230,7 +1230,7 @@ FROM            vacancy INNER JOIN
               <DbSource ConnectionRef="isenrolleeConnectionString (Settings)" DbObjectName="" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
                 <SelectCommand>
                   <DbCommand CommandType="Text" ModifiedByUser="true">
-                    <CommandText>SELECT         row_number() OVER(), sum(exam.result),person.lastname, person.firstname,person.patronimic
+                    <CommandText>SELECT        sum(exam.result),  row_number() OVER(ORDER BY sum(exam.result) DESC),person.lastname, person.firstname,person.patronimic
 FROM            discipline_vacancy INNER JOIN
                          vacancy ON discipline_vacancy.vacancy_id = vacancy.vacancy_id
 						 INNER JOIN
